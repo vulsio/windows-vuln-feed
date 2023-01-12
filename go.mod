@@ -10,7 +10,7 @@ require (
 	github.com/tealeg/xlsx v1.0.5
 	golang.org/x/exp v0.0.0-20220609121020-a51bd0440498
 	golang.org/x/sync v0.0.0-20220601150217-0de741cfad7f
-	golang.org/x/text v0.3.7
+	golang.org/x/text v0.6.0
 )
 
 require (
@@ -22,5 +22,5 @@ require (
 	github.com/mattn/go-runewidth v0.0.13 // indirect
 	github.com/rivo/uniseg v0.2.0 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
-	golang.org/x/sys v0.0.0-20220610221304-9f5ed59c137d // indirect
+	golang.org/x/sys v0.0.0-20220722155257-8c9f86f7a55f // indirect
 )
