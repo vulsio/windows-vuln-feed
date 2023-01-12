@@ -1,0 +1,7 @@
+<INDEX VERSION="1">
+    <CABLIST XOR="0">
+        <CAB NAME="package.cab" />
+        <CAB NAME="package2.cab" RANGESTART="0" FILESDIR="1" />
+        <CAB NAME="package3.cab" RANGESTART="234568" />
+    </CABLIST>
+</INDEX>

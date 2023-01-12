@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cvrf:cvrfdoc xmlns:cpe-lang="http://cpe.mitre.org/language/2.0"
+    xmlns:scap-core="https://scap.nist.gov/schema/scap-core/1.0"
+    xmlns:cvrf-common="http://www.icasi.org/CVRF/schema/common/1.1"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:prod="http://www.icasi.org/CVRF/schema/prod/1.1"
+    xmlns:cvssv2="https://scap.nist.gov/schema/cvss-v2/1.0"
+    xmlns:vuln="http://www.icasi.org/CVRF/schema/vuln/1.1"
+    xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+    xmlns:cvrf="http://www.icasi.org/CVRF/schema/cvrf/1.1">
+    <prod:ProductTree>
+        <prod:FullProductName ProductID="11956">Microsoft Exchange Server 2016 Cumulative Update 22</prod:FullProductName>
+    </prod:ProductTree>
+    <vuln:Vulnerability Ordinal="9">
+        <vuln:CVE>CVE-2022-21978</vuln:CVE>
+        <vuln:Remediations>
+            <vuln:Remediation Type="Vendor Fix">
+                <vuln:Description>5014261</vuln:Description>
+                <vuln:Supercedence>5012698</vuln:Supercedence>
+                <vuln:ProductID>11955</vuln:ProductID>
+            </vuln:Remediation>
+        </vuln:Remediations>
+    </vuln:Vulnerability>
+</cvrf:cvrfdoc>

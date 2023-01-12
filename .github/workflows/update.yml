@@ -1,0 +1,62 @@
+name: Update Vuln Feed
+on: 
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+jobs:
+  fetch:
+    name: Fetch Vuln Feed
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Go
+        uses: actions/setup-go@v3
+        with:
+          go-version: 1.18
+
+      - name: Check out code into the Go module directory
+        uses: actions/checkout@v3
+
+      - name: Compile windows-vuln-feed
+        run: make build
+
+      - name: fetch Vulnerability(Bulletin Search)
+        run: ./windows-vuln-feed fetch vulnerability bulletin
+
+      - name: fetch Vulnerability(CVRF)
+        run: ./windows-vuln-feed fetch vulnerability cvrf
+
+      - name: build Vulnerability
+        run: ./windows-vuln-feed build vulnerability
+
+      - name: fetch Supercedence(Bulletin Search)
+        run: ./windows-vuln-feed fetch supercedence bulletin
+
+      - name: fetch Supercedence(CVRF)
+        run: ./windows-vuln-feed fetch supercedence cvrf
+
+      - name: fetch Supercedence(Microsoft Update Catalog)
+        run: |
+          sudo apt-get update && sudo apt-get install -y cabextract
+          ./windows-vuln-feed fetch supercedence msuc
+
+      - name: build Supercedence
+        run: ./windows-vuln-feed build supercedence 
+
+      - name: Commit Vuln Feed
+        run: |
+            git config --global user.email "action@github.com"
+            git config --global user.name "GitHub Action"
+            git add dist/vulnerability/vulnerability.json.gz dist/supercedence/supercedence.json.gz
+            git commit -m "update vuln feed"
+            git pull
+            git push origin main
+
+      - name: Upload output from each data source for debug
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist
+          path: |
+            dist/**/*.json
+            !dist/**/manual.json
+          retention-days: 7

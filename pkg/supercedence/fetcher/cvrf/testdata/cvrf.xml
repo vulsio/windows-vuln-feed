@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cvrf:cvrfdoc xmlns:cpe-lang="http://cpe.mitre.org/language/2.0"
+    xmlns:scap-core="https://scap.nist.gov/schema/scap-core/1.0"
+    xmlns:cvrf-common="http://www.icasi.org/CVRF/schema/common/1.1"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:prod="http://www.icasi.org/CVRF/schema/prod/1.1"
+    xmlns:cvssv2="https://scap.nist.gov/schema/cvss-v2/1.0"
+    xmlns:vuln="http://www.icasi.org/CVRF/schema/vuln/1.1"
+    xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+    xmlns:cvrf="http://www.icasi.org/CVRF/schema/cvrf/1.1">
+    <prod:ProductTree>
+        <prod:FullProductName ProductID="4393">Windows Vista Service Pack 2</prod:FullProductName>
+        <prod:FullProductName ProductID="9292-9311">Microsoft .NET Framework 2.0 Service Pack 2 on Windows Server 2008 for Itanium-Based Systems Service Pack 2</prod:FullProductName>
+        <prod:FullProductName ProductID="9312">Windows Server 2008 for 32-bit Systems Service Pack 2</prod:FullProductName>
+        <prod:FullProductName ProductID="10156">Microsoft Outlook 2007 Service Pack 3</prod:FullProductName>
+        <prod:FullProductName ProductID="10481">Windows 8.1 for 32-bit systems</prod:FullProductName>
+        <prod:FullProductName ProductID="10521">Microsoft Office 2010 Service Pack 2 (32-bit editions)</prod:FullProductName>
+        <prod:FullProductName ProductID="10525">Microsoft Office Web Apps 2010 Service Pack 2</prod:FullProductName>
+        <prod:FullProductName ProductID="11529-10047">Microsoft .NET Framework 4.6/4.6.1/4.6.2/4.7/4.7.1/4.7.2 on Windows 7 for 32-bit Systems Service Pack 1</prod:FullProductName>
+        <prod:FullProductName ProductID="11956">Microsoft Exchange Server 2016 Cumulative Update 22</prod:FullProductName>
+    </prod:ProductTree>
+    <vuln:Vulnerability Ordinal="9">
+        <vuln:CVE>CVE-2022-21978</vuln:CVE>
+        <vuln:Remediations>
+            <vuln:Remediation Type="Vendor Fix">
+                <vuln:Description>5014261</vuln:Description>
+                <vuln:Supercedence>5012698</vuln:Supercedence>
+                <vuln:ProductID>11956</vuln:ProductID>
+            </vuln:Remediation>
+        </vuln:Remediations>
+    </vuln:Vulnerability>
+    <vuln:Vulnerability Ordinal="9">
+        <vuln:Remediations>
+            <vuln:Remediation Type="Vendor Fix">
+                <vuln:Description>3192392</vuln:Description>
+                <vuln:Supercedence>MS16-016, 3124280; MS16-097, 3178034; MS16-104, 3185319</vuln:Supercedence>
+                <vuln:ProductID>10481</vuln:ProductID>
+            </vuln:Remediation>
+        </vuln:Remediations>
+    </vuln:Vulnerability>
+    <vuln:Vulnerability Ordinal="9">
+        <vuln:Remediations>
+            <vuln:Remediation Type="Vendor Fix">
+                <vuln:Description>3121918</vuln:Description>
+                <vuln:Supercedence>MS13-062, 2849470</vuln:Supercedence>
+                <vuln:ProductID>4393</vuln:ProductID>
+            </vuln:Remediation>
+        </vuln:Remediations>
+    </vuln:Vulnerability>
+    <vuln:Vulnerability Ordinal="9">
+        <vuln:Remediations>
+            <vuln:Remediation Type="Vendor Fix">
+                <vuln:Description>3114981</vuln:Description>
+                <vuln:Supercedence>MS16-029</vuln:Supercedence>
+                <vuln:ProductID>10156</vuln:ProductID>
+            </vuln:Remediation>
+        </vuln:Remediations>
+    </vuln:Vulnerability>
+    <vuln:Vulnerability Ordinal="9">
+        <vuln:Remediations>
+            <vuln:Remediation Type="Vendor Fix">
+                <vuln:Description>3203469</vuln:Description>
+                <vuln:Supercedence>None</vuln:Supercedence>
+                <vuln:ProductID>10525</vuln:ProductID>
+            </vuln:Remediation>
+        </vuln:Remediations>
+    </vuln:Vulnerability>
+    <vuln:Vulnerability Ordinal="9">
+        <vuln:Remediations>
+            <vuln:Remediation Type="Vendor Fix">
+                <vuln:Description>4026059</vuln:Description>
+                <vuln:Supercedence>3181707; 3203838</vuln:Supercedence>
+                <vuln:ProductID>9312</vuln:ProductID>
+            </vuln:Remediation>
+        </vuln:Remediations>
+    </vuln:Vulnerability>
+    <vuln:Vulnerability Ordinal="9">
+        <vuln:Remediations>
+            <vuln:Remediation Type="Vendor Fix">
+                <vuln:Description>4019115</vuln:Description>
+                <vuln:Supercedence>4014984, 3216520, 3142023</vuln:Supercedence>
+                <vuln:ProductID>9292-9311</vuln:ProductID>
+            </vuln:Remediation>
+        </vuln:Remediations>
+    </vuln:Vulnerability>
+    <vuln:Vulnerability Ordinal="9">
+        <vuln:Remediations>
+            <vuln:Remediation Type="Vendor Fix">
+                <vuln:Description>3213636</vuln:Description>
+                <vuln:Supercedence>3118389&lt;br&gt;&lt;br&gt;4022173</vuln:Supercedence>
+                <vuln:ProductID>10521</vuln:ProductID>
+            </vuln:Remediation>
+        </vuln:Remediations>
+    </vuln:Vulnerability>
+    <vuln:Vulnerability Ordinal="9">
+        <vuln:Remediations>
+            <vuln:Remediation Type="Vendor Fix">
+                <vuln:Description>4481480</vuln:Description>
+                <vuln:Supercedence>4471987, 3142037
+</vuln:Supercedence>
+                <vuln:ProductID>11529-10047</vuln:ProductID>
+            </vuln:Remediation>
+        </vuln:Remediations>
+    </vuln:Vulnerability>
+    <vuln:Vulnerability Ordinal="9">
+        <vuln:Remediations>
+            <vuln:Remediation Type="Known Issue">
+                <vuln:Description>4503292</vuln:Description>
+                <vuln:ProductID>10047</vuln:ProductID>
+            </vuln:Remediation>
+            <vuln:Remediation Type="Workaround">
+                <vuln:Description>&lt;p&gt;Column key encryption (CEK) can be turned off by setting the SqlConnection.ColumnEncryptionKeyCacheTtl property to TimeSpan.Zero in the .Net framework 4.6.2 driver. Please see &lt;a href="https://msdn.microsoft.com/en-us/library/system.timespan.zero(v=vs.110).aspx"&gt;TimeSpan.Zero Field&lt;/a&gt; for more information.&lt;/p&gt;
+                </vuln:Description>
+            </vuln:Remediation>
+            <vuln:Remediation Type="Mitigation">
+                <vuln:Description>&lt;p&gt;The following &lt;a href="https://technet.microsoft.com/library/security/dn848375.aspx#Mitigation"&gt;mitigating factors&lt;/a&gt; may be helpful in your situation:
+Customers who have not enabled the Hyper-V role are not affected.&lt;/p&gt;
+                </vuln:Description>
+            </vuln:Remediation>
+        </vuln:Remediations>
+    </vuln:Vulnerability>
+</cvrf:cvrfdoc>
