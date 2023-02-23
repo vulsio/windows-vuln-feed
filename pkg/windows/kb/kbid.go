@@ -3,4 +3,4 @@ package kb
 import "regexp"
 
 // KBIDPattern ...
-var KBIDPattern = regexp.MustCompile(`\d{6,7}`)
+var KBIDPattern = regexp.MustCompile(`\d{5,7}`)
