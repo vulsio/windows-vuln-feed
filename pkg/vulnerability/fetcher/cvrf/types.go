@@ -1,8 +1,5 @@
 package cvrf
 
-// Fetcher ...
-type Fetcher struct{}
-
 type updates struct {
 	Value []struct {
 		CvrfURL string `json:"CvrfUrl"`

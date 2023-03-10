@@ -42,7 +42,7 @@ var buildCmd = &cobra.Command{
 	RunE: func(_ *cobra.Command, args []string) error {
 		switch args[0] {
 		case "vulnerability":
-			cves, err := vulnerabilityBuilder.Build([]string{"./dist/vulnerability/bulletin.json", "./dist/vulnerability/cvrf.json", "./dist/vulnerability/manual.json"})
+			cves, err := vulnerabilityBuilder.Build([]string{"./dist/vulnerability/bulletin", "./dist/vulnerability/cvrf", "./dist/vulnerability/manual"})
 			if err != nil {
 				return errors.Wrap(err, "failed to build vulnerability")
 			}
@@ -71,7 +71,7 @@ var buildCmd = &cobra.Command{
 				return errors.Wrap(err, "failed to encode vulnerability/vulnerability.json.gz")
 			}
 		case "supercedence":
-			supercedences, err := supercedenceBuilder.Build([]string{"./dist/supercedence/bulletin.json", "./dist/supercedence/cvrf.json", "./dist/supercedence/msuc.json", "./dist/supercedence/manual.json"})
+			supercedences, err := supercedenceBuilder.Build([]string{"./dist/supercedence/bulletin", "./dist/supercedence/cvrf", "./dist/supercedence/wsusscn2", "./dist/supercedence/msuc", "./dist/supercedence/manual"})
 			if err != nil {
 				return errors.Wrap(err, "failed to build supercedence")
 			}

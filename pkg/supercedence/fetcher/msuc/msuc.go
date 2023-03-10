@@ -1,308 +1,170 @@
 package msuc
 
 import (
-	"context"
-	"encoding/xml"
+	"fmt"
 	"io"
 	"log"
 	"net/http"
-	"os"
-	"os/exec"
-	"path/filepath"
-	"strconv"
+	"net/url"
 	"strings"
 
-	pb "github.com/cheggaaa/pb/v3"
+	"github.com/PuerkitoBio/goquery"
 	"github.com/pkg/errors"
-	"golang.org/x/exp/maps"
-	"golang.org/x/exp/slices"
-	"golang.org/x/sync/errgroup"
-	"golang.org/x/sync/semaphore"
 
 	"github.com/vulsio/windows-vuln-feed/pkg/supercedence/model"
 )
 
-var (
-	wsusscnURL  = "http://download.windowsupdate.com/microsoftupdate/v6/wsusscan/wsusscn2.cab"
-	concurrency = 2
-)
-
 // FetchandParse ...
-func (f Fetcher) FetchandParse() ([]model.Supercedence, error) {
-	log.Printf("INFO: fetch wsusscn2.cab by %s", wsusscnURL)
-	cabDir, err := fetchWSUSSCN()
-	if err != nil {
-		return nil, errors.Wrap(err, "failed to fetch wsusscn2.cab")
+func FetchandParse(queries []string) ([]model.Supercedence, error) {
+	log.Printf("INFO: fetch MSUC. Search: %s", queries)
+
+	var vs []model.Supercedence
+	uidtoKBID := map[string]string{}
+	for _, query := range queries {
+		uids, err := search(query)
+		if err != nil {
+			return nil, errors.Wrapf(err, `failed to search with query: "%s"`, query)
+		}
+
+		qs := uids
+		for {
+			if len(qs) == 0 {
+				break
+			}
+
+			var next []string
+			for _, uid := range qs {
+				if _, ok := uidtoKBID[uid]; ok {
+					continue
+				}
+
+				v, err := view(uid)
+				if err != nil {
+					return nil, errors.Wrapf(err, `failed to view with update id: "%s"`, uid)
+				}
+				if v.KBID == "" {
+					log.Printf(`WARN: update id: "%s" not found KBID`, v.UpdateID)
+					continue
+				}
+				uidtoKBID[v.UpdateID] = v.KBID
+				vs = append(vs, v)
+				for _, uid := range v.Supersededby.UpdateIDs {
+					if _, ok := uidtoKBID[uid]; !ok {
+						next = append(next, uid)
+					}
+				}
+			}
+			qs = next
+		}
 	}
 
-	supercedences, err := Parse(cabDir)
-	if err != nil {
-		return nil, errors.Wrap(err, "failed to parse wsusscn2.cab")
+	for i, v := range vs {
+		for _, uID := range v.Supersededby.UpdateIDs {
+			kb, ok := uidtoKBID[uID]
+			if !ok {
+				log.Printf("WARN: %s to KBID not found", uID)
+				continue
+			}
+			v.Supersededby.KBIDs = append(v.Supersededby.KBIDs, kb)
+		}
+		vs[i] = v
 	}
 
-	if err := os.RemoveAll(cabDir); err != nil {
-		return nil, errors.Wrapf(err, "failed to remove %s", cabDir)
-	}
+	log.Printf("INFO: %d Supercedences found", len(vs))
 
-	log.Printf("INFO: %d Supercedences found", len(supercedences))
-
-	return supercedences, nil
+	return vs, nil
 }
 
-func fetchWSUSSCN() (string, error) {
-	dir, err := os.MkdirTemp("", "windows-vuln-feed")
-	if err != nil {
-		return "", errors.Wrap(err, "failed to make directory")
-	}
+func search(query string) ([]string, error) {
+	log.Printf("INFO: POST https://www.catalog.update.microsoft.com/Search.aspx?q=%s", query)
 
-	req, err := http.NewRequest(http.MethodGet, wsusscnURL, nil)
-	if err != nil {
-		return "", errors.Wrap(err, "failed to build request")
-	}
+	values := url.Values{}
+	values.Set("q", query)
 
-	client := new(http.Client)
+	req, err := http.NewRequest("POST", "https://www.catalog.update.microsoft.com/Search.aspx", strings.NewReader(values.Encode()))
+	if err != nil {
+		return nil, errors.Wrap(err, "failed to new request")
+	}
+	req.Header.Add("Content-Type", "application/x-www-form-urlencoded")
+	req.Header.Add("Content-Length", "0")
+
+	client := &http.Client{}
 	resp, err := client.Do(req)
 	if err != nil {
-		return "", errors.Wrap(err, "failed to do request")
+		return nil, errors.Wrap(err, "failed to send request")
 	}
 	defer resp.Body.Close()
 
-	f, err := os.Create(filepath.Join(dir, "wsusscn2.cab"))
-	if err != nil {
-		return "", errors.Wrap(err, "failed to create wsusscn2.cab")
-	}
-	defer f.Close()
-
-	if _, err := io.Copy(f, resp.Body); err != nil {
-		return "", errors.Wrap(err, "failed to copy to wsusscn2.cab from response body")
-	}
-
-	if err := extractWSUSSCN(dir); err != nil {
-		return "", errors.Wrap(err, "failed to extract wsusscn2.cab")
-	}
-
-	return filepath.Join(dir, "wsusscn2"), nil
+	return ParseSearch(resp.Body)
 }
 
-func extractWSUSSCN(tmpDir string) error {
-	binPath, err := exec.LookPath("cabextract")
+// ParseSearch ...
+func ParseSearch(r io.Reader) ([]string, error) {
+	var ids []string
+
+	doc, err := goquery.NewDocumentFromReader(r)
 	if err != nil {
-		return errors.Wrap(err, "failed to look cabextract path")
+		return nil, errors.Wrap(err, "failed to new document from reader")
 	}
 
-	log.Printf("INFO: extract %s", filepath.Join(tmpDir, "wsusscn2.cab"))
-	if err := exec.Command(binPath, "-d", filepath.Join(tmpDir, "wsusscn2"), filepath.Join(tmpDir, "wsusscn2.cab")).Run(); err != nil {
-		return errors.Wrap(err, "failed to run cabextract wsusscn2.cab")
-	}
-	if err := os.Remove(filepath.Join(tmpDir, "wsusscn2.cab")); err != nil {
-		return errors.Wrap(err, "failed to remove wsusscn2.cab")
-	}
-
-	f, err := os.Open(filepath.Join(tmpDir, "wsusscn2", "index.xml"))
-	if err != nil {
-		return errors.Wrap(err, "failed to open wsusscn2/index.xml")
-	}
-	defer f.Close()
-
-	var cabIndex index
-	if err := xml.NewDecoder(f).Decode(&cabIndex); err != nil {
-		return errors.Wrap(err, "failed to decode xml")
-	}
-
-	log.Printf("INFO: extract %s", filepath.Join(tmpDir, "wsusscn2", "package.cab"))
-	if err := exec.Command(binPath, "-d", filepath.Join(tmpDir, "wsusscn2", "package"), filepath.Join(tmpDir, "wsusscn2", "package.cab")).Run(); err != nil {
-		return errors.Wrap(err, "failed to run cabextract wsusscn2/package.cab")
-	}
-	if err := os.Remove(filepath.Join(tmpDir, "wsusscn2", "package.cab")); err != nil {
-		return errors.Wrap(err, "failed to remove wsusscn2/package.cab")
-	}
-
-	log.Printf("INFO: extract %s", filepath.Join(tmpDir, "wsusscn2", "package\\d{1,2}.cab"))
-	bar := pb.StartNew(len(cabIndex.CABLIST.CAB) - 1)
-	eg, ctx := errgroup.WithContext(context.Background())
-	sem := semaphore.NewWeighted(int64(concurrency))
-	for _, c := range cabIndex.CABLIST.CAB {
-		c := c
-		eg.Go(func() error {
-			if err := sem.Acquire(ctx, 1); err != nil {
-				return errors.Wrap(err, "failed to acquire semaphore")
-			}
-			defer sem.Release(1)
-
-			if c.NAME == "package.cab" {
-				return nil
-			}
-
-			if err := exec.Command(binPath, "-d", filepath.Join(tmpDir, "wsusscn2", strings.TrimSuffix(c.NAME, ".cab")), filepath.Join(tmpDir, "wsusscn2", c.NAME)).Run(); err != nil {
-				return errors.Wrapf(err, "failed to cabextract wsusscn2/%s", c.NAME)
-			}
-			if err := os.Remove(filepath.Join(tmpDir, "wsusscn2", c.NAME)); err != nil {
-				return errors.Wrapf(err, "failed to remove wsusscn2/%s", c.NAME)
-			}
-
-			dirs, err := os.ReadDir(filepath.Join(tmpDir, "wsusscn2", strings.TrimSuffix(c.NAME, ".cab")))
-			if err != nil {
-				return errors.Wrapf(err, "failed to read wsusscn2/%s", strings.TrimSuffix(c.NAME, ".cab"))
-			}
-			for _, dir := range dirs {
-				if filepath.Base(dir.Name()) == "x" {
-					continue
-				}
-				if err := os.RemoveAll(filepath.Join(tmpDir, "wsusscn2", strings.TrimSuffix(c.NAME, ".cab"), dir.Name())); err != nil {
-					return errors.Wrapf(err, "failed to remove wsusscn2/%s/%s", strings.TrimSuffix(c.NAME, ".cab"), dir.Name())
-				}
-			}
-
-			bar.Increment()
-
-			return nil
-		})
-	}
-	if err := eg.Wait(); err != nil {
-		return errors.Wrapf(err, "failed to extract %s", filepath.Join(tmpDir, "wsusscn2", "package\\d{1,2}.cab"))
-	}
-	bar.Finish()
-
-	return nil
-}
-
-// Parse ...
-func Parse(cabDir string) ([]model.Supercedence, error) {
-	rIDtoUID, supersededbyRID, err := walkPackage(filepath.Join(cabDir, "package", "package.xml"))
-	if err != nil {
-		return nil, errors.Wrap(err, "failed to walk wsusscn2/package/package.xml")
-	}
-
-	rIDtoKBID, err := walkXDirs(cabDir, maps.Keys(rIDtoUID))
-	if err != nil {
-		return nil, errors.Wrap(err, "failed to walk wsusscn2/package\\d{1,2}/x/<Revision ID>")
-	}
-
-	rivisions := []model.Supercedence{}
-	for rid, supersededby := range supersededbyRID {
-		r := model.Supercedence{
-			UpdateID: rid,
-			Supersededby: &model.Supersededby{
-				UpdateIDs: []string{},
-			},
+	doc.Find("div#tableContainer > table").Find("tr").Each(func(_ int, s *goquery.Selection) {
+		val, exists := s.Attr("id")
+		if !exists || val == "headerRow" {
+			return
 		}
-		for _, srid := range supersededby {
-			r.Supersededby.UpdateIDs = append(r.Supersededby.UpdateIDs, srid)
+		id, _, ok := strings.Cut(val, "_")
+		if !ok {
+			log.Printf(`WARN: unexpected id. id="%s"`, val)
+			return
 		}
-		rivisions = append(rivisions, r)
-	}
-
-	supercedences := []model.Supercedence{}
-	for _, r := range rivisions {
-		s := model.Supercedence{
-			KBID:     rIDtoKBID[r.UpdateID],
-			UpdateID: rIDtoUID[r.UpdateID],
-			Supersededby: &model.Supersededby{
-				KBIDs:     []string{},
-				UpdateIDs: []string{},
-			},
-		}
-		for _, ruid := range r.Supersededby.UpdateIDs {
-			if _, ok := rIDtoKBID[ruid]; ok {
-				s.Supersededby.KBIDs = append(s.Supersededby.KBIDs, rIDtoKBID[ruid])
-			}
-			if _, ok := rIDtoUID[ruid]; ok {
-				s.Supersededby.UpdateIDs = append(s.Supersededby.UpdateIDs, rIDtoUID[ruid])
-			}
-		}
-		supercedences = append(supercedences, s)
-	}
-	return supercedences, nil
-}
-
-func walkPackage(packagePath string) (map[string]string, map[string][]string, error) {
-	f, err := os.Open(packagePath)
-	if err != nil {
-		return nil, nil, errors.Wrap(err, "failed to open package.xml")
-	}
-	defer f.Close()
-
-	var packages offlineSyncPackage
-	if err := xml.NewDecoder(f).Decode(&packages); err != nil {
-		return nil, nil, errors.Wrap(err, "failed to decode package.xml")
-	}
-
-	rIDtoUID := map[string]string{}
-	supersededbyRID := map[string][]string{}
-	for _, u := range packages.Updates.Update {
-		if u.IsBundle != "true" || u.IsSoftware == "false" {
-			continue
-		}
-		rIDtoUID[u.RevisionID] = u.UpdateID
-		for _, sr := range u.SupersededBy.Revision {
-			supersededbyRID[u.RevisionID] = append(supersededbyRID[u.RevisionID], sr.ID)
-		}
-	}
-	return rIDtoUID, supersededbyRID, nil
-}
-
-func walkXDirs(cabDir string, rids []string) (map[string]string, error) {
-	f, err := os.Open(filepath.Join(cabDir, "index.xml"))
-	if err != nil {
-		return nil, errors.Wrap(err, "failed to open wsusscn2/index.xml")
-	}
-	defer f.Close()
-
-	var cabIndex index
-	if err := xml.NewDecoder(f).Decode(&cabIndex); err != nil {
-		return nil, errors.Wrap(err, "failed to decode xml")
-	}
-	cabs := []cab{}
-	for _, c := range cabIndex.CABLIST.CAB {
-		if c.RANGESTART == "" {
-			continue
-		}
-		cabs = append(cabs, c)
-	}
-	slices.SortFunc(cabs, func(i, j cab) bool {
-		iint, _ := strconv.ParseInt(i.RANGESTART, 10, 32)
-		jint, _ := strconv.ParseInt(j.RANGESTART, 10, 32)
-		return iint > jint
+		ids = append(ids, id)
 	})
 
-	rIDtoKBID := map[string]string{}
-	for _, rid := range rids {
-		kbid, err := getKBID(rid, cabDir, cabs)
-		if err != nil {
-			return nil, errors.Wrap(err, "failed to get KBID")
-		}
-		rIDtoKBID[rid] = kbid
-	}
-	return rIDtoKBID, nil
+	return ids, nil
 }
 
-func getKBID(rid, cabDir string, cabs []cab) (string, error) {
-	ridint, err := strconv.ParseUint(rid, 10, 32)
+func view(updateID string) (model.Supercedence, error) {
+	log.Printf("INFO: GET https://www.catalog.update.microsoft.com/ScopedViewInline.aspx?updateid=%s", updateID)
+
+	resp, err := http.Get(fmt.Sprintf("https://www.catalog.update.microsoft.com/ScopedViewInline.aspx?updateid=%s", updateID))
 	if err != nil {
-		return "", errors.Wrap(err, "failed to parse uint")
+		return model.Supercedence{}, errors.Wrap(err, "failed to send request")
+	}
+	defer resp.Body.Close()
+
+	return ParseView(updateID, resp.Body)
+}
+
+// ParseView ...
+func ParseView(updateID string, r io.Reader) (model.Supercedence, error) {
+	view := model.Supercedence{UpdateID: updateID, Supersededby: &model.Supersededby{}}
+
+	doc, err := goquery.NewDocumentFromReader(r)
+	if err != nil {
+		return model.Supercedence{}, errors.Wrap(err, "failed to new document from reader")
 	}
 
-	for _, c := range cabs {
-		cabint, err := strconv.ParseUint(c.RANGESTART, 10, 32)
-		if err != nil {
-			return "", errors.Wrap(err, "failed to parse uint")
-		}
-
-		if ridint < cabint {
-			continue
-		}
-
-		f, err := os.Open(filepath.Join(cabDir, strings.TrimSuffix(c.NAME, ".cab"), "x", rid))
-		if err != nil {
-			return "", errors.Wrapf(err, "failed to open wsusscn2/%s/x/%s", strings.TrimSuffix(c.NAME, ".cab"), rid)
-		}
-		defer f.Close()
-
-		var xKBID xKBID
-		if err := xml.NewDecoder(f).Decode(&xKBID); err != nil {
-			return "", errors.Wrap(err, "failed to decode xml")
-		}
-		return xKBID.KBArticleID, nil
+	if doc.Find("body").HasClass("mainBody thanks") {
+		return view, nil
 	}
-	return "", errors.Errorf("failed to find cab directory for revision id %s", rid)
+
+	_, kbid, ok := strings.Cut(strings.NewReplacer(" ", "", "\n", "").Replace(doc.Find("div#kbDiv").Text()), ":")
+	if !ok {
+		return model.Supercedence{}, errors.Errorf(`failed to find KBID. unexpected div#kbDiv format. expected: "...:<KBID>", actual: "%s"`, strings.NewReplacer(" ", "", "\n", "").Replace(doc.Find("div#kbDiv").Text()))
+	}
+	view.KBID = kbid
+
+	doc.Find("div#supersededbyInfo > div > a").Each(func(_ int, s *goquery.Selection) {
+		val, exists := s.Attr("href")
+		if !exists {
+			return
+		}
+		if !strings.HasPrefix(val, "ScopedViewInline.aspx?updateid=") {
+			log.Printf(`WARN: unexpected href. href="%s"`, val)
+			return
+		}
+		view.Supersededby.UpdateIDs = append(view.Supersededby.UpdateIDs, strings.TrimPrefix(val, "ScopedViewInline.aspx?updateid="))
+	})
+
+	return view, nil
 }

@@ -1,0 +1,11 @@
+[
+  {
+    "KBID": "0000003",
+    "Product": "Windows Server 2016",
+    "Supersededby": {
+      "KBIDs": [
+        "0000005"
+      ]
+    }
+  }
+]

@@ -1,4 +1,4 @@
-package builder
+package wsusscn2
 
 import (
 	"testing"
@@ -9,47 +9,50 @@ import (
 	"github.com/vulsio/windows-vuln-feed/pkg/supercedence/model"
 )
 
-func TestBuild(t *testing.T) {
+func TestParse(t *testing.T) {
 	var tests = []struct {
-		in       []string
-		expected []model.Supercedence
+		input         string
+		expected      []model.Supercedence
+		expectedError bool
 	}{
 		{
-			in: []string{"./testdata/bulletin", "./testdata/cvrf", "./testdata/wsusscn2"},
+			input: "./testdata/wsusscn2",
 			expected: []model.Supercedence{
 				{
-					KBID: "0000001",
+					KBID:     "654321",
+					UpdateID: "0a51549b-4e86-4a26-97d4-9e3567f24ea1",
 					Supersededby: &model.Supersededby{
-						KBIDs: []string{"0000002", "0000003", "0000004", "0000005"},
+						KBIDs:     []string{"765432"},
+						UpdateIDs: []string{"05a7711a-079e-4fbb-8d1a-9015c92a2ae0"},
 					},
 				},
 				{
-					KBID: "0000002",
+					KBID:     "765432",
+					UpdateID: "05a7711a-079e-4fbb-8d1a-9015c92a2ae0",
 					Supersededby: &model.Supersededby{
-						KBIDs: []string{"0000003", "0000005"},
-					},
-				},
-				{
-					KBID: "0000003",
-					Supersededby: &model.Supersededby{
-						KBIDs: []string{"0000005"},
+						KBIDs:     []string{"876543"},
+						UpdateIDs: []string{"1c560bb8-276c-41ca-b597-35ae23bf424c"},
 					},
 				},
 			},
 		},
+		// {
+		// 	input:         "./testdata/error",
+		// 	expectedError: true,
+		// },
 	}
 
 	for i, tt := range tests {
-		got, err := Build(tt.in)
+		got, err := Parse(tt.input)
 		if err != nil {
+			if tt.expectedError {
+				continue
+			}
 			t.Errorf("[%d] unexpected error has occurred. err: %s", i, err)
 		}
 		opts := []cmp.Option{
 			cmpopts.SortSlices(func(i, j model.Supercedence) bool {
 				if i.KBID == j.KBID {
-					if i.UpdateID != "" || j.UpdateID != "" {
-						return i.UpdateID < j.UpdateID
-					}
 					return i.Product < j.Product
 				}
 				return i.KBID < j.KBID
@@ -59,7 +62,7 @@ func TestBuild(t *testing.T) {
 			}),
 		}
 		if diff := cmp.Diff(tt.expected, got, opts...); diff != "" {
-			t.Errorf("[%d] failed to Build(). (-expected +got):\n%s", i, diff)
+			t.Errorf("[%d] failed to Parse(). (-expected +got):\n%s", i, diff)
 		}
 	}
 }

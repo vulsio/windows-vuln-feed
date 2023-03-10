@@ -2,7 +2,9 @@ package builder
 
 import (
 	"encoding/json"
+	"io/fs"
 	"os"
+	"path/filepath"
 
 	"github.com/pkg/errors"
 	"golang.org/x/exp/maps"
@@ -12,36 +14,50 @@ import (
 )
 
 // Build ...
-func Build(paths []string) ([]model.Supercedence, error) {
+func Build(dirs []string) ([]model.Supercedence, error) {
 	supercedenceMap := map[string]model.Supercedence{}
-	for _, path := range paths {
-		f, err := os.Open(path)
-		if err != nil {
-			if os.IsNotExist(err) {
-				continue
+	for _, dir := range dirs {
+		if err := filepath.WalkDir(dir, func(path string, d fs.DirEntry, err error) error {
+			if err != nil {
+				if os.IsNotExist(err) {
+					return nil
+				}
+				return err
 			}
-			return nil, errors.Wrapf(err, "failed to open %s", path)
-		}
-		defer f.Close()
 
-		supercedences := []model.Supercedence{}
-		if err := json.NewDecoder(f).Decode(&supercedences); err != nil {
-			return nil, errors.Wrapf(err, "failed to decode %s", path)
-		}
-
-		for _, s := range supercedences {
-			if base, ok := supercedenceMap[s.KBID]; ok {
-				delete(supercedenceMap, s.KBID)
-				s.Supersededby.KBIDs = util.Unique(append(s.Supersededby.KBIDs, base.Supersededby.KBIDs...))
+			if d.IsDir() || filepath.Ext(path) != ".json" {
+				return nil
 			}
-			if len(s.Supersededby.KBIDs) > 0 {
-				supercedenceMap[s.KBID] = model.Supercedence{
-					KBID: s.KBID,
-					Supersededby: &model.Supersededby{
-						KBIDs: s.Supersededby.KBIDs,
-					},
+
+			f, err := os.Open(path)
+			if err != nil {
+				return errors.Wrapf(err, "failed to open %s", path)
+			}
+			defer f.Close()
+
+			var ss []model.Supercedence
+			if err := json.NewDecoder(f).Decode(&ss); err != nil {
+				return errors.Wrapf(err, "failed to decode %s", path)
+			}
+
+			for _, s := range ss {
+				if base, ok := supercedenceMap[s.KBID]; ok {
+					delete(supercedenceMap, s.KBID)
+					s.Supersededby.KBIDs = util.Unique(append(s.Supersededby.KBIDs, base.Supersededby.KBIDs...))
+				}
+				if len(s.Supersededby.KBIDs) > 0 {
+					supercedenceMap[s.KBID] = model.Supercedence{
+						KBID: s.KBID,
+						Supersededby: &model.Supersededby{
+							KBIDs: s.Supersededby.KBIDs,
+						},
+					}
 				}
 			}
+
+			return nil
+		}); err != nil {
+			return nil, errors.Wrap(err, "failed to walk directory")
 		}
 	}
 

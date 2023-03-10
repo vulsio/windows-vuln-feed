@@ -24,7 +24,7 @@ var (
 )
 
 // FetchandParse ...
-func (f Fetcher) FetchandParse() ([]model.Supercedence, error) {
+func FetchandParse() ([]model.Supercedence, error) {
 	log.Printf("INFO: fetch Bulletin data feeds. URL: %s", bulletinURLs)
 	bulletins, err := fetch()
 	if err != nil {

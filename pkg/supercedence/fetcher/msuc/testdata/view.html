@@ -1,0 +1,699 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" html lang="en">
+<head id="Head1"><meta charset="utf-8" /><meta http-equiv="X-UA-Compatible" content="IE=7" /><link rel="stylesheet" type="text/css" href="Style/catalog.css" /><title>
+	Microsoft Update カタログ
+</title><script type="text/javascript">
+	function supressError(message, url, line)
+	{
+	  var re = /^function\s*([^(]*)\s*\(([^)]*)\)/;
+	  var matches = null;
+	  if (arguments.caller != null) {
+	    matches = re.exec(arguments.caller.callee);
+	  }
+	  var argArray = new Array();
+	  var fName = 'unknown';
+	  if(matches)
+	  {
+	    if(matches[1] && matches[1].toString().length > 0)
+	       fName = matches[1].toString();
+	    if(matches[2] && matches[2].toString().length > 0)
+	    {
+	       var cleanMatches = new String(matches[2]).replace(/\s*/g,'');
+	       argArray = cleanMatches.split(',');
+	    }
+	  }
+	  var args = (argArray.length>0)?'':'none';
+	  for(var i=0; i<argArray.length; i++)
+	  {
+	    args += ((args=='')?'':', ') + argArray[i] + '(' + typeof(arguments.caller[i]) + '):';
+	    args += arguments.caller[i];
+	  }
+	  if(typeof(logger) != typeof(undefined) && logger != null)
+	    logger.log(logger.logLevelFatal, 'JavaScript Error: MESSAGE='+ message + '. URL=' + url + '. LINE='+ line + '. FUNCTION_NAME=' + fName +'. ARGUMENTS=' + args);
+	  var location = window.location.href.toLowerCase();
+	  if(location.indexOf('ErrorInline.aspx'.toLowerCase()) == -1)
+	    window.location.href = 'ErrorInline.aspx'  + '?id=' + Microsoft.UpdateServices.Catalog.Constants.ErrorScriptError;
+	  return true;
+	}
+	window.onerror = supressError;
+</script></head>
+<body class="mainBody" id="ltr">
+    <form method="post" action="./ScopedViewInline.aspx?updateid=93ce66c8-6d84-40a9-b676-294bd1dcce71" id="scopedViewInline">
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['scopedViewInline'];
+if (!theForm) {
+    theForm = document.scopedViewInline;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=pynGkmcFUV13He1Qd6_TZHxxdeJUrNoPJt6lxqvRW6Pzs10y1yT0YV6OgZaeZ6xoRcBn9JsAyiMny6iPkJnw0A2&amp;t=638113327342067335" type="text/javascript"></script>
+
+
+<script src="/ScriptResource.axd?d=NJmAwtEo3Ipnlaxl6CMhvrkdqm_yxvjqkpYsU8np-a1hZKqNHieny7c8n0uFLH4lzuKZ2_3k4RIn1u-oD0Hipvv6bGQQXy6aHGv0t5q6qO1D0p3K1XQnZtU9otznsIz2SPmyOXUpjM0fXDhvEXkcl622PtyhpuYTTG0Cu-XpPYo1&amp;t=ffffffffaa493ab8" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=dwY9oWetJoJoVpgL6Zq8OOJ-LUvz3VxVAyp7Uzq5cGa7mkDN5Xh77gOyzVbjX9jsT4Xw3w4ZL5jejcL2YFsfttusLZ_-e8blE9iv6Ud8tM0VJQL6zbNjC-bnxcSPwzKLzZ5_L4Rh4XRf_if0fcOmIyTPM9R7X2Pu2Q--VBmrvPM1&amp;t=ffffffffaa493ab8" type="text/javascript"></script>
+<script src="SiteConstants.aspx?6" type="text/javascript"></script>
+<script src="Script/CommonTypes.js?6" type="text/javascript"></script>
+<script src="Script/DownloadBasket.js?6" type="text/javascript"></script>
+<script src="Script/MasterComponents.js?6" type="text/javascript"></script>
+<script src="Script/ScopedView.js?6" type="text/javascript"></script>
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="015E8938" />
+</div>
+        <script type="text/javascript" language="javascript">
+        function pageLoad()
+        {           
+            pageLoadHelper("true");
+        }
+        </script>
+
+        <div class="inlinePadding">
+            <div id="scopedViewHeaderTitleBox" class="dialogHeader">
+                <span id="scopedViewHeaderTitleResource">更新プログラムの詳細</span>
+            </div>
+            
+ <div id="contentSection">
+       <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ScopedViewHandler$scriptManager', 'scopedViewInline', [], [], [], 90, '');
+//]]>
+</script>
+
+    
+    <script type="text/javascript" language="javascript">
+        var scopedViewComponent;
+        var binarySize = new Array();
+
+        ///<summary>
+        ///     This function is called automatically by ASP.NET AJAX framework when the page finishes loading
+        ///</summary>
+        function pageLoadHelper(details)
+        {           
+           var downloadButton = $get('downloadButton'); 
+           var uId = '93ce66c8-6d84-40a9-b676-294bd1dcce71';
+           var addToBasketLabel = 'バスケットに追加';
+           var removeFromBasketLabel = 'バスケットから削除';
+           var sizeContainer = $get('ScopedViewHandler$size'.replace(/\$/g, '_'));
+           var updateBasketLabel = '更新プログラム バスケット';           
+           if(details != "true")
+           {
+                // Get the MasterPageContext object
+                var masterPageContext = createMasterPageComponents(true);
+                if(masterPageContext == null)
+                {
+                    return;
+                }
+                
+                if(typeof(downloadButton) != typeof(Microsoft.UpdateServices.Catalog.Constants.UndefinedValue)
+                    && downloadButton != null)
+                {
+                    downloadButton.value = '今すぐダウンロード';
+                    $addHandler(downloadButton, "click", function () { 
+                        //pass in the updateid, size and languages info as language info is needed to know what binaries to downlaod and 
+                        //language info and size info is needed to add the update back to basket if the update is failed or cancled in download process
+                        var updateIDLang = uId 
+                        //if all the check box is present then the language selection is present
+                        var allCheckbox = $get('allLan')    
+                        if(typeof(allCheckbox) != typeof(Microsoft.UpdateServices.Catalog.Constants.UndefinedValue) && allCheckbox != null)
+                        {
+                            updateIDLang += Microsoft.UpdateServices.Catalog.Constants.UpdateInfoSeparator+  scopedViewComponent.getTotalSize() +  scopedViewComponent.getLangSelected(); 
+                        }
+                        //serialize the update selection so on the server this can be de-serialized uing Jason
+                        var serializedUpdateInfo = Sys.Serialization.JavaScriptSerializer.serialize([new Microsoft.UpdateServices.Catalog.Update(updateIDLang)]);
+                        masterPageContext.get_basketForm().updateIDs.value = serializedUpdateInfo;
+                            
+                        var qs = new Microsoft.UpdateServices.Catalog.QueryString(window.location.search);
+                        var downloadDialog = window.open(Microsoft.UpdateServices.Catalog.Constants.PageDownloadDialog + qs.appendErrorsQS("?scopedview=true"),
+                                                Microsoft.UpdateServices.Catalog.Constants.EmptyString,
+                                                'height=460,width=640,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=1 ');
+                        if(downloadDialog == null)
+                        {
+                            popupInfo.style.display = "block";
+                        }
+                    });
+                    downloadButton.style.display = "inline";           
+                }
+           }
+           //get all the language elements and attach event to them and build an array to pass to js
+            var inputElments = languageBox.getElementsByTagName("input");
+            var languageCheckboxes = new Array();            
+            for(i=0; i<inputElments.length; i++ )
+            {
+                if(inputElments[i].type == "checkbox" && inputElments[i].id != "allLan")
+                { 
+                    languageCheckboxes.push(inputElments[i]);              
+                    attachEventToCheckbox(inputElments[i]); 
+                }
+            }
+            //add event handler to all language checkbox  
+            var allCheckbox = $get('allLan')
+            if (typeof(allCheckbox) != typeof(Microsoft.UpdateServices.Catalog.Constants.UndefinedValue) && allCheckbox != null) {
+                $addHandler(allCheckbox, "click", function () { scopedViewComponent.allLanguageSelected(); }); 
+            }
+
+            scopedViewComponent = new Microsoft.UpdateServices.Catalog.UI.ScopedView(
+                                            $get('contentSection'), 
+                                            uId, 
+                                            addToBasketLabel, 
+                                            removeFromBasketLabel,
+                                            $get('overView'),
+                                            $get('overviewBox'),
+                                            $get('packageDetails'),
+                                            $get('packageBox'),
+                                            $get('installDetails'),
+                                            $get('installBox'),
+                                            $get('languageSelection'),
+                                            $get('languageBox'),
+                                            languageCheckboxes,
+                                            "",
+                                            sizeContainer,
+                                            updateBasketLabel,
+                                            allCheckbox,
+                                            downloadButton,
+                                            binarySize //array of binary size per locale
+                                            );       
+
+            $addHandler($get('overView'), 'keydown', TextBox_OnKeyDownOverview);
+            $addHandler($get('languageSelection'), 'keydown', TextBox_OnKeyDownLanguage);
+            $addHandler($get('packageDetails'), 'keydown', TextBox_OnKeyDownPackage);
+            $addHandler($get('installDetails'), 'keydown', TextBox_OnKeyDownDetails);
+
+            $get('overView').setAttribute("aria-selected", "true");
+            $get('languageSelection').setAttribute("aria-selected", "false");
+            $get('installDetails').setAttribute("aria-selected", "false");
+            $get('packageDetails').setAttribute("aria-selected", "false");
+
+            $addHandler(overView, "click", function () { scopedViewComponent.switchTab(1); });
+            $addHandler(packageDetails, "click", function () { scopedViewComponent.switchTab(2); });
+            $addHandler(installDetails, "click", function () { scopedViewComponent.switchTab(3); });
+            $addHandler(languageSelection, "click", function () { scopedViewComponent.switchTab(4); });
+            $addHandler(window, "focus", function () { 
+                if (typeof(scopedViewComponent) != typeof(Microsoft.UpdateServices.Catalog.Constants.UndefinedValue)) {
+                    scopedViewComponent.updateLabels("true");
+                }
+            });
+        }
+        
+        function attachEventToCheckbox(languageCheckbox) {
+            $addHandler(languageCheckbox, "click", function () { scopedViewComponent.manageBasketButton(); });
+        }
+
+
+        function TextBox_OnKeyDownOverview(e)
+        {
+            if (e.keyCode == 39)
+            {
+                $get('languageSelection').focus();
+            }
+        }
+
+        function TextBox_OnKeyDownLanguage(e)
+        {
+            if (e.keyCode == 39)
+            {
+                $get('packageDetails').focus();
+            }
+
+            if (e.keyCode == 37)
+            {
+                $get('overView').focus();
+
+            }
+        }
+
+        function TextBox_OnKeyDownPackage(e)
+        {
+            if (e.keyCode == 39)
+            {
+                $get('installDetails').focus();
+            }
+
+            if (e.keyCode == 37)
+            {
+                $get('languageSelection').focus();
+            }
+        }
+
+        function TextBox_OnKeyDownDetails(e)
+        {
+            if (e.keyCode == 37)
+            {
+                $get('packageDetails').focus();
+            }
+        }
+
+        
+
+    </script>
+    <div class="textBottomSpacer labelTitle" id="titleDiv">
+        <span id="ScopedViewHandler_titleText">2023-01x64 ベース システム用 Windows 10 Version 20H2 の累積更新プログラム (KB5019275)</span>
+    </div>
+    <div id="dateDiv" class="textBottomSpacer">
+        <span id="ScopedViewHandler_labelLastModified_Separator" class="labelTitle">最終変更日時:</span>
+        <span id="ScopedViewHandler_date">2023/01/19</span>
+    </div>
+    <div id="sizeDiv" class="textBottomSpacer">
+        <span class="labelTitle">サイズ:</span>
+        <span id="ScopedViewHandler_size">701.9 MB</span>
+    </div>
+    <div id="buttonsDiv">
+        <input id="downloadButton" class="flatBlueButton buttonPadding" type="button" style="display: none;" />
+    </div>
+</div>
+<div id="popupInfo" class="poupInfoDiv">
+    <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+            <td valign="top">
+                <img src="Images/decor_BigInformation.gif" />
+            </td>
+            <td class="poupInfoText">
+                <span id="ScopedViewHandler_textPopupBlocked">ポップアップ ブロックを有効にしている場合は、ダウンロード ウィンドウが開かないことがあります。ダウンロード ウィンドウを開くには、この Web サイトでポップアップできるようにポップアップ ブロックを構成します。</span>
+            </td>
+        </tr>
+    </table>
+</div>
+<div id="tabSection" role="tablist">
+    <div class="textLeftPadding textTopPadding">
+        <span id="ScopedViewHandler_labelDetails_Separator">詳細情報:</span>
+    </div>
+    <div id="tabContainer">
+        <a href="#Overview" id="overView" aria-selected="false" role="tab" class="tab tabActive" tabindex="1" ><span id="ScopedViewHandler_labelOverview">概要</span></a>
+        <a href="#LanguageSelection"  id="languageSelection"  aria-selected="false" role="tab" class="tab tabInactive" tabindex="11"><span id="ScopedViewHandler_labelLangSelection">言語の選択</span></a>
+        <a href="#PackageDetails"  id="packageDetails"  aria-selected="false" role="tab" class="tab tabInactive" tabindex="21"><span id="ScopedViewHandler_labelPkgDetails">パッケージの詳細</span></a>
+        <a href="#InstallDetails"  id="installDetails"   aria-selected="false" role="tab" class="tab tabInactive" tabindex="31"><span id="ScopedViewHandler_labelInstallDetails">インストール リソース</span></a>        
+    </div>
+</div>
+<div id="tabBody">
+    <div id="overviewBox">
+        <div id="overviewContentBody" class="tabBodyContentBox">
+            <table cellpadding="0" cellspacing="0" border="0" width="95%">
+                <tr>
+                    <td id="overviewLeftBox">
+                        <div id="descDiv" class="textDoubleSpacer">
+                            <span id="ScopedViewHandler_labelDescription_Separator" class="labelTitle">説明:</span>
+                            <span id="ScopedViewHandler_desc">この更新プログラムをインストールすると、Windows の問題が修正されます。この更新プログラムの対象となる問題の完全な一覧については、サポート技術情報を参照してください。インストール後には、コンピュータの再起動が必要になる場合があります。</span>
+                        </div>
+                        
+                        <div id="archDiv">
+                            <span id="ScopedViewHandler_labelArchitecture_Separator" class="labelTitle">アーキテクチャ:</span>
+                            
+                                    AMD64
+                                
+                        </div>
+                        <div id="classificationDiv">
+                            <span id="ScopedViewHandler_labelClassification_Separator" class="labelTitle">分類:</span>
+                            
+                                    更新
+                                
+                        </div>                        
+                        <div id="productsDiv">
+                            <span id="ScopedViewHandler_labelSupportedProducts_Separator" class="labelTitle">サポートされている製品:</span>
+                            
+                                    Windows 10, version 1903 and later
+                                
+                        </div>
+                        <div id="languagesDiv">
+                            <span id="ScopedViewHandler_labelSupportedLanguages_Separator" class="labelTitle">サポートされている言語:</span>
+                            
+                                    all
+                                
+                        </div>
+                    </td>
+                    <td id="overviewRightBox">
+                        <div id="ScopedViewHandler_SoftwareInfo">
+                            <div id="securityBullitenDiv">
+                                <span id="ScopedViewHandler_labelSecurityBulliten_Separator" class="labelTitle">セキュリティ番号:</span>
+                                
+                                        n/a
+                                    
+                            </div>
+                            <div id="msrcSeverityDiv">
+                                <span id="ScopedViewHandler_labelMSRCSeverity_Separator" class="labelTitle">セキュリティ重要度:</span>
+                                <span id="ScopedViewHandler_msrcSeverity">n/a</span>
+                            </div>
+                            <div id="kbDiv" class="textDoubleSpacer">
+                                <span id="ScopedViewHandler_labelKBArticle_Separator" class="labelTitle">サポート技術情報番号:</span>
+                                
+                                        5019275
+                                    
+                            </div>
+                        </div>
+                        
+                        <div id="moreInfoDiv" class="textDoubleSpacer">
+                            <span id="ScopedViewHandler_labelMoreInfo_Separator" class="labelTitle">詳細:</span>
+                            
+                                    <div>
+                                        <a target="catalogNew" tabindex="2" href="https://support.microsoft.com/help/5019275" class ="contentTextItemSpacerNoBreakLink">
+                                            https://support.microsoft.com/help/5019275
+                                        </a>
+                                    </div>
+                                
+                        </div>
+                        <div id="suportUrlDiv" class="textDoubleSpacer">
+                            <span id="ScopedViewHandler_labelSupportUrl_Separator" class="labelTitle">サポート URL:</span>
+                            
+                                    <div>
+                                        <a target="catalogNew" tabindex="3" href="https://support.microsoft.com/help/5019275" class = "contentTextItemSpacerNoBreakLink">
+                                            https://support.microsoft.com/help/5019275
+                                        </a>
+                                    </div>
+                                
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div id="packageBox" style="display: none">
+        <div id="ScopedViewHandler_softwarePackage">           
+            <div class="tabBodyContentBox tabBodyContentBox">
+                <span id="ScopedViewHandler_labelSupersedingUpdates_Separator" class="labelTitle">この更新プログラムは、次の更新プログラムで置き換えられました:</span>
+                    
+                <div id="supersededbyInfo">
+                    
+                            <div style="padding-bottom: 0.3em;">
+                                <a href='ScopedViewInline.aspx?updateid=e81534c5-f372-49c3-a97b-d10973d170ac'>2023-02x64 ベース システム用 Windows 10 Version 20H2 の累積更新プログラム (KB5022906)</a>
+                            </div>
+                        
+                            <div style="padding-bottom: 0.3em;">
+                                <a href='ScopedViewInline.aspx?updateid=659771ce-b89f-4cd5-a333-196f7c6dc956'>2023-02 x64 ベース システム用 Windows 10 Version 20H2 の累積更新プログラム (KB5022834)</a>
+                            </div>
+                        
+                </div>
+                <span id="ScopedViewHandler_labelSupersededUpdates_Separator" class="labelTitle">この更新プログラムは、次の更新プログラムを置き換えます:</span>
+                <div id="supersedesInfo">
+                    
+                            <div style="padding-bottom: 0.3em;">
+                                2021-02x64 ベース システム用 Windows 10 Version 20H2 の累積更新プログラム (KB4601382)
+                            </div>
+                        
+                            <div style="padding-bottom: 0.3em;">
+                                2021-04 x64 ベース システム用 Windows 10 Version 20H2 の累積更新プログラム (KB5001330)
+                            </div>
+                        
+                            <div style="padding-bottom: 0.3em;">
+                                2022-03 x64 ベース システム用 Windows 10 Version 20H2 の累積更新プログラム (KB5011487)
+                            </div>
+                        
+                            <div style="padding-bottom: 0.3em;">
+                                2022-02 x64 ベース システム用 Windows 10 Version 20H2 の累積更新プログラム (KB5010342)
+                            </div>
+                        
+                            <div style="padding-bottom: 0.3em;">
+                                2022-05 x64 ベース システム用 Windows 10 Version 20H2 の累積更新プログラム (KB5013942)
+                            </div>
+                        
+                            <div style="padding-bottom: 0.3em;">
+                                2022-01x64 ベース システム用 Windows 10 Version 20H2 の累積更新プログラム (KB5009596)
+                            </div>
+                        
+                            <div style="padding-bottom: 0.3em;">
+                                2022-04 x64 ベース システム用 Windows 10 Version 20H2 の累積更新プログラム (KB5012599)
+                            </div>
+                        
+                            <div style="padding-bottom: 0.3em;">
+                                2022-01 x64 ベース システム用 Windows 10 Version 20H2 の累積更新プログラム (KB5010793)
+                            </div>
+                        
+                            <div style="padding-bottom: 0.3em;">
+                                2021-03 x64 ベース システム用 Windows 10 Version 20H2 の累積更新プログラム (KB5000802)
+                            </div>
+                        
+                            <div style="padding-bottom: 0.3em;">
+                                2022-11x64 ベース システム用 Windows 10 Version 20H2 の累積更新プログラム (KB5020030)
+                            </div>
+                        
+                            <div style="padding-bottom: 0.3em;">
+                                2021-11 x64 ベース システム用 Windows 10 Version 20H2 の累積更新プログラム (KB5007186)
+                            </div>
+                        
+                            <div style="padding-bottom: 0.3em;">
+                                2022-01 x64 ベース システム用 Windows 10 Version 20H2 の累積更新プログラム (KB5009543)
+                            </div>
+                        
+                            <div style="padding-bottom: 0.3em;">
+                                2022-10 x64 ベース システム用 Windows 10 Version 20H2 の累積更新プログラム (KB5020953)
+                            </div>
+                        
+                            <div style="padding-bottom: 0.3em;">
+                                2021-12 x64 ベース システム用 Windows 10 Version 20H2 の累積更新プログラム (KB5008212)
+                            </div>
+                        
+                            <div style="padding-bottom: 0.3em;">
+                                2021-03x64 ベース システム用 Windows 10 Version 20H2 の累積更新プログラム (KB5000842)
+                            </div>
+                        
+                            <div style="padding-bottom: 0.3em;">
+                                2021-03 x64 ベース システム用 Windows 10 Version 20H2 の累積更新プログラム (KB5001649)
+                            </div>
+                        
+                            <div style="padding-bottom: 0.3em;">
+                                2021-02 x64 ベース システム用 Windows 10 Version 20H2 の累積更新プログラム (KB4601319)
+                            </div>
+                        
+                            <div style="padding-bottom: 0.3em;">
+                                2021-01x64 ベース システム用 Windows 10 Version 20H2 の累積更新プログラム (KB4598291)
+                            </div>
+                        
+                            <div style="padding-bottom: 0.3em;">
+                                2020-10x64 ベース システム用 Windows 10 Version 20H2 の累積更新プログラム (KB4580364)
+                            </div>
+                        
+                            <div style="padding-bottom: 0.3em;">
+                                2021-01 x64 ベース システム用 Windows 10 Version 20H2 の累積更新プログラム (KB4598242)
+                            </div>
+                        
+                            <div style="padding-bottom: 0.3em;">
+                                2020-11x64 ベース システム用 Windows 10 Version 20H2 の累積更新プログラム (KB4586853)
+                            </div>
+                        
+                            <div style="padding-bottom: 0.3em;">
+                                2020-11 x64 ベース システム用 Windows 10 Version 20H2 の累積更新プログラム (KB4594440)
+                            </div>
+                        
+                            <div style="padding-bottom: 0.3em;">
+                                2023-01 x64 ベース システム用 Windows 10 Version 20H2 の累積更新プログラム (KB5022282)
+                            </div>
+                        
+                            <div style="padding-bottom: 0.3em;">
+                                2022-12 x64 ベース システム用 Windows 10 Version 20H2 の累積更新プログラム (KB5021233)
+                            </div>
+                        
+                            <div style="padding-bottom: 0.3em;">
+                                2022-10 x64 ベース システム用 Windows 10 Version 20H2 の累積更新プログラム (KB5018410)
+                            </div>
+                        
+                            <div style="padding-bottom: 0.3em;">
+                                2022-09 x64 ベース システム用 Windows 10 Version 20H2 の累積更新プログラム (KB5017308)
+                            </div>
+                        
+                            <div style="padding-bottom: 0.3em;">
+                                2022-11 x64 ベース システム用 Windows 10 Version 20H2 の累積更新プログラム (KB5019959)
+                            </div>
+                        
+                            <div style="padding-bottom: 0.3em;">
+                                2022-07 x64 ベース システム用 Windows 10 Version 20H2 の累積更新プログラム (KB5015807)
+                            </div>
+                        
+                            <div style="padding-bottom: 0.3em;">
+                                2021-10 x64 ベース システム用 Windows 10 Version 20H2 の累積更新プログラム (KB5006670)
+                            </div>
+                        
+                            <div style="padding-bottom: 0.3em;">
+                                2022-06 x64 ベース システム用 Windows 10 Version 20H2 の累積更新プログラム (KB5014699)
+                            </div>
+                        
+                            <div style="padding-bottom: 0.3em;">
+                                2021-09 x64 ベース システム用 Windows 10 Version 20H2 の累積更新プログラム (KB5005565)
+                            </div>
+                        
+                            <div style="padding-bottom: 0.3em;">
+                                2021-08 x64 ベース システム用 Windows 10 Version 20H2 の累積更新プログラム (KB5005033)
+                            </div>
+                        
+                            <div style="padding-bottom: 0.3em;">
+                                2021-07 x64 ベース システム用 Windows 10 Version 20H2 の累積更新プログラム (KB5004237)
+                            </div>
+                        
+                            <div style="padding-bottom: 0.3em;">
+                                2021-07 x64 ベース システム用 Windows 10 Version 20H2 の累積更新プログラム (KB5004945)
+                            </div>
+                        
+                            <div style="padding-bottom: 0.3em;">
+                                2021-06 x64 ベース システム用 Windows 10 Version 20H2 の累積更新プログラム (KB5003637)
+                            </div>
+                        
+                            <div style="padding-bottom: 0.3em;">
+                                2022-05x64 ベース システム用 Windows 10 Version 20H2 の累積更新プログラム (KB5014023)
+                            </div>
+                        
+                            <div style="padding-bottom: 0.3em;">
+                                2022-06x64 ベース システム用 Windows 10 Version 20H2 の累積更新プログラム (KB5014666)
+                            </div>
+                        
+                            <div style="padding-bottom: 0.3em;">
+                                2021-05 x64 ベース システム用 Windows 10 Version 20H2 の累積更新プログラム (KB5003173)
+                            </div>
+                        
+                            <div style="padding-bottom: 0.3em;">
+                                2022-05 x64 ベース システム用 Windows 10 Version 20H2 の累積更新プログラム (KB5015020)
+                            </div>
+                        
+                            <div style="padding-bottom: 0.3em;">
+                                2022-04x64 ベース システム用 Windows 10 Version 20H2 の累積更新プログラム (KB5011831)
+                            </div>
+                        
+                            <div style="padding-bottom: 0.3em;">
+                                2022-03x64 ベース システム用 Windows 10 Version 20H2 の累積更新プログラム (KB5011543)
+                            </div>
+                        
+                            <div style="padding-bottom: 0.3em;">
+                                2022-02x64 ベース システム用 Windows 10 Version 20H2 の累積更新プログラム (KB5010415)
+                            </div>
+                        
+                            <div style="padding-bottom: 0.3em;">
+                                2021-03 x64 ベース システム用 Windows 10 Version 20H2 の累積更新プログラム (KB5001567)
+                            </div>
+                        
+                            <div style="padding-bottom: 0.3em;">
+                                2022-10 x64 ベース システム用 Windows 10 Version 20H2 の累積更新プログラム (KB5020435)
+                            </div>
+                        
+                            <div style="padding-bottom: 0.3em;">
+                                2022-10x64 ベース システム用 Windows 10 Version 20H2 の累積更新プログラム (KB5018482)
+                            </div>
+                        
+                            <div style="padding-bottom: 0.3em;">
+                                2022-09x64 ベース システム用 Windows 10 Version 20H2 の累積更新プログラム (KB5017380)
+                            </div>
+                        
+                            <div style="padding-bottom: 0.3em;">
+                                2022-08x64 ベース システム用 Windows 10 Version 20H2 の累積更新プログラム (KB5016688)
+                            </div>
+                        
+                            <div style="padding-bottom: 0.3em;">
+                                2021-11x64 ベース システム用 Windows 10 Version 20H2 の累積更新プログラム (KB5007253)
+                            </div>
+                        
+                            <div style="padding-bottom: 0.3em;">
+                                2021-10x64 ベース システム用 Windows 10 Version 20H2 の累積更新プログラム (KB5006738)
+                            </div>
+                        
+                            <div style="padding-bottom: 0.3em;">
+                                2022-07x64 ベース システム用 Windows 10 Version 20H2 の累積更新プログラム (KB5015878)
+                            </div>
+                        
+                            <div style="padding-bottom: 0.3em;">
+                                2021-07x64 ベース システム用 Windows 10 Version 20H2 の累積更新プログラム (KB5004296)
+                            </div>
+                        
+                            <div style="padding-bottom: 0.3em;">
+                                2021-08x64 ベース システム用 Windows 10 Version 20H2 の累積更新プログラム (KB5005101)
+                            </div>
+                        
+                            <div style="padding-bottom: 0.3em;">
+                                2021-06 x64 ベース システム用 Windows 10 Version 20H2 の累積更新プログラム (KB5004760)
+                            </div>
+                        
+                            <div style="padding-bottom: 0.3em;">
+                                2021-09x64 ベース システム用 Windows 10 Version 20H2 の累積更新プログラム (KB5005611)
+                            </div>
+                        
+                            <div style="padding-bottom: 0.3em;">
+                                2021-06 x64 ベース システム用 Windows 10 Version 20H2 の累積更新プログラム (KB5004476)
+                            </div>
+                        
+                            <div style="padding-bottom: 0.3em;">
+                                2021-04x64 ベース システム用 Windows 10 Version 20H2 の累積更新プログラム (KB5001391)
+                            </div>
+                        
+                            <div style="padding-bottom: 0.3em;">
+                                2021-05x64 ベース システム用 Windows 10 Version 20H2 の累積更新プログラム (KB5003214)
+                            </div>
+                        
+                            <div style="padding-bottom: 0.3em;">
+                                2022-08 x64 ベース システム用 Windows 10 Version 20H2 の累積更新プログラム (KB5016616)
+                            </div>
+                        
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <div id="languageBox" style="display: none">
+        <div id="ScopedViewHandler_Div2">
+            <div id ="languageContentBody" class="tabBodyContentBox boxTitleContainer">
+                
+                <span id="ScopedViewHandler_OneLanguage" style="display:block;">選択する追加言語がありません</span>
+            </div>
+        </div>
+    </div>
+    <div id="installBox" style="display: none">       
+        <div class="tabBodyContentBox" TABINDEX="1">
+            <div id="rebootBehaviorDiv">
+                <span id="ScopedViewHandler_labelRebooBehavior_Separator" class="labelTitle">再起動の動作:</span>
+                <span id="ScopedViewHandler_rebootBehavior">再起動が必要な可能性があります</span>
+            </div>
+            <div id="userInputDiv">
+                <span id="ScopedViewHandler_labelRequiresInput_Separator" class="labelTitle">ユーザーの入力を要求:</span>
+                <span id="ScopedViewHandler_userInput">いいえ</span>
+            </div>
+            <div id="installationImpactDiv">
+                <span id="ScopedViewHandler_labelInstallationImpact_Separator" class="labelTitle">排他的なインストールが必要:</span>
+                <span id="ScopedViewHandler_installationImpact"></span>
+            </div>
+            <div id="connectivityDiv">
+                <span id="ScopedViewHandler_labelInstallRequiresConnectivity_Separator" class="labelTitle">ネットワークに接続されている必要があります:</span>
+                <span id="ScopedViewHandler_connectivity">いいえ</span>
+            </div>            
+            <div id="uninstallNotesDiv">                
+                <span id="ScopedViewHandler_labelUninstallNotes_Separator" class="labelTitle">アンインストールの注意事項:</span>
+                
+                        <div>
+                            このソフトウェア更新プログラムを削除するには、コントロール パネルの [プログラムと機能] で [インストールされた更新プログラムを表示] をクリックします。
+                        </div>
+                    
+            </div>
+             <div id="uninstallStepsDiv">                
+                <span id="ScopedViewHandler_labelUninstallSteps_Separator" class="labelTitle">アンインストールの手順:</span>
+                
+                        <div>
+                            n/a
+                        </div>
+                    
+            </div>
+        </div>
+    </div>
+</div>
+<span id="addToBasketButtonText" class="notVisible">
+    バスケットに追加
+</span><span id="removeFromBasketButtonText" class="notVisible">
+    バスケットから削除
+ </span><span id="updateBasketButtonText" class="notVisible">
+    更新プログラム バスケット
+</span>
+            <div class="inlineCloseButtonCenter textAlignCenter">
+                <a href="#Close" id="close" role="button" onclick="window.close()" class="flatBlueButtonClose flatBlueButtonGeneric" ><span id="labelOverview">閉じる</span></a>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

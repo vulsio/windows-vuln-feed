@@ -1,8 +1,5 @@
 package bulletin
 
-// Fetcher ...
-type Fetcher struct{}
-
 // Bulletin ...
 type Bulletin struct {
 	AffectedProduct   string `xlsx:"6"`
