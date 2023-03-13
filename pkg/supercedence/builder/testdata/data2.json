@@ -1,7 +1,0 @@
-[
-  {
-    "KBID": "0000001",
-    "Product": "Windows Server 2012 R2",
-    "Supersededby": { "KBIDs": ["0000002", "0000004"] }
-  }
-]

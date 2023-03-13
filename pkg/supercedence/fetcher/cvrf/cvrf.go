@@ -23,7 +23,7 @@ const (
 )
 
 // FetchandParse ...
-func (f Fetcher) FetchandParse() ([]model.Supercedence, error) {
+func FetchandParse() ([]model.Supercedence, error) {
 	log.Printf("INFO: fetch CVRF Updates. URL: %s", updateListURL)
 	cvrfURLs, err := fetchCVRFURLs()
 	if err != nil {

@@ -1,7 +1,4 @@
-package msuc
-
-// Fetcher ...
-type Fetcher struct{}
+package wsusscn2
 
 type index struct {
 	CABLIST struct {
