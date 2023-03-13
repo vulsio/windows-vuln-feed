@@ -38,7 +38,7 @@ var buildCmd = &cobra.Command{
 	Long:      "Build Microsoft Vulnerability Feed(Vulnerability and Supercedence)",
 	Example:   "windows-vuln-feed build vulnerability",
 	ValidArgs: []string{"vulnerability", "supercedence"},
-	Args:      cobra.ExactValidArgs(1),
+	Args:      cobra.MatchAll(cobra.ExactArgs(1), cobra.OnlyValidArgs),
 	RunE: func(_ *cobra.Command, args []string) error {
 		switch args[0] {
 		case "vulnerability":
