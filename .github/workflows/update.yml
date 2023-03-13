@@ -38,12 +38,15 @@ jobs:
             git pull
             git push origin main
 
+      - name: Compress dist/vulnerability
+        run: tar -C dist -zcvf dist/vulnerability.tar.gz vulnerability
+
       - name: Upload output from each data source for debug
         uses: actions/upload-artifact@v3
         with:
           name: dist-vulnerability
           path: |
-            dist/vulnerability/**/*.json
+            dist/vulnerability.tar.gz
           retention-days: 7
 
   fetch-supercedence:
@@ -106,10 +109,13 @@ jobs:
             git pull
             git push origin main
 
+      - name: Compress dist/supercedence
+        run: tar -C dist -zcvf dist/supercedence.tar.gz supercedence
+
       - name: Upload output from each data source for debug
         uses: actions/upload-artifact@v3
         with:
           name: dist-supercedence
           path: |
-            dist/supercedence/**/*.json
+            dist/supercedence.tar.gz
           retention-days: 7
