@@ -4,11 +4,11 @@ import (
 	"fmt"
 	"io"
 	"log"
-	"net/http"
 	"net/url"
 	"strings"
 
 	"github.com/PuerkitoBio/goquery"
+	"github.com/hashicorp/go-retryablehttp"
 	"github.com/pkg/errors"
 
 	"github.com/vulsio/windows-vuln-feed/pkg/supercedence/model"
@@ -81,15 +81,18 @@ func search(query string) ([]string, error) {
 	values := url.Values{}
 	values.Set("q", query)
 
-	req, err := http.NewRequest("POST", "https://www.catalog.update.microsoft.com/Search.aspx", strings.NewReader(values.Encode()))
+	req, err := retryablehttp.NewRequest("POST", "https://www.catalog.update.microsoft.com/Search.aspx", strings.NewReader(values.Encode()))
 	if err != nil {
 		return nil, errors.Wrap(err, "failed to new request")
 	}
 	req.Header.Add("Content-Type", "application/x-www-form-urlencoded")
 	req.Header.Add("Content-Length", "0")
 
-	client := &http.Client{}
-	resp, err := client.Do(req)
+	rc := retryablehttp.NewClient()
+	rc.RetryMax = 5
+	rc.Logger = nil
+
+	resp, err := rc.Do(req)
 	if err != nil {
 		return nil, errors.Wrap(err, "failed to send request")
 	}
@@ -126,7 +129,11 @@ func ParseSearch(r io.Reader) ([]string, error) {
 func view(updateID string) (model.Supercedence, error) {
 	log.Printf("INFO: GET https://www.catalog.update.microsoft.com/ScopedViewInline.aspx?updateid=%s", updateID)
 
-	resp, err := http.Get(fmt.Sprintf("https://www.catalog.update.microsoft.com/ScopedViewInline.aspx?updateid=%s", updateID))
+	rc := retryablehttp.NewClient()
+	rc.RetryMax = 5
+	rc.Logger = nil
+
+	resp, err := rc.Get(fmt.Sprintf("https://www.catalog.update.microsoft.com/ScopedViewInline.aspx?updateid=%s", updateID))
 	if err != nil {
 		return model.Supercedence{}, errors.Wrap(err, "failed to send request")
 	}
