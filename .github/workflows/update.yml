@@ -93,6 +93,7 @@ jobs:
         with:
           key: msuc.01.tar.gz
           path: dist/supercedence/msuc/msuc.01.tar.gz
+          restore-keys: msuc.01.tar.gz
 
       - name: extract msuc.01.tar.gz
         if: steps.restore-cache-msuc-01.outputs.cache-hit == 'true'
@@ -106,6 +107,7 @@ jobs:
         with:
           key: msuc.02.tar.gz
           path: dist/supercedence/msuc/msuc.02.tar.gz
+          restore-keys: msuc.02.tar.gz
 
       - name: extract msuc.02.tar.gz
         if: steps.restore-cache-msuc-02.outputs.cache-hit == 'true'
@@ -119,6 +121,7 @@ jobs:
         with:
           key: msuc.03.tar.gz
           path: dist/supercedence/msuc/msuc.03.tar.gz
+          restore-keys: msuc.03.tar.gz
 
       - name: extract msuc.03.tar.gz
         if: steps.restore-cache-msuc-03.outputs.cache-hit == 'true'
@@ -132,6 +135,7 @@ jobs:
         with:
           key: msuc.04.tar.gz
           path: dist/supercedence/msuc/msuc.04.tar.gz
+          restore-keys: msuc.04.tar.gz
 
       - name: extract msuc.04.tar.gz
         if: steps.restore-cache-msuc-04.outputs.cache-hit == 'true'
@@ -145,6 +149,7 @@ jobs:
         with:
           key: msuc.05.tar.gz
           path: dist/supercedence/msuc/msuc.05.tar.gz
+          restore-keys: msuc.05.tar.gz
 
       - name: extract msuc.05.tar.gz
         if: steps.restore-cache-msuc-05.outputs.cache-hit == 'true'
@@ -158,6 +163,7 @@ jobs:
         with:
           key: msuc.06.tar.gz
           path: dist/supercedence/msuc/msuc.06.tar.gz
+          restore-keys: msuc.06.tar.gz
 
       - name: extract msuc.06.tar.gz
         if: steps.restore-cache-msuc-06.outputs.cache-hit == 'true'
@@ -171,6 +177,7 @@ jobs:
         with:
           key: msuc.07.tar.gz
           path: dist/supercedence/msuc/msuc.07.tar.gz
+          restore-keys: msuc.07.tar.gz
 
       - name: extract msuc.07.tar.gz
         if: steps.restore-cache-msuc-07.outputs.cache-hit == 'true'
@@ -184,6 +191,7 @@ jobs:
         with:
           key: msuc.08.tar.gz
           path: dist/supercedence/msuc/msuc.08.tar.gz
+          restore-keys: msuc.08.tar.gz
 
       - name: extract msuc.08.tar.gz
         if: steps.restore-cache-msuc-08.outputs.cache-hit == 'true'
@@ -197,6 +205,7 @@ jobs:
         with:
           key: msuc.09.tar.gz
           path: dist/supercedence/msuc/msuc.09.tar.gz
+          restore-keys: msuc.09.tar.gz
 
       - name: extract msuc.09.tar.gz
         if: steps.restore-cache-msuc-09.outputs.cache-hit == 'true'
@@ -210,6 +219,7 @@ jobs:
         with:
           key: msuc.10.tar.gz
           path: dist/supercedence/msuc/msuc.10.tar.gz
+          restore-keys: msuc.10.tar.gz
 
       - name: extract msuc.10.tar.gz
         if: steps.restore-cache-msuc-10.outputs.cache-hit == 'true'
@@ -223,6 +233,7 @@ jobs:
         with:
           key: msuc.11.tar.gz
           path: dist/supercedence/msuc/msuc.11.tar.gz
+          restore-keys: msuc.11.tar.gz
 
       - name: extract msuc.11.tar.gz
         if: steps.restore-cache-msuc-11.outputs.cache-hit == 'true'
@@ -236,6 +247,7 @@ jobs:
         with:
           key: msuc.12.tar.gz
           path: dist/supercedence/msuc/msuc.12.tar.gz
+          restore-keys: msuc.12.tar.gz
 
       - name: extract msuc.12.tar.gz
         if: steps.restore-cache-msuc-12.outputs.cache-hit == 'true'
@@ -249,6 +261,7 @@ jobs:
         with:
           key: msuc.13.tar.gz
           path: dist/supercedence/msuc/msuc.13.tar.gz
+          restore-keys: msuc.13.tar.gz
 
       - name: extract msuc.13.tar.gz
         if: steps.restore-cache-msuc-13.outputs.cache-hit == 'true'
@@ -262,6 +275,7 @@ jobs:
         with:
           key: msuc.14.tar.gz
           path: dist/supercedence/msuc/msuc.14.tar.gz
+          restore-keys: msuc.14.tar.gz
 
       - name: extract msuc.14.tar.gz
         if: steps.restore-cache-msuc-14.outputs.cache-hit == 'true'
@@ -275,6 +289,7 @@ jobs:
         with:
           key: msuc.15.tar.gz
           path: dist/supercedence/msuc/msuc.15.tar.gz
+          restore-keys: msuc.15.tar.gz
 
       - name: extract msuc.15.tar.gz
         if: steps.restore-cache-msuc-15.outputs.cache-hit == 'true'
@@ -288,6 +303,7 @@ jobs:
         with:
           key: msuc.16.tar.gz
           path: dist/supercedence/msuc/msuc.16.tar.gz
+          restore-keys: msuc.16.tar.gz
 
       - name: extract msuc.16.tar.gz
         if: steps.restore-cache-msuc-16.outputs.cache-hit == 'true'
@@ -301,6 +317,7 @@ jobs:
         with:
           key: msuc.17.tar.gz
           path: dist/supercedence/msuc/msuc.17.tar.gz
+          restore-keys: msuc.17.tar.gz
 
       - name: extract msuc.17.tar.gz
         if: steps.restore-cache-msuc-17.outputs.cache-hit == 'true'
