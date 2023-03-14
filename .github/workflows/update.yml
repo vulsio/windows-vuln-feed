@@ -33,6 +33,7 @@ jobs:
         run: |
             git config --global user.email "action@github.com"
             git config --global user.name "GitHub Action"
+            git config --global pull.ff only
             git add dist/vulnerability/vulnerability.json.gz
             git commit -m "update vulnerability feed"
             git pull
@@ -104,6 +105,7 @@ jobs:
         run: |
             git config --global user.email "action@github.com"
             git config --global user.name "GitHub Action"
+            git config --global pull.ff only
             git add dist/supercedence/supercedence.json.gz
             git commit -m "update supercedence feed"
             git pull
