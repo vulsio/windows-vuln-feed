@@ -89,221 +89,221 @@ jobs:
 
       - name: restore cache(msuc.01.tar.gz)
         uses: actions/cache/restore@v3
-        id: restore-cache-msuc.01.tar.gz
+        id: restore-cache-msuc-01
         with:
           key: msuc.01.tar.gz
           path: dist/supercedence/msuc/msuc.01.tar.gz
 
       - name: extract msuc.01.tar.gz
-        if: steps.restore-cache-msuc.01.tar.gz.outputs.cache-hit == 'true'
+        if: steps.restore-cache-msuc-01.outputs.cache-hit == 'true'
         run: |
           tar -C dist/supercedence/msuc -zxvf msuc.01.tar.gz
           rm dist/supercedence/msuc/msuc.01.tar.gz
 
       - name: restore cache(msuc.02.tar.gz)
         uses: actions/cache/restore@v3
-        id: restore-cache-msuc.02.tar.gz
+        id: restore-cache-msuc-02
         with:
           key: msuc.02.tar.gz
           path: dist/supercedence/msuc/msuc.02.tar.gz
 
       - name: extract msuc.02.tar.gz
-        if: steps.restore-cache-msuc.02.tar.gz.outputs.cache-hit == 'true'
+        if: steps.restore-cache-msuc-02.outputs.cache-hit == 'true'
         run: |
           tar -C dist/supercedence/msuc -zxvf msuc.02.tar.gz
           rm dist/supercedence/msuc/msuc.02.tar.gz
 
       - name: restore cache(msuc.03.tar.gz)
         uses: actions/cache/restore@v3
-        id: restore-cache-msuc.03.tar.gz
+        id: restore-cache-msuc-03
         with:
           key: msuc.03.tar.gz
           path: dist/supercedence/msuc/msuc.03.tar.gz
 
       - name: extract msuc.03.tar.gz
-        if: steps.restore-cache-msuc.03.tar.gz.outputs.cache-hit == 'true'
+        if: steps.restore-cache-msuc-03.outputs.cache-hit == 'true'
         run: |
           tar -C dist/supercedence/msuc -zxvf msuc.03.tar.gz
           rm dist/supercedence/msuc/msuc.03.tar.gz
 
       - name: restore cache(msuc.04.tar.gz)
         uses: actions/cache/restore@v3
-        id: restore-cache-msuc.04.tar.gz
+        id: restore-cache-msuc-04
         with:
           key: msuc.04.tar.gz
           path: dist/supercedence/msuc/msuc.04.tar.gz
 
       - name: extract msuc.04.tar.gz
-        if: steps.restore-cache-msuc.04.tar.gz.outputs.cache-hit == 'true'
+        if: steps.restore-cache-msuc-04.outputs.cache-hit == 'true'
         run: |
           tar -C dist/supercedence/msuc -zxvf msuc.04.tar.gz
           rm dist/supercedence/msuc/msuc.04.tar.gz
 
       - name: restore cache(msuc.05.tar.gz)
         uses: actions/cache/restore@v3
-        id: restore-cache-msuc.05.tar.gz
+        id: restore-cache-msuc-05
         with:
           key: msuc.05.tar.gz
           path: dist/supercedence/msuc/msuc.05.tar.gz
 
       - name: extract msuc.05.tar.gz
-        if: steps.restore-cache-msuc.05.tar.gz.outputs.cache-hit == 'true'
+        if: steps.restore-cache-msuc-05.outputs.cache-hit == 'true'
         run: |
           tar -C dist/supercedence/msuc -zxvf msuc.05.tar.gz
           rm dist/supercedence/msuc/msuc.05.tar.gz
 
       - name: restore cache(msuc.06.tar.gz)
         uses: actions/cache/restore@v3
-        id: restore-cache-msuc.06.tar.gz
+        id: restore-cache-msuc-06
         with:
           key: msuc.06.tar.gz
           path: dist/supercedence/msuc/msuc.06.tar.gz
 
       - name: extract msuc.06.tar.gz
-        if: steps.restore-cache-msuc.06.tar.gz.outputs.cache-hit == 'true'
+        if: steps.restore-cache-msuc-06.outputs.cache-hit == 'true'
         run: |
           tar -C dist/supercedence/msuc -zxvf msuc.06.tar.gz
           rm dist/supercedence/msuc/msuc.06.tar.gz
 
       - name: restore cache(msuc.07.tar.gz)
         uses: actions/cache/restore@v3
-        id: restore-cache-msuc.07.tar.gz
+        id: restore-cache-msuc-07
         with:
           key: msuc.07.tar.gz
           path: dist/supercedence/msuc/msuc.07.tar.gz
 
       - name: extract msuc.07.tar.gz
-        if: steps.restore-cache-msuc.07.tar.gz.outputs.cache-hit == 'true'
+        if: steps.restore-cache-msuc-07.outputs.cache-hit == 'true'
         run: |
           tar -C dist/supercedence/msuc -zxvf msuc.07.tar.gz
           rm dist/supercedence/msuc/msuc.07.tar.gz
 
       - name: restore cache(msuc.08.tar.gz)
         uses: actions/cache/restore@v3
-        id: restore-cache-msuc.08.tar.gz
+        id: restore-cache-msuc-08
         with:
           key: msuc.08.tar.gz
           path: dist/supercedence/msuc/msuc.08.tar.gz
 
       - name: extract msuc.08.tar.gz
-        if: steps.restore-cache-msuc.08.tar.gz.outputs.cache-hit == 'true'
+        if: steps.restore-cache-msuc-08.outputs.cache-hit == 'true'
         run: |
           tar -C dist/supercedence/msuc -zxvf msuc.08.tar.gz
           rm dist/supercedence/msuc/msuc.08.tar.gz
 
       - name: restore cache(msuc.09.tar.gz)
         uses: actions/cache/restore@v3
-        id: restore-cache-msuc.09.tar.gz
+        id: restore-cache-msuc-09
         with:
           key: msuc.09.tar.gz
           path: dist/supercedence/msuc/msuc.09.tar.gz
 
       - name: extract msuc.09.tar.gz
-        if: steps.restore-cache-msuc.09.tar.gz.outputs.cache-hit == 'true'
+        if: steps.restore-cache-msuc-09.outputs.cache-hit == 'true'
         run: |
           tar -C dist/supercedence/msuc -zxvf msuc.09.tar.gz
           rm dist/supercedence/msuc/msuc.09.tar.gz
 
       - name: restore cache(msuc.10.tar.gz)
         uses: actions/cache/restore@v3
-        id: restore-cache-msuc.10.tar.gz
+        id: restore-cache-msuc-10
         with:
           key: msuc.10.tar.gz
           path: dist/supercedence/msuc/msuc.10.tar.gz
 
       - name: extract msuc.10.tar.gz
-        if: steps.restore-cache-msuc.10.tar.gz.outputs.cache-hit == 'true'
+        if: steps.restore-cache-msuc-10.outputs.cache-hit == 'true'
         run: |
           tar -C dist/supercedence/msuc -zxvf msuc.10.tar.gz
           rm dist/supercedence/msuc/msuc.10.tar.gz
 
       - name: restore cache(msuc.11.tar.gz)
         uses: actions/cache/restore@v3
-        id: restore-cache-msuc.11.tar.gz
+        id: restore-cache-msuc-11
         with:
           key: msuc.11.tar.gz
           path: dist/supercedence/msuc/msuc.11.tar.gz
 
       - name: extract msuc.11.tar.gz
-        if: steps.restore-cache-msuc.11.tar.gz.outputs.cache-hit == 'true'
+        if: steps.restore-cache-msuc-11.outputs.cache-hit == 'true'
         run: |
           tar -C dist/supercedence/msuc -zxvf msuc.11.tar.gz
           rm dist/supercedence/msuc/msuc.11.tar.gz
 
       - name: restore cache(msuc.12.tar.gz)
         uses: actions/cache/restore@v3
-        id: restore-cache-msuc.12.tar.gz
+        id: restore-cache-msuc-12
         with:
           key: msuc.12.tar.gz
           path: dist/supercedence/msuc/msuc.12.tar.gz
 
       - name: extract msuc.12.tar.gz
-        if: steps.restore-cache-msuc.12.tar.gz.outputs.cache-hit == 'true'
+        if: steps.restore-cache-msuc-12.outputs.cache-hit == 'true'
         run: |
           tar -C dist/supercedence/msuc -zxvf msuc.12.tar.gz
           rm dist/supercedence/msuc/msuc.12.tar.gz
 
       - name: restore cache(msuc.13.tar.gz)
         uses: actions/cache/restore@v3
-        id: restore-cache-msuc.13.tar.gz
+        id: restore-cache-msuc-13
         with:
           key: msuc.13.tar.gz
           path: dist/supercedence/msuc/msuc.13.tar.gz
 
       - name: extract msuc.13.tar.gz
-        if: steps.restore-cache-msuc.13.tar.gz.outputs.cache-hit == 'true'
+        if: steps.restore-cache-msuc-13.outputs.cache-hit == 'true'
         run: |
           tar -C dist/supercedence/msuc -zxvf msuc.13.tar.gz
           rm dist/supercedence/msuc/msuc.13.tar.gz
 
       - name: restore cache(msuc.14.tar.gz)
         uses: actions/cache/restore@v3
-        id: restore-cache-msuc.14.tar.gz
+        id: restore-cache-msuc-14
         with:
           key: msuc.14.tar.gz
           path: dist/supercedence/msuc/msuc.14.tar.gz
 
       - name: extract msuc.14.tar.gz
-        if: steps.restore-cache-msuc.14.tar.gz.outputs.cache-hit == 'true'
+        if: steps.restore-cache-msuc-14.outputs.cache-hit == 'true'
         run: |
           tar -C dist/supercedence/msuc -zxvf msuc.14.tar.gz
           rm dist/supercedence/msuc/msuc.14.tar.gz
 
       - name: restore cache(msuc.15.tar.gz)
         uses: actions/cache/restore@v3
-        id: restore-cache-msuc.15.tar.gz
+        id: restore-cache-msuc-15
         with:
           key: msuc.15.tar.gz
           path: dist/supercedence/msuc/msuc.15.tar.gz
 
       - name: extract msuc.15.tar.gz
-        if: steps.restore-cache-msuc.15.tar.gz.outputs.cache-hit == 'true'
+        if: steps.restore-cache-msuc-15.outputs.cache-hit == 'true'
         run: |
           tar -C dist/supercedence/msuc -zxvf msuc.15.tar.gz
           rm dist/supercedence/msuc/msuc.15.tar.gz
 
       - name: restore cache(msuc.16.tar.gz)
         uses: actions/cache/restore@v3
-        id: restore-cache-msuc.16.tar.gz
+        id: restore-cache-msuc-16
         with:
           key: msuc.16.tar.gz
           path: dist/supercedence/msuc/msuc.16.tar.gz
 
       - name: extract msuc.16.tar.gz
-        if: steps.restore-cache-msuc.16.tar.gz.outputs.cache-hit == 'true'
+        if: steps.restore-cache-msuc-16.outputs.cache-hit == 'true'
         run: |
           tar -C dist/supercedence/msuc -zxvf msuc.16.tar.gz
           rm dist/supercedence/msuc/msuc.16.tar.gz
 
       - name: restore cache(msuc.17.tar.gz)
         uses: actions/cache/restore@v3
-        id: restore-cache-msuc.17.tar.gz
+        id: restore-cache-msuc-17
         with:
           key: msuc.17.tar.gz
           path: dist/supercedence/msuc/msuc.17.tar.gz
 
       - name: extract msuc.17.tar.gz
-        if: steps.restore-cache-msuc.17.tar.gz.outputs.cache-hit == 'true'
+        if: steps.restore-cache-msuc-17.outputs.cache-hit == 'true'
         run: |
           tar -C dist/supercedence/msuc -zxvf msuc.17.tar.gz
           rm dist/supercedence/msuc/msuc.17.tar.gz
