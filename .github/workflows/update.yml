@@ -87,13 +87,12 @@ jobs:
           rm -rf dist/supercedence/msuc
           mkdir -p dist/supercedence/msuc
 
-      - name: restore cache(msuc.01.tar.gz)
+      - name: restore cache(msuc-01)
         uses: actions/cache/restore@v3
         id: restore-cache-msuc-01
         with:
-          key: msuc.01.tar.gz
-          path: dist/supercedence/msuc/msuc.01.tar.gz
-          restore-keys: msuc.01.tar.gz
+          key: msuc-01
+          path: dist/supercedence/msuc/msuc.01
 
       - name: extract msuc.01.tar.gz
         if: steps.restore-cache-msuc-01.outputs.cache-hit == 'true'
@@ -101,13 +100,12 @@ jobs:
           tar -C dist/supercedence/msuc -zxvf msuc.01.tar.gz
           rm dist/supercedence/msuc/msuc.01.tar.gz
 
-      - name: restore cache(msuc.02.tar.gz)
+      - name: restore cache(msuc-02)
         uses: actions/cache/restore@v3
         id: restore-cache-msuc-02
         with:
-          key: msuc.02.tar.gz
-          path: dist/supercedence/msuc/msuc.02.tar.gz
-          restore-keys: msuc.02.tar.gz
+          key: msuc-02
+          path: dist/supercedence/msuc/msuc.02
 
       - name: extract msuc.02.tar.gz
         if: steps.restore-cache-msuc-02.outputs.cache-hit == 'true'
@@ -115,13 +113,12 @@ jobs:
           tar -C dist/supercedence/msuc -zxvf msuc.02.tar.gz
           rm dist/supercedence/msuc/msuc.02.tar.gz
 
-      - name: restore cache(msuc.03.tar.gz)
+      - name: restore cache(msuc-03)
         uses: actions/cache/restore@v3
         id: restore-cache-msuc-03
         with:
-          key: msuc.03.tar.gz
-          path: dist/supercedence/msuc/msuc.03.tar.gz
-          restore-keys: msuc.03.tar.gz
+          key: msuc-03
+          path: dist/supercedence/msuc/msuc.03
 
       - name: extract msuc.03.tar.gz
         if: steps.restore-cache-msuc-03.outputs.cache-hit == 'true'
@@ -129,13 +126,12 @@ jobs:
           tar -C dist/supercedence/msuc -zxvf msuc.03.tar.gz
           rm dist/supercedence/msuc/msuc.03.tar.gz
 
-      - name: restore cache(msuc.04.tar.gz)
+      - name: restore cache(msuc-04)
         uses: actions/cache/restore@v3
         id: restore-cache-msuc-04
         with:
-          key: msuc.04.tar.gz
-          path: dist/supercedence/msuc/msuc.04.tar.gz
-          restore-keys: msuc.04.tar.gz
+          key: msuc-04
+          path: dist/supercedence/msuc/msuc.04
 
       - name: extract msuc.04.tar.gz
         if: steps.restore-cache-msuc-04.outputs.cache-hit == 'true'
@@ -143,13 +139,12 @@ jobs:
           tar -C dist/supercedence/msuc -zxvf msuc.04.tar.gz
           rm dist/supercedence/msuc/msuc.04.tar.gz
 
-      - name: restore cache(msuc.05.tar.gz)
+      - name: restore cache(msuc-05)
         uses: actions/cache/restore@v3
         id: restore-cache-msuc-05
         with:
-          key: msuc.05.tar.gz
-          path: dist/supercedence/msuc/msuc.05.tar.gz
-          restore-keys: msuc.05.tar.gz
+          key: msuc-05
+          path: dist/supercedence/msuc/msuc.05
 
       - name: extract msuc.05.tar.gz
         if: steps.restore-cache-msuc-05.outputs.cache-hit == 'true'
@@ -157,13 +152,12 @@ jobs:
           tar -C dist/supercedence/msuc -zxvf msuc.05.tar.gz
           rm dist/supercedence/msuc/msuc.05.tar.gz
 
-      - name: restore cache(msuc.06.tar.gz)
+      - name: restore cache(msuc-06)
         uses: actions/cache/restore@v3
         id: restore-cache-msuc-06
         with:
-          key: msuc.06.tar.gz
-          path: dist/supercedence/msuc/msuc.06.tar.gz
-          restore-keys: msuc.06.tar.gz
+          key: msuc-06
+          path: dist/supercedence/msuc/msuc.06
 
       - name: extract msuc.06.tar.gz
         if: steps.restore-cache-msuc-06.outputs.cache-hit == 'true'
@@ -171,13 +165,12 @@ jobs:
           tar -C dist/supercedence/msuc -zxvf msuc.06.tar.gz
           rm dist/supercedence/msuc/msuc.06.tar.gz
 
-      - name: restore cache(msuc.07.tar.gz)
+      - name: restore cache(msuc-07)
         uses: actions/cache/restore@v3
         id: restore-cache-msuc-07
         with:
-          key: msuc.07.tar.gz
-          path: dist/supercedence/msuc/msuc.07.tar.gz
-          restore-keys: msuc.07.tar.gz
+          key: msuc-07
+          path: dist/supercedence/msuc/msuc.07
 
       - name: extract msuc.07.tar.gz
         if: steps.restore-cache-msuc-07.outputs.cache-hit == 'true'
@@ -185,13 +178,12 @@ jobs:
           tar -C dist/supercedence/msuc -zxvf msuc.07.tar.gz
           rm dist/supercedence/msuc/msuc.07.tar.gz
 
-      - name: restore cache(msuc.08.tar.gz)
+      - name: restore cache(msuc-08)
         uses: actions/cache/restore@v3
         id: restore-cache-msuc-08
         with:
-          key: msuc.08.tar.gz
-          path: dist/supercedence/msuc/msuc.08.tar.gz
-          restore-keys: msuc.08.tar.gz
+          key: msuc-08
+          path: dist/supercedence/msuc/msuc.08
 
       - name: extract msuc.08.tar.gz
         if: steps.restore-cache-msuc-08.outputs.cache-hit == 'true'
@@ -199,13 +191,12 @@ jobs:
           tar -C dist/supercedence/msuc -zxvf msuc.08.tar.gz
           rm dist/supercedence/msuc/msuc.08.tar.gz
 
-      - name: restore cache(msuc.09.tar.gz)
+      - name: restore cache(msuc-09)
         uses: actions/cache/restore@v3
         id: restore-cache-msuc-09
         with:
-          key: msuc.09.tar.gz
-          path: dist/supercedence/msuc/msuc.09.tar.gz
-          restore-keys: msuc.09.tar.gz
+          key: msuc-09
+          path: dist/supercedence/msuc/msuc.09
 
       - name: extract msuc.09.tar.gz
         if: steps.restore-cache-msuc-09.outputs.cache-hit == 'true'
@@ -213,13 +204,12 @@ jobs:
           tar -C dist/supercedence/msuc -zxvf msuc.09.tar.gz
           rm dist/supercedence/msuc/msuc.09.tar.gz
 
-      - name: restore cache(msuc.10.tar.gz)
+      - name: restore cache(msuc-10)
         uses: actions/cache/restore@v3
         id: restore-cache-msuc-10
         with:
-          key: msuc.10.tar.gz
-          path: dist/supercedence/msuc/msuc.10.tar.gz
-          restore-keys: msuc.10.tar.gz
+          key: msuc-10
+          path: dist/supercedence/msuc/msuc.10
 
       - name: extract msuc.10.tar.gz
         if: steps.restore-cache-msuc-10.outputs.cache-hit == 'true'
@@ -227,13 +217,12 @@ jobs:
           tar -C dist/supercedence/msuc -zxvf msuc.10.tar.gz
           rm dist/supercedence/msuc/msuc.10.tar.gz
 
-      - name: restore cache(msuc.11.tar.gz)
+      - name: restore cache(msuc-11)
         uses: actions/cache/restore@v3
         id: restore-cache-msuc-11
         with:
-          key: msuc.11.tar.gz
-          path: dist/supercedence/msuc/msuc.11.tar.gz
-          restore-keys: msuc.11.tar.gz
+          key: msuc-11
+          path: dist/supercedence/msuc/msuc.11
 
       - name: extract msuc.11.tar.gz
         if: steps.restore-cache-msuc-11.outputs.cache-hit == 'true'
@@ -241,13 +230,12 @@ jobs:
           tar -C dist/supercedence/msuc -zxvf msuc.11.tar.gz
           rm dist/supercedence/msuc/msuc.11.tar.gz
 
-      - name: restore cache(msuc.12.tar.gz)
+      - name: restore cache(msuc-12)
         uses: actions/cache/restore@v3
         id: restore-cache-msuc-12
         with:
-          key: msuc.12.tar.gz
-          path: dist/supercedence/msuc/msuc.12.tar.gz
-          restore-keys: msuc.12.tar.gz
+          key: msuc-12
+          path: dist/supercedence/msuc/msuc.12
 
       - name: extract msuc.12.tar.gz
         if: steps.restore-cache-msuc-12.outputs.cache-hit == 'true'
@@ -255,13 +243,12 @@ jobs:
           tar -C dist/supercedence/msuc -zxvf msuc.12.tar.gz
           rm dist/supercedence/msuc/msuc.12.tar.gz
 
-      - name: restore cache(msuc.13.tar.gz)
+      - name: restore cache(msuc-13)
         uses: actions/cache/restore@v3
         id: restore-cache-msuc-13
         with:
-          key: msuc.13.tar.gz
-          path: dist/supercedence/msuc/msuc.13.tar.gz
-          restore-keys: msuc.13.tar.gz
+          key: msuc-13
+          path: dist/supercedence/msuc/msuc.13
 
       - name: extract msuc.13.tar.gz
         if: steps.restore-cache-msuc-13.outputs.cache-hit == 'true'
@@ -269,13 +256,12 @@ jobs:
           tar -C dist/supercedence/msuc -zxvf msuc.13.tar.gz
           rm dist/supercedence/msuc/msuc.13.tar.gz
 
-      - name: restore cache(msuc.14.tar.gz)
+      - name: restore cache(msuc-14)
         uses: actions/cache/restore@v3
         id: restore-cache-msuc-14
         with:
-          key: msuc.14.tar.gz
-          path: dist/supercedence/msuc/msuc.14.tar.gz
-          restore-keys: msuc.14.tar.gz
+          key: msuc-14
+          path: dist/supercedence/msuc/msuc.14
 
       - name: extract msuc.14.tar.gz
         if: steps.restore-cache-msuc-14.outputs.cache-hit == 'true'
@@ -283,13 +269,12 @@ jobs:
           tar -C dist/supercedence/msuc -zxvf msuc.14.tar.gz
           rm dist/supercedence/msuc/msuc.14.tar.gz
 
-      - name: restore cache(msuc.15.tar.gz)
+      - name: restore cache(msuc-15)
         uses: actions/cache/restore@v3
         id: restore-cache-msuc-15
         with:
-          key: msuc.15.tar.gz
-          path: dist/supercedence/msuc/msuc.15.tar.gz
-          restore-keys: msuc.15.tar.gz
+          key: msuc-15
+          path: dist/supercedence/msuc/msuc.15
 
       - name: extract msuc.15.tar.gz
         if: steps.restore-cache-msuc-15.outputs.cache-hit == 'true'
@@ -297,13 +282,12 @@ jobs:
           tar -C dist/supercedence/msuc -zxvf msuc.15.tar.gz
           rm dist/supercedence/msuc/msuc.15.tar.gz
 
-      - name: restore cache(msuc.16.tar.gz)
+      - name: restore cache(msuc-16)
         uses: actions/cache/restore@v3
         id: restore-cache-msuc-16
         with:
-          key: msuc.16.tar.gz
-          path: dist/supercedence/msuc/msuc.16.tar.gz
-          restore-keys: msuc.16.tar.gz
+          key: msuc-16
+          path: dist/supercedence/msuc/msuc.16
 
       - name: extract msuc.16.tar.gz
         if: steps.restore-cache-msuc-16.outputs.cache-hit == 'true'
@@ -311,13 +295,12 @@ jobs:
           tar -C dist/supercedence/msuc -zxvf msuc.16.tar.gz
           rm dist/supercedence/msuc/msuc.16.tar.gz
 
-      - name: restore cache(msuc.17.tar.gz)
+      - name: restore cache(msuc-17)
         uses: actions/cache/restore@v3
         id: restore-cache-msuc-17
         with:
-          key: msuc.17.tar.gz
-          path: dist/supercedence/msuc/msuc.17.tar.gz
-          restore-keys: msuc.17.tar.gz
+          key: msuc-17
+          path: dist/supercedence/msuc/msuc.17
 
       - name: extract msuc.17.tar.gz
         if: steps.restore-cache-msuc-17.outputs.cache-hit == 'true'
@@ -365,18 +348,17 @@ jobs:
         run: make build
 
       - name: fetch
-        run: ./windows-vuln-feed fetch supercedence msuc "KB3074683", "KB3081424", "KB3081436", "KB3081438", "KB3081444", "KB3081448", "KB3081455", "KB3093266", "KB3097617", "KB3105210", "KB3105213", "KB3116869", "KB3124266", "KB3135174", "KB3140745", "KB3147461", "KB3147461", "KB3156387", "KB3163017", "KB3163912", "KB3176492", "KB3185611", "KB3193821", "KB3192440", "KB3198585", "KB3205383", "KB3210720", "KB4012606", "KB4016637", "KB4015221", "KB4019474", "KB4022727", "KB4032695", "KB4025338", "KB4034668", "KB4038781", "KB4042895", "KB4048956", "KB4053581", "KB4056893", "KB4075199", "KB4077735", "KB4074596", "KB4088786", "KB4093111", "KB4103716", "KB4284860", "KB4338829", "KB4345455", "KB4343892", "KB4457132", "KB4462922", "KB4467680", "KB4471323", "KB4483228", "KB4480962", "KB4487018", "KB4491101", "KB4489872", "KB4493475", "KB4498375", "KB4499154", "KB4505051", "KB4503291", "KB4507458", "KB4512497", "KB4517276", "KB4516070", "KB4522009", "KB4524153", "KB4520011", "KB4525232", "KB4530681", "KB4534306", "KB4537776", "KB4540693", "KB4550930", "KB4556826", "KB4561649", "KB4567518", "KB4565513", "KB4571692", "KB4577049", "KB4580327", "KB4586787", "KB4592464", "KB4598231", "KB4601331", "KB4601331", "KB5000807", "KB5001631", "KB5001340", "KB5003172", "KB5003687", "KB5004950", "KB5004249", "KB5005040", "KB5005569", "KB5006675", "KB5007207", "KB5008230", "KB5009585", "KB5010789", "KB5010358", "KB5011491", "KB5012653", "KB5013963", "KB5014710", "KB5015832", "KB5016639", "KB5017327", "KB5018425", "KB5020440", "KB5019970", "KB5021243", "KB5022297", "KB5022858"
-
-      - name: compress
         run: |
-          mv dist/supercedence/msuc dist/supercedence/msuc.01 
-          tar -C dist/supercedence -zcvf dist/supercedence/msuc.01.tar.gz msuc.01
+          ./windows-vuln-feed fetch supercedence msuc "KB3074683", "KB3081424", "KB3081436", "KB3081438", "KB3081444", "KB3081448", "KB3081455", "KB3093266", "KB3097617", "KB3105210", "KB3105213", "KB3116869", "KB3124266", "KB3135174", "KB3140745", "KB3147461", "KB3147461", "KB3156387", "KB3163017", "KB3163912", "KB3176492", "KB3185611", "KB3193821", "KB3192440", "KB3198585", "KB3205383", "KB3210720", "KB4012606", "KB4016637", "KB4015221", "KB4019474", "KB4022727", "KB4032695", "KB4025338", "KB4034668", "KB4038781", "KB4042895", "KB4048956", "KB4053581", "KB4056893", "KB4075199", "KB4077735", "KB4074596", "KB4088786", "KB4093111", "KB4103716", "KB4284860", "KB4338829", "KB4345455", "KB4343892", "KB4457132", "KB4462922", "KB4467680", "KB4471323", "KB4483228", "KB4480962", "KB4487018", "KB4491101", "KB4489872", "KB4493475", "KB4498375", "KB4499154", "KB4505051", "KB4503291", "KB4507458", "KB4512497", "KB4517276", "KB4516070", "KB4522009", "KB4524153", "KB4520011", "KB4525232", "KB4530681", "KB4534306", "KB4537776", "KB4540693", "KB4550930", "KB4556826", "KB4561649", "KB4567518", "KB4565513", "KB4571692", "KB4577049", "KB4580327", "KB4586787", "KB4592464", "KB4598231", "KB4601331", "KB4601331", "KB5000807", "KB5001631", "KB5001340", "KB5003172", "KB5003687", "KB5004950", "KB5004249", "KB5005040", "KB5005569", "KB5006675", "KB5007207", "KB5008230", "KB5009585", "KB5010789", "KB5010358", "KB5011491", "KB5012653", "KB5013963", "KB5014710", "KB5015832", "KB5016639", "KB5017327", "KB5018425", "KB5020440", "KB5019970", "KB5021243", "KB5022297", "KB5022858"
+          mv dist/supercedence/msuc dist/supercedence/msuc.01
+          mkdir -p dist/supercedence/msuc
+          mv dist/supercedence/msuc.01 dist/supercedence/msuc
 
       - name: save cache
         uses: actions/cache/save@v3
         with:
-          path: dist/supercedence/msuc.01.tar.gz
-          key: msuc.01.tar.gz
+          path: dist/supercedence/msuc/msuc.01
+          key: msuc-01
 
   fetch-supercedence-msuc-02:
     name: Fetch Microsoft Update Catalog - Windows 10 Version 1511 (10.0.10586)
@@ -394,18 +376,17 @@ jobs:
         run: make build
 
       - name: fetch
-        run: ./windows-vuln-feed fetch supercedence msuc "KB3105211", "KB3118754", "KB3120677", "KB3116908", "KB3116900", "KB3124200", "KB3124263", "KB3124262", "KB3135173", "KB3140743", "KB3140768", "KB3147458", "KB3156421", "KB3163018", "KB3172985", "KB3176493", "KB3185614", "KB3192441", "KB3198586", "KB3198586", "KB3205386", "KB3210721", "KB4013198", "KB4016636", "KB4015219", "KB4019473", "KB4022714", "KB4032693", "KB4025344", "KB4034660", "KB4038783", "KB4041689", "KB4052232", "KB4048952", "KB4053578", "KB4056888", "KB4075200", "KB4074591", "KB4088779", "KB4093109"
-
-      - name: compress
         run: |
-          mv dist/supercedence/msuc dist/supercedence/msuc.02 
-          tar -C dist/supercedence -zcvf dist/supercedence/msuc.02.tar.gz msuc.02
+          ./windows-vuln-feed fetch supercedence msuc "KB3105211", "KB3118754", "KB3120677", "KB3116908", "KB3116900", "KB3124200", "KB3124263", "KB3124262", "KB3135173", "KB3140743", "KB3140768", "KB3147458", "KB3156421", "KB3163018", "KB3172985", "KB3176493", "KB3185614", "KB3192441", "KB3198586", "KB3198586", "KB3205386", "KB3210721", "KB4013198", "KB4016636", "KB4015219", "KB4019473", "KB4022714", "KB4032693", "KB4025344", "KB4034660", "KB4038783", "KB4041689", "KB4052232", "KB4048952", "KB4053578", "KB4056888", "KB4075200", "KB4074591", "KB4088779", "KB4093109"
+          mv dist/supercedence/msuc dist/supercedence/msuc.02
+          mkdir -p dist/supercedence/msuc
+          mv dist/supercedence/msuc.02 dist/supercedence/msuc
 
       - name: save cache
         uses: actions/cache/save@v3
         with:
-          path: dist/supercedence/msuc.02.tar.gz
-          key: msuc.02.tar.gz
+          path: dist/supercedence/msuc/msuc.02
+          key: msuc-02
 
   fetch-supercedence-msuc-03:
     name: Fetch Microsoft Update Catalog - Windows 10 Version 1607, Windows Server 2016 (10.0.14393)
@@ -423,18 +404,17 @@ jobs:
         run: make build
 
       - name: fetch
-        run: ./windows-vuln-feed fetch supercedence msuc "KB3176929", "KB3176495", "KB3176934", "KB3176938", "KB3189866", "KB3193494", "KB3193494", "KB3194496", "KB3194798", "KB3197954", "KB3200970", "KB3200970", "KB3201845", "KB3206632", "KB3206632", "KB3213986", "KB4010672", "KB4013429", "KB4015438", "KB4016635", "KB4015217", "KB4015217", "KB4019472", "KB4023680", "KB4022715", "KB4022723", "KB4025339", "KB4025334", "KB4038220", "KB4034658", "KB4034661", "KB4039396", "KB4038782", "KB4038801", "KB4041691", "KB4041688", "KB4052231", "KB4048953", "KB4051033", "KB4053579", "KB4056890", "KB4057142", "KB4057142", "KB4074590", "KB4077525", "KB4088787", "KB4088787", "KB4088889", "KB4096309", "KB4093119", "KB4093120", "KB4103723", "KB4103720", "KB4284880", "KB4284833", "KB4338814", "KB4345418", "KB4338822", "KB4346877", "KB4343887", "KB4343884", "KB4457131", "KB4457127", "KB4462917", "KB4462928", "KB4467691", "KB4467684", "KB4478877", "KB4471321", "KB4483229", "KB4480961", "KB4480977", "KB4487026", "KB4487006", "KB4489882", "KB4489889", "KB4493470", "KB4499418", "KB4493473", "KB4494440", "KB4505052", "KB4499177", "KB4503267", "KB4503294", "KB4509475", "KB4507460", "KB4507459", "KB4512517", "KB4512495", "KB4516044", "KB4522010", "KB4516061", "KB4524152", "KB4519998", "KB4519979", "KB4525236", "KB4530689", "KB4534271", "KB4534307", "KB4537764", "KB4537806", "KB4540670", "KB4541329", "KB4550929", "KB4550947", "KB4556813", "KB4561616", "KB4567517", "KB4565511", "KB4571694", "KB4577015", "KB4580346", "KB4586830", "KB4594441", "KB4593226", "KB4598243", "KB4601318", "KB5000803", "KB5001633", "KB5001347", "KB5003197", "KB5003638", "KB5004948", "KB5004238", "KB5005393", "KB5005043", "KB5005573", "KB5006669", "KB5007192", "KB5008601", "KB5008207", "KB5010195", "KB5009546", "KB5010790", "KB5010359", "KB5011495", "KB5012596", "KB5013952", "KB5015019", "KB5014702", "KB5015808", "KB5016622", "KB5017305", "KB5018411", "KB5020439", "KB5019964", "KB5021654", "KB5021235", "KB5022289", "KB5022838"
-
-      - name: compress
         run: |
-          mv dist/supercedence/msuc dist/supercedence/msuc.03 
-          tar -C dist/supercedence -zcvf dist/supercedence/msuc.03.tar.gz msuc.03
+          ./windows-vuln-feed fetch supercedence msuc "KB3176929", "KB3176495", "KB3176934", "KB3176938", "KB3189866", "KB3193494", "KB3193494", "KB3194496", "KB3194798", "KB3197954", "KB3200970", "KB3200970", "KB3201845", "KB3206632", "KB3206632", "KB3213986", "KB4010672", "KB4013429", "KB4015438", "KB4016635", "KB4015217", "KB4015217", "KB4019472", "KB4023680", "KB4022715", "KB4022723", "KB4025339", "KB4025334", "KB4038220", "KB4034658", "KB4034661", "KB4039396", "KB4038782", "KB4038801", "KB4041691", "KB4041688", "KB4052231", "KB4048953", "KB4051033", "KB4053579", "KB4056890", "KB4057142", "KB4057142", "KB4074590", "KB4077525", "KB4088787", "KB4088787", "KB4088889", "KB4096309", "KB4093119", "KB4093120", "KB4103723", "KB4103720", "KB4284880", "KB4284833", "KB4338814", "KB4345418", "KB4338822", "KB4346877", "KB4343887", "KB4343884", "KB4457131", "KB4457127", "KB4462917", "KB4462928", "KB4467691", "KB4467684", "KB4478877", "KB4471321", "KB4483229", "KB4480961", "KB4480977", "KB4487026", "KB4487006", "KB4489882", "KB4489889", "KB4493470", "KB4499418", "KB4493473", "KB4494440", "KB4505052", "KB4499177", "KB4503267", "KB4503294", "KB4509475", "KB4507460", "KB4507459", "KB4512517", "KB4512495", "KB4516044", "KB4522010", "KB4516061", "KB4524152", "KB4519998", "KB4519979", "KB4525236", "KB4530689", "KB4534271", "KB4534307", "KB4537764", "KB4537806", "KB4540670", "KB4541329", "KB4550929", "KB4550947", "KB4556813", "KB4561616", "KB4567517", "KB4565511", "KB4571694", "KB4577015", "KB4580346", "KB4586830", "KB4594441", "KB4593226", "KB4598243", "KB4601318", "KB5000803", "KB5001633", "KB5001347", "KB5003197", "KB5003638", "KB5004948", "KB5004238", "KB5005393", "KB5005043", "KB5005573", "KB5006669", "KB5007192", "KB5008601", "KB5008207", "KB5010195", "KB5009546", "KB5010790", "KB5010359", "KB5011495", "KB5012596", "KB5013952", "KB5015019", "KB5014702", "KB5015808", "KB5016622", "KB5017305", "KB5018411", "KB5020439", "KB5019964", "KB5021654", "KB5021235", "KB5022289", "KB5022838"
+          mv dist/supercedence/msuc dist/supercedence/msuc.03
+          mkdir -p dist/supercedence/msuc
+          mv dist/supercedence/msuc.03 dist/supercedence/msuc
 
       - name: save cache
         uses: actions/cache/save@v3
         with:
-          path: dist/supercedence/msuc.03.tar.gz
-          key: msuc.03.tar.gz
+          path: dist/supercedence/msuc/msuc.03
+          key: msuc-03
 
   fetch-supercedence-msuc-04:
     name: Fetch Microsoft Update Catalog - Windows 10 Version 1703 (10.0.15063)
@@ -452,18 +432,17 @@ jobs:
         run: make build
 
       - name: fetch
-        run: ./windows-vuln-feed fetch supercedence msuc "KB4016251", "KB4015583", "KB4016240", "KB4016871", "KB4016871", "KB4020102", "KB4022725", "KB4022725", "KB4022716", "KB4025342", "KB4032188", "KB4034674", "KB4038788", "KB4040724", "KB4041676", "KB4049370", "KB4048954", "KB4048954", "KB4055254", "KB4053580", "KB4056891", "KB4057144", "KB4074592", "KB4077528", "KB4092077", "KB4088782", "KB4088782", "KB4088891", "KB4093107", "KB4093117", "KB4103731", "KB4103722", "KB4284874", "KB4284830", "KB4338826", "KB4345419", "KB4338827", "KB4343885", "KB4343889", "KB4457138", "KB4457141", "KB4457141", "KB4462937", "KB4462939", "KB4467696", "KB4467699", "KB4471327", "KB4483230", "KB4480973", "KB4480959", "KB4487020", "KB4487011", "KB4489871", "KB4489888", "KB4493474", "KB4493436", "KB4502112", "KB4499181", "KB4505055", "KB4499162", "KB4503279", "KB4503289", "KB4509476", "KB4507450", "KB4507467", "KB4512507", "KB4512474", "KB4516068", "KB4522011", "KB4516059", "KB4524151", "KB4520010", "KB4525245", "KB4530711", "KB4534296", "KB4537765", "KB4540705", "KB4550939", "KB4556804", "KB4561605", "KB4567516", "KB4565499", "KB4571689", "KB4577021", "KB4580370", "KB4586782", "KB4592473", "KB4599208", "KB4601330", "KB5000812"
-
-      - name: compress
         run: |
-          mv dist/supercedence/msuc dist/supercedence/msuc.04 
-          tar -C dist/supercedence -zcvf dist/supercedence/msuc.04.tar.gz msuc.04
+          ./windows-vuln-feed fetch supercedence msuc "KB4016251", "KB4015583", "KB4016240", "KB4016871", "KB4016871", "KB4020102", "KB4022725", "KB4022725", "KB4022716", "KB4025342", "KB4032188", "KB4034674", "KB4038788", "KB4040724", "KB4041676", "KB4049370", "KB4048954", "KB4048954", "KB4055254", "KB4053580", "KB4056891", "KB4057144", "KB4074592", "KB4077528", "KB4092077", "KB4088782", "KB4088782", "KB4088891", "KB4093107", "KB4093117", "KB4103731", "KB4103722", "KB4284874", "KB4284830", "KB4338826", "KB4345419", "KB4338827", "KB4343885", "KB4343889", "KB4457138", "KB4457141", "KB4457141", "KB4462937", "KB4462939", "KB4467696", "KB4467699", "KB4471327", "KB4483230", "KB4480973", "KB4480959", "KB4487020", "KB4487011", "KB4489871", "KB4489888", "KB4493474", "KB4493436", "KB4502112", "KB4499181", "KB4505055", "KB4499162", "KB4503279", "KB4503289", "KB4509476", "KB4507450", "KB4507467", "KB4512507", "KB4512474", "KB4516068", "KB4522011", "KB4516059", "KB4524151", "KB4520010", "KB4525245", "KB4530711", "KB4534296", "KB4537765", "KB4540705", "KB4550939", "KB4556804", "KB4561605", "KB4567516", "KB4565499", "KB4571689", "KB4577021", "KB4580370", "KB4586782", "KB4592473", "KB4599208", "KB4601330", "KB5000812"
+          mv dist/supercedence/msuc dist/supercedence/msuc.04
+          mkdir -p dist/supercedence/msuc
+          mv dist/supercedence/msuc.04 dist/supercedence/msuc
 
       - name: save cache
         uses: actions/cache/save@v3
         with:
-          path: dist/supercedence/msuc.04.tar.gz
-          key: msuc.04.tar.gz
+          path: dist/supercedence/msuc/msuc.04
+          key: msuc-04
 
   fetch-supercedence-msuc-05:
     name: Fetch Microsoft Update Catalog - Windows 10 Version 1709, Windows Server, Version 1709 (10.0.16299)
@@ -481,18 +460,17 @@ jobs:
         run: make build
 
       - name: fetch
-        run: ./windows-vuln-feed fetch supercedence msuc "KB4043961", "KB4048955", "KB4051963", "KB4054517", "KB4056892", "KB4073290", "KB4073291", "KB4058258", "KB4074588", "KB4090913", "KB4088776", "KB4089848", "KB4093112", "KB4093105", "KB4103727", "KB4103714", "KB4284819", "KB4284822", "KB4338825", "KB4345420", "KB4338817", "KB4343897", "KB4343893", "KB4457142", "KB4464217", "KB4457136", "KB4462918", "KB4462932", "KB4467686", "KB4467681", "KB4471329", "KB4483232", "KB4480978", "KB4480967", "KB4486996", "KB4487021", "KB4489886", "KB4489890", "KB4493441", "KB4493440", "KB4499179", "KB4505062", "KB4499147", "KB4503284", "KB4503281", "KB4509477", "KB4507455", "KB4507465", "KB4512516", "KB4512494", "KB4516066", "KB4522012", "KB4516071", "KB4524150", "KB4520004", "KB4520006", "KB4525241", "KB4530714", "KB4534276", "KB4534318", "KB4537789", "KB4537816", "KB4540681", "KB4541330", "KB4554342", "KB4550927", "KB4556812", "KB4561602", "KB4567515", "KB4565508", "KB4571741", "KB4577041", "KB4580328"
-
-      - name: compress
         run: |
+          ./windows-vuln-feed fetch supercedence msuc "KB4043961", "KB4048955", "KB4051963", "KB4054517", "KB4056892", "KB4073290", "KB4073291", "KB4058258", "KB4074588", "KB4090913", "KB4088776", "KB4089848", "KB4093112", "KB4093105", "KB4103727", "KB4103714", "KB4284819", "KB4284822", "KB4338825", "KB4345420", "KB4338817", "KB4343897", "KB4343893", "KB4457142", "KB4464217", "KB4457136", "KB4462918", "KB4462932", "KB4467686", "KB4467681", "KB4471329", "KB4483232", "KB4480978", "KB4480967", "KB4486996", "KB4487021", "KB4489886", "KB4489890", "KB4493441", "KB4493440", "KB4499179", "KB4505062", "KB4499147", "KB4503284", "KB4503281", "KB4509477", "KB4507455", "KB4507465", "KB4512516", "KB4512494", "KB4516066", "KB4522012", "KB4516071", "KB4524150", "KB4520004", "KB4520006", "KB4525241", "KB4530714", "KB4534276", "KB4534318", "KB4537789", "KB4537816", "KB4540681", "KB4541330", "KB4554342", "KB4550927", "KB4556812", "KB4561602", "KB4567515", "KB4565508", "KB4571741", "KB4577041", "KB4580328"
           mv dist/supercedence/msuc dist/supercedence/msuc.05
-          tar -C dist/supercedence -zcvf dist/supercedence/msuc.05.tar.gz msuc.05
+          mkdir -p dist/supercedence/msuc
+          mv dist/supercedence/msuc.05 dist/supercedence/msuc
 
       - name: save cache
         uses: actions/cache/save@v3
         with:
-          path: dist/supercedence/msuc.05.tar.gz
-          key: msuc.05.tar.gz
+          path: dist/supercedence/msuc/msuc.05
+          key: msuc-05
 
   fetch-supercedence-msuc-06:
     name: Fetch Microsoft Update Catalog - Windows 10 Version 1803, Windows Server, Version 1803 (10.0.17134)
@@ -510,18 +488,17 @@ jobs:
         run: make build
 
       - name: fetch
-        run: ./windows-vuln-feed fetch supercedence msuc "KB4103721", "KB4100403", "KB4338548", "KB4284835", "KB4284848", "KB4338819", "KB4345421", "KB4340917", "KB4343909", "KB4346783", "KB4457128", "KB4464218", "KB4458469", "KB4462919", "KB4462933", "KB4467702", "KB4467682", "KB4471324", "KB4483234", "KB4480966", "KB4480976", "KB4487017", "KB4487029", "KB4489868", "KB4489894", "KB4493464", "KB4493437", "KB4499167", "KB4505064", "KB4499183", "KB4503286", "KB4503288", "KB4509478", "KB4507435", "KB4507466", "KB4512501", "KB4512509", "KB4516058", "KB4522014", "KB4516045", "KB4524149", "KB4520008", "KB4519978", "KB4525237", "KB4530717", "KB4534293", "KB4534308", "KB4537762", "KB4537795", "KB4540689", "KB4541333", "KB4554349", "KB4550922", "KB4550944", "KB4556807", "KB4561621", "KB4567514", "KB4565489", "KB4571709", "KB4577032", "KB4580330", "KB4586785", "KB4592446", "KB4598245", "KB4601354", "KB5000809", "KB5001565", "KB5001634", "KB5001339", "KB5003174"
-
-      - name: compress
         run: |
+          ./windows-vuln-feed fetch supercedence msuc "KB4103721", "KB4100403", "KB4338548", "KB4284835", "KB4284848", "KB4338819", "KB4345421", "KB4340917", "KB4343909", "KB4346783", "KB4457128", "KB4464218", "KB4458469", "KB4462919", "KB4462933", "KB4467702", "KB4467682", "KB4471324", "KB4483234", "KB4480966", "KB4480976", "KB4487017", "KB4487029", "KB4489868", "KB4489894", "KB4493464", "KB4493437", "KB4499167", "KB4505064", "KB4499183", "KB4503286", "KB4503288", "KB4509478", "KB4507435", "KB4507466", "KB4512501", "KB4512509", "KB4516058", "KB4522014", "KB4516045", "KB4524149", "KB4520008", "KB4519978", "KB4525237", "KB4530717", "KB4534293", "KB4534308", "KB4537762", "KB4537795", "KB4540689", "KB4541333", "KB4554349", "KB4550922", "KB4550944", "KB4556807", "KB4561621", "KB4567514", "KB4565489", "KB4571709", "KB4577032", "KB4580330", "KB4586785", "KB4592446", "KB4598245", "KB4601354", "KB5000809", "KB5001565", "KB5001634", "KB5001339", "KB5003174"
           mv dist/supercedence/msuc dist/supercedence/msuc.06
-          tar -C dist/supercedence -zcvf dist/supercedence/msuc.06.tar.gz msuc.06
+          mkdir -p dist/supercedence/msuc
+          mv dist/supercedence/msuc.06 dist/supercedence/msuc
 
       - name: save cache
         uses: actions/cache/save@v3
         with:
-          path: dist/supercedence/msuc.06.tar.gz
-          key: msuc.06.tar.gz
+          path: dist/supercedence/msuc/msuc.06
+          key: msuc-06
 
   fetch-supercedence-msuc-07:
     name: Fetch Microsoft Update Catalog - Windows 10 Version 1809, Windows Server, Version 1809, Windows Server 2019 (10.0.17763)
@@ -539,18 +516,17 @@ jobs:
         run: make build
 
       - name: fetch
-        run: ./windows-vuln-feed fetch supercedence msuc "KB4464330", "KB4464455", "KB4467708", "KB4469342", "KB4471332", "KB4483235", "KB4480116", "KB4476976", "KB4487044", "KB4482887", "KB4489899", "KB4490481", "KB4490481", "KB4493509", "KB4501835", "KB4495667", "KB4494441", "KB4505056", "KB4497934", "KB4503327", "KB4501371", "KB4509479", "KB4507469", "KB4505658", "KB4511553", "KB4512534", "KB4512578", "KB4522015", "KB4516077", "KB4524148", "KB4519338", "KB4520062", "KB4523205", "KB4530715", "KB4534273", "KB4534321", "KB4532691", "KB4537818", "KB4538461", "KB4541331", "KB4554354", "KB4549949", "KB4550969", "KB4551853", "KB4561608", "KB4567513", "KB4558998", "KB4559003", "KB4565349", "KB4571748", "KB4570333", "KB4577069", "KB4577668", "KB4580390", "KB4586793", "KB4594442", "KB4586839", "KB4592440", "KB4598230", "KB4598296", "KB4601345", "KB4601383", "KB5000822", "KB5001568", "KB5001638", "KB5000854", "KB5001342", "KB5001384", "KB5003171", "KB5003217", "KB5003646", "KB5003703", "KB5004947", "KB5004244", "KB5004308", "KB5005394", "KB5005030", "KB5005102", "KB5005568", "KB5005625", "KB5005625", "KB5006672", "KB5006744", "KB5007206", "KB5008602", "KB5007266", "KB5008218", "KB5010196", "KB5009557", "KB5010791", "KB5009616", "KB5010351", "KB5010427", "KB5011503", "KB5011551", "KB5012647", "KB5012636", "KB5013941", "KB5015018", "KB5014022", "KB5014692", "KB5014669", "KB5015811", "KB5015880", "KB5016623", "KB5016690", "KB5017315", "KB5017379", "KB5018419", "KB5020438", "KB5019966", "KB5021655", "KB5021237", "KB5022554", "KB5022286", "KB5022840"
-
-      - name: compress
         run: |
+          ./windows-vuln-feed fetch supercedence msuc "KB4464330", "KB4464455", "KB4467708", "KB4469342", "KB4471332", "KB4483235", "KB4480116", "KB4476976", "KB4487044", "KB4482887", "KB4489899", "KB4490481", "KB4490481", "KB4493509", "KB4501835", "KB4495667", "KB4494441", "KB4505056", "KB4497934", "KB4503327", "KB4501371", "KB4509479", "KB4507469", "KB4505658", "KB4511553", "KB4512534", "KB4512578", "KB4522015", "KB4516077", "KB4524148", "KB4519338", "KB4520062", "KB4523205", "KB4530715", "KB4534273", "KB4534321", "KB4532691", "KB4537818", "KB4538461", "KB4541331", "KB4554354", "KB4549949", "KB4550969", "KB4551853", "KB4561608", "KB4567513", "KB4558998", "KB4559003", "KB4565349", "KB4571748", "KB4570333", "KB4577069", "KB4577668", "KB4580390", "KB4586793", "KB4594442", "KB4586839", "KB4592440", "KB4598230", "KB4598296", "KB4601345", "KB4601383", "KB5000822", "KB5001568", "KB5001638", "KB5000854", "KB5001342", "KB5001384", "KB5003171", "KB5003217", "KB5003646", "KB5003703", "KB5004947", "KB5004244", "KB5004308", "KB5005394", "KB5005030", "KB5005102", "KB5005568", "KB5005625", "KB5005625", "KB5006672", "KB5006744", "KB5007206", "KB5008602", "KB5007266", "KB5008218", "KB5010196", "KB5009557", "KB5010791", "KB5009616", "KB5010351", "KB5010427", "KB5011503", "KB5011551", "KB5012647", "KB5012636", "KB5013941", "KB5015018", "KB5014022", "KB5014692", "KB5014669", "KB5015811", "KB5015880", "KB5016623", "KB5016690", "KB5017315", "KB5017379", "KB5018419", "KB5020438", "KB5019966", "KB5021655", "KB5021237", "KB5022554", "KB5022286", "KB5022840"
           mv dist/supercedence/msuc dist/supercedence/msuc.07
-          tar -C dist/supercedence -zcvf dist/supercedence/msuc.07.tar.gz msuc.07
+          mkdir -p dist/supercedence/msuc
+          mv dist/supercedence/msuc.07 dist/supercedence/msuc
 
       - name: save cache
         uses: actions/cache/save@v3
         with:
-          path: dist/supercedence/msuc.07.tar.gz
-          key: msuc.07.tar.gz
+          path: dist/supercedence/msuc/msuc.07
+          key: msuc-07
 
   fetch-supercedence-msuc-08:
     name: Fetch Microsoft Update Catalog - Windows 10 Version 1903, Windows Server, Version 1903 (10.0.18362)
@@ -568,18 +544,17 @@ jobs:
         run: make build
 
       - name: fetch
-        run: ./windows-vuln-feed fetch supercedence msuc "KB4505057", "KB4497935", "KB4503293", "KB4501375", "KB4507453", "KB4505903", "KB4512508", "KB4512941", "KB4515384", "KB4522016", "KB4517211", "KB4524147", "KB4517389", "KB4522355", "KB4524570", "KB4530684", "KB4528760", "KB4532695", "KB4532693", "KB4535996", "KB4540673", "KB4551762", "KB4541335", "KB4554364", "KB4549951", "KB4550945", "KB4556799", "KB4560960", "KB4567512", "KB4565483", "KB4559004", "KB4565351", "KB4566116", "KB4574727", "KB4577062", "KB4577671", "KB4580386", "KB4586786", "KB4594443", "KB4586819", "KB4592449"
-
-      - name: compress
         run: |
+          ./windows-vuln-feed fetch supercedence msuc "KB4505057", "KB4497935", "KB4503293", "KB4501375", "KB4507453", "KB4505903", "KB4512508", "KB4512941", "KB4515384", "KB4522016", "KB4517211", "KB4524147", "KB4517389", "KB4522355", "KB4524570", "KB4530684", "KB4528760", "KB4532695", "KB4532693", "KB4535996", "KB4540673", "KB4551762", "KB4541335", "KB4554364", "KB4549951", "KB4550945", "KB4556799", "KB4560960", "KB4567512", "KB4565483", "KB4559004", "KB4565351", "KB4566116", "KB4574727", "KB4577062", "KB4577671", "KB4580386", "KB4586786", "KB4594443", "KB4586819", "KB4592449"
           mv dist/supercedence/msuc dist/supercedence/msuc.08
-          tar -C dist/supercedence -zcvf dist/supercedence/msuc.08.tar.gz msuc.08
+          mkdir -p dist/supercedence/msuc
+          mv dist/supercedence/msuc.08 dist/supercedence/msuc
 
       - name: save cache
         uses: actions/cache/save@v3
         with:
-          path: dist/supercedence/msuc.08.tar.gz
-          key: msuc.08.tar.gz
+          path: dist/supercedence/msuc/msuc.08
+          key: msuc-08
 
   fetch-supercedence-msuc-09:
     name: Fetch Microsoft Update Catalog - Windows 10 Version 1909, Windows Server, Version 1909 (10.0.18363)
@@ -597,18 +572,17 @@ jobs:
         run: make build
 
       - name: fetch
-        run: ./windows-vuln-feed fetch supercedence msuc "KB4524570", "KB4530684", "KB4528760", "KB4532695", "KB4532693", "KB4535996", "KB4540673", "KB4551762", "KB4541335", "KB4554364", "KB4549951", "KB4550945", "KB4556799", "KB4560960", "KB4567512", "KB4565483", "KB4559004", "KB4565351", "KB4566116", "KB4574727", "KB4577062", "KB4577671", "KB4580386", "KB4586786", "KB4594443", "KB4586819", "KB4592449", "KB4598229", "KB4598298", "KB4601315", "KB5001028", "KB4601380", "KB5000808", "KB5001566", "KB5001648", "KB5000850", "KB5001337", "KB5001396", "KB5003169", "KB5003212", "KB5003635", "KB5003698", "KB5004946", "KB5004245", "KB5004293", "KB5005031", "KB5005103", "KB5005566", "KB5005624", "KB5005624", "KB5006667", "KB5007189", "KB5008206", "KB5009545", "KB5010792", "KB5010345", "KB5011485", "KB5012591", "KB5013945"
-
-      - name: compress
         run: |
+          ./windows-vuln-feed fetch supercedence msuc "KB4524570", "KB4530684", "KB4528760", "KB4532695", "KB4532693", "KB4535996", "KB4540673", "KB4551762", "KB4541335", "KB4554364", "KB4549951", "KB4550945", "KB4556799", "KB4560960", "KB4567512", "KB4565483", "KB4559004", "KB4565351", "KB4566116", "KB4574727", "KB4577062", "KB4577671", "KB4580386", "KB4586786", "KB4594443", "KB4586819", "KB4592449", "KB4598229", "KB4598298", "KB4601315", "KB5001028", "KB4601380", "KB5000808", "KB5001566", "KB5001648", "KB5000850", "KB5001337", "KB5001396", "KB5003169", "KB5003212", "KB5003635", "KB5003698", "KB5004946", "KB5004245", "KB5004293", "KB5005031", "KB5005103", "KB5005566", "KB5005624", "KB5005624", "KB5006667", "KB5007189", "KB5008206", "KB5009545", "KB5010792", "KB5010345", "KB5011485", "KB5012591", "KB5013945"
           mv dist/supercedence/msuc dist/supercedence/msuc.09
-          tar -C dist/supercedence -zcvf dist/supercedence/msuc.09.tar.gz msuc.09
+          mkdir -p dist/supercedence/msuc
+          mv dist/supercedence/msuc.09 dist/supercedence/msuc
 
       - name: save cache
         uses: actions/cache/save@v3
         with:
-          path: dist/supercedence/msuc.09.tar.gz
-          key: msuc.09.tar.gz
+          path: dist/supercedence/msuc/msuc.09
+          key: msuc-09
 
   fetch-supercedence-msuc-10:
     name: Fetch Microsoft Update Catalog - Windows 10 Version 2004, Windows Server, Version 2004 (10.0.19041)
@@ -626,18 +600,17 @@ jobs:
         run: make build
 
       - name: fetch
-        run: ./windows-vuln-feed fetch supercedence msuc "KB4557957", "KB4567523", "KB4565503", "KB4568831", "KB4566782", "KB4571744", "KB4571756", "KB4577063", "KB4579311", "KB4580364", "KB4586781", "KB4594440", "KB4586853", "KB4592438", "KB4598242", "KB4598291", "KB4601319", "KB4601382", "KB5000802", "KB5001567", "KB5001649", "KB5000842", "KB5001330", "KB5001391", "KB5003173", "KB5003214", "KB5003637", "KB5004476", "KB5003690", "KB5004760", "KB5004945", "KB5004237", "KB5004296", "KB5005033", "KB5005101", "KB5005565", "KB5005611", "KB5006670", "KB5006738", "KB5007186", "KB5007253", "KB5008212"
-
-      - name: compress
         run: |
-          mv dist/supercedence/msuc dist/supercedence/msuc.10 
-          tar -C dist/supercedence -zcvf dist/supercedence/msuc.10.tar.gz msuc.10
+          ./windows-vuln-feed fetch supercedence msuc "KB4557957", "KB4567523", "KB4565503", "KB4568831", "KB4566782", "KB4571744", "KB4571756", "KB4577063", "KB4579311", "KB4580364", "KB4586781", "KB4594440", "KB4586853", "KB4592438", "KB4598242", "KB4598291", "KB4601319", "KB4601382", "KB5000802", "KB5001567", "KB5001649", "KB5000842", "KB5001330", "KB5001391", "KB5003173", "KB5003214", "KB5003637", "KB5004476", "KB5003690", "KB5004760", "KB5004945", "KB5004237", "KB5004296", "KB5005033", "KB5005101", "KB5005565", "KB5005611", "KB5006670", "KB5006738", "KB5007186", "KB5007253", "KB5008212"
+          mv dist/supercedence/msuc dist/supercedence/msuc.10
+          mkdir -p dist/supercedence/msuc
+          mv dist/supercedence/msuc.10 dist/supercedence/msuc
 
       - name: save cache
         uses: actions/cache/save@v3
         with:
-          path: dist/supercedence/msuc.10.tar.gz
-          key: msuc.10.tar.gz
+          path: dist/supercedence/msuc/msuc.10
+          key: msuc-10
 
   fetch-supercedence-msuc-11:
     name: Fetch Microsoft Update Catalog - Windows 10 Version 20H2, Windows Server, Version 20H2 (10.0.19042)
@@ -655,18 +628,17 @@ jobs:
         run: make build
 
       - name: fetch
-        run: ./windows-vuln-feed fetch supercedence msuc "KB4580364", "KB4586781", "KB4594440", "KB4586853", "KB4592438", "KB4598242", "KB4598291", "KB4601319", "KB4601382", "KB5000802", "KB5001567", "KB5001649", "KB5000842", "KB5001330", "KB5001391", "KB5003173", "KB5003214", "KB5003637", "KB5004476", "KB5003690", "KB5004760", "KB5004945", "KB5004237", "KB5004296", "KB5005033", "KB5005101", "KB5005565", "KB5005611", "KB5006670", "KB5006738", "KB5007186", "KB5007253", "KB5008212", "KB5009543", "KB5010793", "KB5009596", "KB5010342", "KB5010415", "KB5011487", "KB5011543", "KB5012599", "KB5011831", "KB5013942", "KB5015020", "KB5014023", "KB5014699", "KB5016139", "KB5014666", "KB5015807", "KB5015878", "KB5016616", "KB5016688", "KB5017308", "KB5017380", "KB5018410", "KB5020435", "KB5018482", "KB5020953", "KB5019959", "KB5020030", "KB5021233", "KB5022282", "KB5019275", "KB5022834", "KB5022906"
-
-      - name: compress
         run: |
+          ./windows-vuln-feed fetch supercedence msuc "KB4580364", "KB4586781", "KB4594440", "KB4586853", "KB4592438", "KB4598242", "KB4598291", "KB4601319", "KB4601382", "KB5000802", "KB5001567", "KB5001649", "KB5000842", "KB5001330", "KB5001391", "KB5003173", "KB5003214", "KB5003637", "KB5004476", "KB5003690", "KB5004760", "KB5004945", "KB5004237", "KB5004296", "KB5005033", "KB5005101", "KB5005565", "KB5005611", "KB5006670", "KB5006738", "KB5007186", "KB5007253", "KB5008212", "KB5009543", "KB5010793", "KB5009596", "KB5010342", "KB5010415", "KB5011487", "KB5011543", "KB5012599", "KB5011831", "KB5013942", "KB5015020", "KB5014023", "KB5014699", "KB5016139", "KB5014666", "KB5015807", "KB5015878", "KB5016616", "KB5016688", "KB5017308", "KB5017380", "KB5018410", "KB5020435", "KB5018482", "KB5020953", "KB5019959", "KB5020030", "KB5021233", "KB5022282", "KB5019275", "KB5022834", "KB5022906"
           mv dist/supercedence/msuc dist/supercedence/msuc.11
-          tar -C dist/supercedence -zcvf dist/supercedence/msuc.11.tar.gz msuc.11
+          mkdir -p dist/supercedence/msuc
+          mv dist/supercedence/msuc.11 dist/supercedence/msuc
 
       - name: save cache
         uses: actions/cache/save@v3
         with:
-          path: dist/supercedence/msuc.11.tar.gz
-          key: msuc.11.tar.gz
+          path: dist/supercedence/msuc/msuc.11
+          key: msuc-11
           
   fetch-supercedence-msuc-12:
     name: Fetch Microsoft Update Catalog - Windows 10 Version 21H1 (10.0.19043)
@@ -684,18 +656,17 @@ jobs:
         run: make build
 
       - name: fetch
-        run: ./windows-vuln-feed fetch supercedence msuc "KB5003173", "KB5003214", "KB5003637", "KB5004476", "KB5003690", "KB5004760", "KB5004945", "KB5004237", "KB5004296", "KB5005033", "KB5005101", "KB5005565", "KB5005611", "KB5006670", "KB5006738", "KB5007186", "KB5007253", "KB5008212", "KB5009543", "KB5010793", "KB5009596", "KB5010342", "KB5010415", "KB5011487", "KB5011543", "KB5012599", "KB5011831", "KB5013942", "KB5015020", "KB5014023", "KB5014699", "KB5016139", "KB5014666", "KB5015807", "KB5015878", "KB5016616", "KB5016688", "KB5017308", "KB5017380", "KB5018410", "KB5020435", "KB5018482", "KB5020953", "KB5019959", "KB5020030", "KB5021233"
-
-      - name: compress
         run: |
+          ./windows-vuln-feed fetch supercedence msuc "KB5003173", "KB5003214", "KB5003637", "KB5004476", "KB5003690", "KB5004760", "KB5004945", "KB5004237", "KB5004296", "KB5005033", "KB5005101", "KB5005565", "KB5005611", "KB5006670", "KB5006738", "KB5007186", "KB5007253", "KB5008212", "KB5009543", "KB5010793", "KB5009596", "KB5010342", "KB5010415", "KB5011487", "KB5011543", "KB5012599", "KB5011831", "KB5013942", "KB5015020", "KB5014023", "KB5014699", "KB5016139", "KB5014666", "KB5015807", "KB5015878", "KB5016616", "KB5016688", "KB5017308", "KB5017380", "KB5018410", "KB5020435", "KB5018482", "KB5020953", "KB5019959", "KB5020030", "KB5021233"
           mv dist/supercedence/msuc dist/supercedence/msuc.12
-          tar -C dist/supercedence -zcvf dist/supercedence/msuc.12.tar.gz msuc.12
+          mkdir -p dist/supercedence/msuc
+          mv dist/supercedence/msuc.12 dist/supercedence/msuc
 
       - name: save cache
         uses: actions/cache/save@v3
         with:
-          path: dist/supercedence/msuc.12.tar.gz
-          key: msuc.12.tar.gz
+          path: dist/supercedence/msuc/msuc.12
+          key: msuc-12
 
   fetch-supercedence-msuc-13:
     name: Fetch Microsoft Update Catalog - Windows 10 Version 21H2 (10.0.19044)
@@ -713,18 +684,17 @@ jobs:
         run: make build
 
       - name: fetch
-        run: ./windows-vuln-feed fetch supercedence msuc "KB5007253", "KB5008212", "KB5009543", "KB5010793", "KB5009596", "KB5010342", "KB5010415", "KB5011487", "KB5011543", "KB5012599", "KB5011831", "KB5013942", "KB5015020", "KB5014023", "KB5014699", "KB5016139", "KB5014666", "KB5015807", "KB5015878", "KB5016616", "KB5016688", "KB5017308", "KB5017380", "KB5018410", "KB5020435", "KB5018482", "KB5020953", "KB5019959", "KB5020030", "KB5021233", "KB5022282", "KB5019275", "KB5022834", "KB5022906"
-
-      - name: compress
         run: |
+          ./windows-vuln-feed fetch supercedence msuc "KB5007253", "KB5008212", "KB5009543", "KB5010793", "KB5009596", "KB5010342", "KB5010415", "KB5011487", "KB5011543", "KB5012599", "KB5011831", "KB5013942", "KB5015020", "KB5014023", "KB5014699", "KB5016139", "KB5014666", "KB5015807", "KB5015878", "KB5016616", "KB5016688", "KB5017308", "KB5017380", "KB5018410", "KB5020435", "KB5018482", "KB5020953", "KB5019959", "KB5020030", "KB5021233", "KB5022282", "KB5019275", "KB5022834", "KB5022906"
           mv dist/supercedence/msuc dist/supercedence/msuc.13
-          tar -C dist/supercedence -zcvf dist/supercedence/msuc.13.tar.gz msuc.13
+          mkdir -p dist/supercedence/msuc
+          mv dist/supercedence/msuc.13 dist/supercedence/msuc
 
       - name: save cache
         uses: actions/cache/save@v3
         with:
-          path: dist/supercedence/msuc.13.tar.gz
-          key: msuc.13.tar.gz
+          path: dist/supercedence/msuc/msuc.13
+          key: msuc-13
 
   fetch-supercedence-msuc-14:
     name: Fetch Microsoft Update Catalog - Windows 10 Version 22H2 (10.0.19045)
@@ -742,18 +712,17 @@ jobs:
         run: make build
 
       - name: fetch
-        run: ./windows-vuln-feed fetch supercedence msuc "KB5020953", "KB5019959", "KB5020030", "KB5021233", "KB5022282", "KB5019275", "KB5022834", "KB5022906"
-
-      - name: compress
         run: |
+          ./windows-vuln-feed fetch supercedence msuc "KB5020953", "KB5019959", "KB5020030", "KB5021233", "KB5022282", "KB5019275", "KB5022834", "KB5022906"
           mv dist/supercedence/msuc dist/supercedence/msuc.14
-          tar -C dist/supercedence -zcvf dist/supercedence/msuc.14.tar.gz msuc.14
+          mkdir -p dist/supercedence/msuc
+          mv dist/supercedence/msuc.14 dist/supercedence/msuc
 
       - name: save cache
         uses: actions/cache/save@v3
         with:
-          path: dist/supercedence/msuc.14.tar.gz
-          key: msuc.14.tar.gz
+          path: dist/supercedence/msuc/msuc.14
+          key: msuc-14
 
   fetch-supercedence-msuc-15:
     name: Fetch Microsoft Update Catalog - Windows 11 Version 21H2 (10.0.22000)
@@ -771,18 +740,17 @@ jobs:
         run: make build
 
       - name: fetch
-        run: ./windows-vuln-feed fetch supercedence msuc "KB5006674", "KB5006746", "KB5007215", "KB5007262", "KB5008215", "KB5009566", "KB5010795", "KB5008353", "KB5010386", "KB5010414", "KB5011493", "KB5011563", "KB5012592", "KB5012643", "KB5013943", "KB5014019", "KB5014697", "KB5016138", "KB5014668", "KB5015814", "KB5015882", "KB5016629", "KB5016691", "KB5017328", "KB5017383", "KB5018418", "KB5020387", "KB5018483", "KB5019961", "KB5019157", "KB5021234", "KB5022287", "KB5019274", "KB5022836", "KB5022905"
-
-      - name: compress
         run: |
+          ./windows-vuln-feed fetch supercedence msuc "KB5006674", "KB5006746", "KB5007215", "KB5007262", "KB5008215", "KB5009566", "KB5010795", "KB5008353", "KB5010386", "KB5010414", "KB5011493", "KB5011563", "KB5012592", "KB5012643", "KB5013943", "KB5014019", "KB5014697", "KB5016138", "KB5014668", "KB5015814", "KB5015882", "KB5016629", "KB5016691", "KB5017328", "KB5017383", "KB5018418", "KB5020387", "KB5018483", "KB5019961", "KB5019157", "KB5021234", "KB5022287", "KB5019274", "KB5022836", "KB5022905"
           mv dist/supercedence/msuc dist/supercedence/msuc.15
-          tar -C dist/supercedence -zcvf dist/supercedence/msuc.15.tar.gz msuc.15
+          mkdir -p dist/supercedence/msuc
+          mv dist/supercedence/msuc.15 dist/supercedence/msuc
 
       - name: save cache
         uses: actions/cache/save@v3
         with:
-          path: dist/supercedence/msuc.15.tar.gz
-          key: msuc.15.tar.gz
+          path: dist/supercedence/msuc/msuc.15
+          key: msuc-15
 
   fetch-supercedence-msuc-16:
     name: Fetch Microsoft Update Catalog - Windows 11 Version 22H2 (10.0.22621)
@@ -800,18 +768,17 @@ jobs:
         run: make build
 
       - name: fetch
-        run: ./windows-vuln-feed fetch supercedence msuc "KB5019311", "KB5017389", "KB5018427", "KB5019509", "KB5018496", "KB5019980", "KB5020044", "KB5021255", "KB5022303", "KB5022360", "KB5022845"
-
-      - name: compress
         run: |
+          ./windows-vuln-feed fetch supercedence msuc "KB5019311", "KB5017389", "KB5018427", "KB5019509", "KB5018496", "KB5019980", "KB5020044", "KB5021255", "KB5022303", "KB5022360", "KB5022845"
           mv dist/supercedence/msuc dist/supercedence/msuc.16
-          tar -C dist/supercedence -zcvf dist/supercedence/msuc.16.tar.gz msuc.16
+          mkdir -p dist/supercedence/msuc
+          mv dist/supercedence/msuc.16 dist/supercedence/msuc
 
       - name: save cache
         uses: actions/cache/save@v3
         with:
-          path: dist/supercedence/msuc.16.tar.gz
-          key: msuc.16.tar.gz
+          path: dist/supercedence/msuc/msuc.16
+          key: msuc-16
 
   fetch-supercedence-msuc-17:
     name: Fetch Microsoft Update Catalog - Windows Server 2022 (10.0.20348)
@@ -829,15 +796,14 @@ jobs:
         run: make build
 
       - name: fetch
-        run: ./windows-vuln-feed fetch supercedence msuc "KB5005575", "KB5005619", "KB5006699", "KB5006745", "KB5007205", "KB5007254", "KB5008223", "KB5010197", "KB5009555", "KB5010796", "KB5009608", "KB5010354", "KB5010421", "KB5011497", "KB5011558", "KB5012604", "KB5012637", "KB5013944", "KB5015013", "KB5014021", "KB5014678", "KB5014665", "KB5015827", "KB5015879", "KB5016627", "KB5016693", "KB5017316", "KB5017381", "KB5018421", "KB5020436", "KB5018485", "KB5019081", "KB5021656", "KB5020032", "KB5021249", "KB5022553", "KB5022291", "KB5022842"
-
-      - name: compress
         run: |
+          ./windows-vuln-feed fetch supercedence msuc "KB5005575", "KB5005619", "KB5006699", "KB5006745", "KB5007205", "KB5007254", "KB5008223", "KB5010197", "KB5009555", "KB5010796", "KB5009608", "KB5010354", "KB5010421", "KB5011497", "KB5011558", "KB5012604", "KB5012637", "KB5013944", "KB5015013", "KB5014021", "KB5014678", "KB5014665", "KB5015827", "KB5015879", "KB5016627", "KB5016693", "KB5017316", "KB5017381", "KB5018421", "KB5020436", "KB5018485", "KB5019081", "KB5021656", "KB5020032", "KB5021249", "KB5022553", "KB5022291", "KB5022842"
           mv dist/supercedence/msuc dist/supercedence/msuc.17
-          tar -C dist/supercedence -zcvf dist/supercedence/msuc.17.tar.gz msuc.17
+          mkdir -p dist/supercedence/msuc
+          mv dist/supercedence/msuc.17 dist/supercedence/msuc
 
       - name: save cache
         uses: actions/cache/save@v3
         with:
-          path: dist/supercedence/msuc.17.tar.gz
-          key: msuc.17.tar.gz
+          path: dist/supercedence/msuc/msuc.17
+          key: msuc-17
