@@ -91,120 +91,154 @@ jobs:
         uses: actions/cache/restore@v3
         id: restore-cache-msuc-01
         with:
-          key: msuc-01
+          key: msuc-01-${{ github.sha }}-${{ github.run_id }}
           path: dist/supercedence/msuc/msuc.01
+          restore-keys: |
+            msuc-01
 
       - name: restore cache(msuc-02)
         uses: actions/cache/restore@v3
         id: restore-cache-msuc-02
         with:
-          key: msuc-02
+          key: msuc-02-${{ github.sha }}-${{ github.run_id }}
           path: dist/supercedence/msuc/msuc.02
+          restore-keys: |
+            msuc-02
 
       - name: restore cache(msuc-03)
         uses: actions/cache/restore@v3
         id: restore-cache-msuc-03
         with:
-          key: msuc-03
+          key: msuc-03-${{ github.sha }}-${{ github.run_id }}
           path: dist/supercedence/msuc/msuc.03
+          restore-keys: |
+            msuc-03
 
       - name: restore cache(msuc-04)
         uses: actions/cache/restore@v3
         id: restore-cache-msuc-04
         with:
-          key: msuc-04
+          key: msuc-04-${{ github.sha }}-${{ github.run_id }}
           path: dist/supercedence/msuc/msuc.04
+          restore-keys: |
+            msuc-04
 
       - name: restore cache(msuc-05)
         uses: actions/cache/restore@v3
         id: restore-cache-msuc-05
         with:
-          key: msuc-05
+          key: msuc-05-${{ github.sha }}-${{ github.run_id }}
           path: dist/supercedence/msuc/msuc.05
+          restore-keys: |
+            msuc-05
 
       - name: restore cache(msuc-06)
         uses: actions/cache/restore@v3
         id: restore-cache-msuc-06
         with:
-          key: msuc-06
+          key: msuc-06-${{ github.sha }}-${{ github.run_id }}
           path: dist/supercedence/msuc/msuc.06
+          restore-keys: |
+            msuc-06
 
       - name: restore cache(msuc-07)
         uses: actions/cache/restore@v3
         id: restore-cache-msuc-07
         with:
-          key: msuc-07
+          key: msuc-07-${{ github.sha }}-${{ github.run_id }}
           path: dist/supercedence/msuc/msuc.07
+          restore-keys: |
+            msuc-07
 
       - name: restore cache(msuc-08)
         uses: actions/cache/restore@v3
         id: restore-cache-msuc-08
         with:
-          key: msuc-08
+          key: msuc-08-${{ github.sha }}-${{ github.run_id }}
           path: dist/supercedence/msuc/msuc.08
+          restore-keys: |
+            msuc-08
 
       - name: restore cache(msuc-09)
         uses: actions/cache/restore@v3
         id: restore-cache-msuc-09
         with:
-          key: msuc-09
+          key: msuc-09-${{ github.sha }}-${{ github.run_id }}
           path: dist/supercedence/msuc/msuc.09
+          restore-keys: |
+            msuc-09
 
       - name: restore cache(msuc-10)
         uses: actions/cache/restore@v3
         id: restore-cache-msuc-10
         with:
-          key: msuc-10
+          key: msuc-10-${{ github.sha }}-${{ github.run_id }}
           path: dist/supercedence/msuc/msuc.10
+          restore-keys: |
+            msuc-10
 
       - name: restore cache(msuc-11)
         uses: actions/cache/restore@v3
         id: restore-cache-msuc-11
         with:
-          key: msuc-11
+          key: msuc-11-${{ github.sha }}-${{ github.run_id }}
           path: dist/supercedence/msuc/msuc.11
+          restore-keys: |
+            msuc-11
 
       - name: restore cache(msuc-12)
         uses: actions/cache/restore@v3
         id: restore-cache-msuc-12
         with:
-          key: msuc-12
+          key: msuc-12-${{ github.sha }}-${{ github.run_id }}
           path: dist/supercedence/msuc/msuc.12
+          restore-keys: |
+            msuc-12
 
       - name: restore cache(msuc-13)
         uses: actions/cache/restore@v3
         id: restore-cache-msuc-13
         with:
-          key: msuc-13
+          key: msuc-13-${{ github.sha }}-${{ github.run_id }}
           path: dist/supercedence/msuc/msuc.13
+          restore-keys: |
+            msuc-13
 
       - name: restore cache(msuc-14)
         uses: actions/cache/restore@v3
         id: restore-cache-msuc-14
         with:
-          key: msuc-14
+          key: msuc-14-${{ github.sha }}-${{ github.run_id }}
           path: dist/supercedence/msuc/msuc.14
+          restore-keys: |
+            msuc-14
 
       - name: restore cache(msuc-15)
         uses: actions/cache/restore@v3
         id: restore-cache-msuc-15
         with:
-          key: msuc-15
+          key: msuc-15-${{ github.sha }}-${{ github.run_id }}
           path: dist/supercedence/msuc/msuc.15
+          restore-keys: |
+            msuc-15
 
       - name: restore cache(msuc-16)
         uses: actions/cache/restore@v3
         id: restore-cache-msuc-16
         with:
-          key: msuc-16
+          key: msuc-16-${{ github.sha }}-${{ github.run_id }}
           path: dist/supercedence/msuc/msuc.16
+          restore-keys: |
+            msuc-16
 
       - name: restore cache(msuc-17)
         uses: actions/cache/restore@v3
         id: restore-cache-msuc-17
         with:
-          key: msuc-17
+          key: msuc-17-${{ github.sha }}-${{ github.run_id }}
           path: dist/supercedence/msuc/msuc.17
+          restore-keys: |
+            msuc-17
 
       - name: build Supercedence
         run: ./windows-vuln-feed build supercedence 
@@ -256,7 +290,7 @@ jobs:
         uses: actions/cache/save@v3
         with:
           path: dist/supercedence/msuc/msuc.01
-          key: msuc-01
+          key: msuc-01-${{ github.sha }}-${{ github.run_id }}
 
   fetch-supercedence-msuc-02:
     name: Fetch Microsoft Update Catalog - Windows 10 Version 1511 (10.0.10586)
@@ -284,7 +318,7 @@ jobs:
         uses: actions/cache/save@v3
         with:
           path: dist/supercedence/msuc/msuc.02
-          key: msuc-02
+          key: msuc-02-${{ github.sha }}-${{ github.run_id }}
 
   fetch-supercedence-msuc-03:
     name: Fetch Microsoft Update Catalog - Windows 10 Version 1607, Windows Server 2016 (10.0.14393)
@@ -312,7 +346,7 @@ jobs:
         uses: actions/cache/save@v3
         with:
           path: dist/supercedence/msuc/msuc.03
-          key: msuc-03
+          key: msuc-03-${{ github.sha }}-${{ github.run_id }}
 
   fetch-supercedence-msuc-04:
     name: Fetch Microsoft Update Catalog - Windows 10 Version 1703 (10.0.15063)
@@ -340,7 +374,7 @@ jobs:
         uses: actions/cache/save@v3
         with:
           path: dist/supercedence/msuc/msuc.04
-          key: msuc-04
+          key: msuc-04-${{ github.sha }}-${{ github.run_id }}
 
   fetch-supercedence-msuc-05:
     name: Fetch Microsoft Update Catalog - Windows 10 Version 1709, Windows Server, Version 1709 (10.0.16299)
@@ -368,7 +402,7 @@ jobs:
         uses: actions/cache/save@v3
         with:
           path: dist/supercedence/msuc/msuc.05
-          key: msuc-05
+          key: msuc-05-${{ github.sha }}-${{ github.run_id }}
 
   fetch-supercedence-msuc-06:
     name: Fetch Microsoft Update Catalog - Windows 10 Version 1803, Windows Server, Version 1803 (10.0.17134)
@@ -396,7 +430,7 @@ jobs:
         uses: actions/cache/save@v3
         with:
           path: dist/supercedence/msuc/msuc.06
-          key: msuc-06
+          key: msuc-06-${{ github.sha }}-${{ github.run_id }}
 
   fetch-supercedence-msuc-07:
     name: Fetch Microsoft Update Catalog - Windows 10 Version 1809, Windows Server, Version 1809, Windows Server 2019 (10.0.17763)
@@ -424,7 +458,7 @@ jobs:
         uses: actions/cache/save@v3
         with:
           path: dist/supercedence/msuc/msuc.07
-          key: msuc-07
+          key: msuc-07-${{ github.sha }}-${{ github.run_id }}
 
   fetch-supercedence-msuc-08:
     name: Fetch Microsoft Update Catalog - Windows 10 Version 1903, Windows Server, Version 1903 (10.0.18362)
@@ -452,7 +486,7 @@ jobs:
         uses: actions/cache/save@v3
         with:
           path: dist/supercedence/msuc/msuc.08
-          key: msuc-08
+          key: msuc-08-${{ github.sha }}-${{ github.run_id }}
 
   fetch-supercedence-msuc-09:
     name: Fetch Microsoft Update Catalog - Windows 10 Version 1909, Windows Server, Version 1909 (10.0.18363)
@@ -480,7 +514,7 @@ jobs:
         uses: actions/cache/save@v3
         with:
           path: dist/supercedence/msuc/msuc.09
-          key: msuc-09
+          key: msuc-09-${{ github.sha }}-${{ github.run_id }}
 
   fetch-supercedence-msuc-10:
     name: Fetch Microsoft Update Catalog - Windows 10 Version 2004, Windows Server, Version 2004 (10.0.19041)
@@ -508,7 +542,7 @@ jobs:
         uses: actions/cache/save@v3
         with:
           path: dist/supercedence/msuc/msuc.10
-          key: msuc-10
+          key: msuc-10-${{ github.sha }}-${{ github.run_id }}
 
   fetch-supercedence-msuc-11:
     name: Fetch Microsoft Update Catalog - Windows 10 Version 20H2, Windows Server, Version 20H2 (10.0.19042)
@@ -536,7 +570,7 @@ jobs:
         uses: actions/cache/save@v3
         with:
           path: dist/supercedence/msuc/msuc.11
-          key: msuc-11
+          key: msuc-11-${{ github.sha }}-${{ github.run_id }}
           
   fetch-supercedence-msuc-12:
     name: Fetch Microsoft Update Catalog - Windows 10 Version 21H1 (10.0.19043)
@@ -564,7 +598,7 @@ jobs:
         uses: actions/cache/save@v3
         with:
           path: dist/supercedence/msuc/msuc.12
-          key: msuc-12
+          key: msuc-12-${{ github.sha }}-${{ github.run_id }}
 
   fetch-supercedence-msuc-13:
     name: Fetch Microsoft Update Catalog - Windows 10 Version 21H2 (10.0.19044)
@@ -592,7 +626,7 @@ jobs:
         uses: actions/cache/save@v3
         with:
           path: dist/supercedence/msuc/msuc.13
-          key: msuc-13
+          key: msuc-13-${{ github.sha }}-${{ github.run_id }}
 
   fetch-supercedence-msuc-14:
     name: Fetch Microsoft Update Catalog - Windows 10 Version 22H2 (10.0.19045)
@@ -620,7 +654,7 @@ jobs:
         uses: actions/cache/save@v3
         with:
           path: dist/supercedence/msuc/msuc.14
-          key: msuc-14
+          key: msuc-14-${{ github.sha }}-${{ github.run_id }}
 
   fetch-supercedence-msuc-15:
     name: Fetch Microsoft Update Catalog - Windows 11 Version 21H2 (10.0.22000)
@@ -648,7 +682,7 @@ jobs:
         uses: actions/cache/save@v3
         with:
           path: dist/supercedence/msuc/msuc.15
-          key: msuc-15
+          key: msuc-15-${{ github.sha }}-${{ github.run_id }}
 
   fetch-supercedence-msuc-16:
     name: Fetch Microsoft Update Catalog - Windows 11 Version 22H2 (10.0.22621)
@@ -676,7 +710,7 @@ jobs:
         uses: actions/cache/save@v3
         with:
           path: dist/supercedence/msuc/msuc.16
-          key: msuc-16
+          key: msuc-16-${{ github.sha }}-${{ github.run_id }}
 
   fetch-supercedence-msuc-17:
     name: Fetch Microsoft Update Catalog - Windows Server 2022 (10.0.20348)
@@ -704,4 +738,4 @@ jobs:
         uses: actions/cache/save@v3
         with:
           path: dist/supercedence/msuc/msuc.17
-          key: msuc-17
+          key: msuc-17-${{ github.sha }}-${{ github.run_id }}
