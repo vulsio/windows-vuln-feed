@@ -36,7 +36,7 @@ jobs:
             git config --global pull.ff only
             git pull
             git add dist/vulnerability/vulnerability.json.gz
-            git commit -m "update vulnerability feed"
+            git commit --allow-empty -m "update vulnerability feed"
             git push origin main
 
       - name: Compress dist/vulnerability
@@ -250,7 +250,7 @@ jobs:
             git config --global pull.ff only
             git pull
             git add dist/supercedence/supercedence.json.gz
-            git commit -m "update supercedence feed"
+            git commit --allow-empty -m "update supercedence feed"
             git push origin main
 
       - name: Compress dist/supercedence
