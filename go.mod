@@ -12,7 +12,7 @@ require (
 	github.com/tealeg/xlsx v1.0.5
 	golang.org/x/exp v0.0.0-20220609121020-a51bd0440498
 	golang.org/x/sync v0.1.0
-	golang.org/x/text v0.8.0
+	golang.org/x/text v0.9.0
 )
 
 require (
