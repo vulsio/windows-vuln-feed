@@ -9,13 +9,13 @@ jobs:
     name: Fetch Vulnerability Feed
     runs-on: ubuntu-latest
     steps:
-      - name: Setup Go
-        uses: actions/setup-go@v3
-        with:
-          go-version: 1.18
-
       - name: Check out code into the Go module directory
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
 
       - name: Compile windows-vuln-feed
         run: make build
@@ -60,13 +60,13 @@ jobs:
             fetch-supercedence-msuc-13, fetch-supercedence-msuc-14, fetch-supercedence-msuc-15, fetch-supercedence-msuc-16, 
             fetch-supercedence-msuc-17]
     steps:
-      - name: Setup Go
-        uses: actions/setup-go@v3
-        with:
-          go-version: 1.18
-
       - name: Check out code into the Go module directory
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
 
       - name: Compile windows-vuln-feed
         run: make build
@@ -268,13 +268,13 @@ jobs:
     name: Fetch Microsoft Update Catalog - Windows 10 (10.0.10240)
     runs-on: ubuntu-latest
     steps:
-      - name: Setup Go
-        uses: actions/setup-go@v3
-        with:
-          go-version: 1.18
-
       - name: Check out code into the Go module directory
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
 
       - name: Compile windows-vuln-feed
         run: make build
@@ -296,13 +296,13 @@ jobs:
     name: Fetch Microsoft Update Catalog - Windows 10 Version 1511 (10.0.10586)
     runs-on: ubuntu-latest
     steps:
-      - name: Setup Go
-        uses: actions/setup-go@v3
-        with:
-          go-version: 1.18
-
       - name: Check out code into the Go module directory
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
 
       - name: Compile windows-vuln-feed
         run: make build
@@ -324,13 +324,13 @@ jobs:
     name: Fetch Microsoft Update Catalog - Windows 10 Version 1607, Windows Server 2016 (10.0.14393)
     runs-on: ubuntu-latest
     steps:
-      - name: Setup Go
-        uses: actions/setup-go@v3
-        with:
-          go-version: 1.18
-
       - name: Check out code into the Go module directory
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
 
       - name: Compile windows-vuln-feed
         run: make build
@@ -352,13 +352,13 @@ jobs:
     name: Fetch Microsoft Update Catalog - Windows 10 Version 1703 (10.0.15063)
     runs-on: ubuntu-latest
     steps:
-      - name: Setup Go
-        uses: actions/setup-go@v3
-        with:
-          go-version: 1.18
-
       - name: Check out code into the Go module directory
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
 
       - name: Compile windows-vuln-feed
         run: make build
@@ -380,13 +380,13 @@ jobs:
     name: Fetch Microsoft Update Catalog - Windows 10 Version 1709, Windows Server, Version 1709 (10.0.16299)
     runs-on: ubuntu-latest
     steps:
-      - name: Setup Go
-        uses: actions/setup-go@v3
-        with:
-          go-version: 1.18
-
       - name: Check out code into the Go module directory
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
 
       - name: Compile windows-vuln-feed
         run: make build
@@ -408,13 +408,13 @@ jobs:
     name: Fetch Microsoft Update Catalog - Windows 10 Version 1803, Windows Server, Version 1803 (10.0.17134)
     runs-on: ubuntu-latest
     steps:
-      - name: Setup Go
-        uses: actions/setup-go@v3
-        with:
-          go-version: 1.18
-
       - name: Check out code into the Go module directory
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
 
       - name: Compile windows-vuln-feed
         run: make build
@@ -436,13 +436,13 @@ jobs:
     name: Fetch Microsoft Update Catalog - Windows 10 Version 1809, Windows Server, Version 1809, Windows Server 2019 (10.0.17763)
     runs-on: ubuntu-latest
     steps:
-      - name: Setup Go
-        uses: actions/setup-go@v3
-        with:
-          go-version: 1.18
-
       - name: Check out code into the Go module directory
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
 
       - name: Compile windows-vuln-feed
         run: make build
@@ -464,13 +464,13 @@ jobs:
     name: Fetch Microsoft Update Catalog - Windows 10 Version 1903, Windows Server, Version 1903 (10.0.18362)
     runs-on: ubuntu-latest
     steps:
-      - name: Setup Go
-        uses: actions/setup-go@v3
-        with:
-          go-version: 1.18
-
       - name: Check out code into the Go module directory
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
 
       - name: Compile windows-vuln-feed
         run: make build
@@ -492,13 +492,13 @@ jobs:
     name: Fetch Microsoft Update Catalog - Windows 10 Version 1909, Windows Server, Version 1909 (10.0.18363)
     runs-on: ubuntu-latest
     steps:
-      - name: Setup Go
-        uses: actions/setup-go@v3
-        with:
-          go-version: 1.18
-
       - name: Check out code into the Go module directory
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
 
       - name: Compile windows-vuln-feed
         run: make build
@@ -520,13 +520,13 @@ jobs:
     name: Fetch Microsoft Update Catalog - Windows 10 Version 2004, Windows Server, Version 2004 (10.0.19041)
     runs-on: ubuntu-latest
     steps:
-      - name: Setup Go
-        uses: actions/setup-go@v3
-        with:
-          go-version: 1.18
-
       - name: Check out code into the Go module directory
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
 
       - name: Compile windows-vuln-feed
         run: make build
@@ -548,13 +548,13 @@ jobs:
     name: Fetch Microsoft Update Catalog - Windows 10 Version 20H2, Windows Server, Version 20H2 (10.0.19042)
     runs-on: ubuntu-latest
     steps:
-      - name: Setup Go
-        uses: actions/setup-go@v3
-        with:
-          go-version: 1.18
-
       - name: Check out code into the Go module directory
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
 
       - name: Compile windows-vuln-feed
         run: make build
@@ -576,13 +576,13 @@ jobs:
     name: Fetch Microsoft Update Catalog - Windows 10 Version 21H1 (10.0.19043)
     runs-on: ubuntu-latest
     steps:
-      - name: Setup Go
-        uses: actions/setup-go@v3
-        with:
-          go-version: 1.18
-
       - name: Check out code into the Go module directory
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
 
       - name: Compile windows-vuln-feed
         run: make build
@@ -604,13 +604,13 @@ jobs:
     name: Fetch Microsoft Update Catalog - Windows 10 Version 21H2 (10.0.19044)
     runs-on: ubuntu-latest
     steps:
-      - name: Setup Go
-        uses: actions/setup-go@v3
-        with:
-          go-version: 1.18
-
       - name: Check out code into the Go module directory
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
 
       - name: Compile windows-vuln-feed
         run: make build
@@ -632,13 +632,13 @@ jobs:
     name: Fetch Microsoft Update Catalog - Windows 10 Version 22H2 (10.0.19045)
     runs-on: ubuntu-latest
     steps:
-      - name: Setup Go
-        uses: actions/setup-go@v3
-        with:
-          go-version: 1.18
-
       - name: Check out code into the Go module directory
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
 
       - name: Compile windows-vuln-feed
         run: make build
@@ -660,13 +660,13 @@ jobs:
     name: Fetch Microsoft Update Catalog - Windows 11 Version 21H2 (10.0.22000)
     runs-on: ubuntu-latest
     steps:
-      - name: Setup Go
-        uses: actions/setup-go@v3
-        with:
-          go-version: 1.18
-
       - name: Check out code into the Go module directory
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
 
       - name: Compile windows-vuln-feed
         run: make build
@@ -688,13 +688,13 @@ jobs:
     name: Fetch Microsoft Update Catalog - Windows 11 Version 22H2 (10.0.22621)
     runs-on: ubuntu-latest
     steps:
-      - name: Setup Go
-        uses: actions/setup-go@v3
-        with:
-          go-version: 1.18
-
       - name: Check out code into the Go module directory
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
 
       - name: Compile windows-vuln-feed
         run: make build
@@ -716,13 +716,13 @@ jobs:
     name: Fetch Microsoft Update Catalog - Windows Server 2022 (10.0.20348)
     runs-on: ubuntu-latest
     steps:
-      - name: Setup Go
-        uses: actions/setup-go@v3
-        with:
-          go-version: 1.18
-
       - name: Check out code into the Go module directory
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
 
       - name: Compile windows-vuln-feed
         run: make build

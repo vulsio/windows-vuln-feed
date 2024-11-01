@@ -19,7 +19,7 @@ import (
 )
 
 const (
-	updateListURL = "https://api.msrc.microsoft.com/cvrf/v2.0/updates"
+	updateListURL = "https://api.msrc.microsoft.com/cvrf/v3.0/updates"
 )
 
 // FetchandParse ...
