@@ -43,7 +43,7 @@ jobs:
         run: tar -C dist -zcvf dist/vulnerability.tar.gz vulnerability
 
       - name: Upload output from each data source for debug
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: dist-vulnerability
           path: |
@@ -257,7 +257,7 @@ jobs:
         run: tar -C dist -zcvf dist/supercedence.tar.gz supercedence
 
       - name: Upload output from each data source for debug
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: dist-supercedence
           path: |
