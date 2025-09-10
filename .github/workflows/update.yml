@@ -257,6 +257,24 @@ jobs:
           restore-keys: |
             msuc-17
 
+      - name: restore cache(msuc-18)
+        uses: actions/cache/restore@v3
+        id: restore-cache-msuc-18
+        with:
+          key: msuc-18-${{ github.sha }}-${{ github.run_id }}
+          path: dist/supercedence/msuc/msuc.18
+          restore-keys: |
+            msuc-18
+
+      - name: restore cache(msuc-19)
+        uses: actions/cache/restore@v3
+        id: restore-cache-msuc-19
+        with:
+          key: msuc-19-${{ github.sha }}-${{ github.run_id }}
+          path: dist/supercedence/msuc/msuc.19
+          restore-keys: |
+            msuc-19
+
       - name: build Supercedence
         run: ./windows-vuln-feed build supercedence
 
