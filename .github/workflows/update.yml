@@ -4,10 +4,15 @@ on:
     - cron: "0 0 * * *"
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   fetch-vulnerability:
     name: Fetch Vulnerability Feed
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Check out code into the Go module directory
         uses: actions/checkout@v4
@@ -53,6 +58,8 @@ jobs:
   fetch-supercedence:
     name: Fetch Supercedence Feed
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     if: ${{ success() || failure() }}
     needs:
       [
