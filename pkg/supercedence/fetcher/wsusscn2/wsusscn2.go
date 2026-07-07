@@ -65,13 +65,13 @@ func fetchWSUSSCN() (string, error) {
 	if err != nil {
 		return "", errors.Wrap(err, "failed to do request")
 	}
-	defer resp.Body.Close()
+	defer func() { _ = resp.Body.Close() }()
 
 	f, err := os.Create(filepath.Join(dir, "wsusscn2.cab"))
 	if err != nil {
 		return "", errors.Wrap(err, "failed to create wsusscn2.cab")
 	}
-	defer f.Close()
+	defer func() { _ = f.Close() }()
 
 	if _, err := io.Copy(f, resp.Body); err != nil {
 		return "", errors.Wrap(err, "failed to copy to wsusscn2.cab from response body")
@@ -102,7 +102,7 @@ func extractWSUSSCN(tmpDir string) error {
 	if err != nil {
 		return errors.Wrap(err, "failed to open wsusscn2/index.xml")
 	}
-	defer f.Close()
+	defer func() { _ = f.Close() }()
 
 	var cabIndex index
 	if err := xml.NewDecoder(f).Decode(&cabIndex); err != nil {
@@ -218,7 +218,7 @@ func walkPackage(packagePath string) (map[string]string, map[string][]string, er
 	if err != nil {
 		return nil, nil, errors.Wrap(err, "failed to open package.xml")
 	}
-	defer f.Close()
+	defer func() { _ = f.Close() }()
 
 	var packages offlineSyncPackage
 	if err := xml.NewDecoder(f).Decode(&packages); err != nil {
@@ -244,7 +244,7 @@ func walkXDirs(cabDir string, rids []string) (map[string]string, error) {
 	if err != nil {
 		return nil, errors.Wrap(err, "failed to open wsusscn2/index.xml")
 	}
-	defer f.Close()
+	defer func() { _ = f.Close() }()
 
 	var cabIndex index
 	if err := xml.NewDecoder(f).Decode(&cabIndex); err != nil {
@@ -294,7 +294,7 @@ func getKBID(rid, cabDir string, cabs []cab) (string, error) {
 		if err != nil {
 			return "", errors.Wrapf(err, "failed to open wsusscn2/%s/x/%s", strings.TrimSuffix(c.NAME, ".cab"), rid)
 		}
-		defer f.Close()
+		defer func() { _ = f.Close() }()
 
 		var xKBID xKBID
 		if err := xml.NewDecoder(f).Decode(&xKBID); err != nil {

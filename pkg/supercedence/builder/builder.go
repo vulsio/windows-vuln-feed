@@ -33,7 +33,7 @@ func Build(dirs []string) ([]model.Supercedence, error) {
 			if err != nil {
 				return errors.Wrapf(err, "failed to open %s", path)
 			}
-			defer f.Close()
+			defer func() { _ = f.Close() }()
 
 			var ss []model.Supercedence
 			if err := json.NewDecoder(f).Decode(&ss); err != nil {

@@ -43,7 +43,7 @@ func TestParse(t *testing.T) {
 		if err != nil {
 			t.Fatalf("[%d] failed to open %s. err: %s", i, tt.input, err)
 		}
-		defer f.Close()
+		defer func() { _ = f.Close() }()
 
 		bs, err := io.ReadAll(f)
 		if err != nil {

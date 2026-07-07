@@ -49,7 +49,7 @@ var fetchSupercedenceCVRFCmd = &cobra.Command{
 				if err != nil {
 					return errors.Wrapf(err, "failed to create supercedence/cvrf/%s.json", kbid)
 				}
-				defer f.Close()
+				defer func() { _ = f.Close() }()
 				if err := json.NewEncoder(f).Encode(ss); err != nil {
 					return errors.Wrapf(err, "failed to encode supercedence/cvrf/%s.json", kbid)
 				}
@@ -89,7 +89,7 @@ var fetchSupercedenceBulletinCmd = &cobra.Command{
 				if err != nil {
 					return errors.Wrapf(err, "failed to create supercedence/bulletin/%s.json", kbid)
 				}
-				defer f.Close()
+				defer func() { _ = f.Close() }()
 				if err := json.NewEncoder(f).Encode(ss); err != nil {
 					return errors.Wrapf(err, "failed to encode supercedence/bulletin/%s.json", kbid)
 				}
@@ -129,7 +129,7 @@ var fetchSupercedenceWsusscn2Cmd = &cobra.Command{
 				if err != nil {
 					return errors.Wrapf(err, "failed to create supercedence/wsusscn2/%s.json", kbid)
 				}
-				defer f.Close()
+				defer func() { _ = f.Close() }()
 				if err := json.NewEncoder(f).Encode(ss); err != nil {
 					return errors.Wrapf(err, "failed to encode supercedence/wsusscn2/%s.json", kbid)
 				}
@@ -169,7 +169,7 @@ var fetchSupercedenceMSUCCmd = &cobra.Command{
 				if err != nil {
 					return errors.Wrapf(err, "failed to create supercedence/msuc/%s.json", kbid)
 				}
-				defer f.Close()
+				defer func() { _ = f.Close() }()
 				if err := json.NewEncoder(f).Encode(ss); err != nil {
 					return errors.Wrapf(err, "failed to encode supercedence/msuc/%s.json", kbid)
 				}

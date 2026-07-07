@@ -57,7 +57,7 @@ func fetchCVRFURLs() ([]string, error) {
 	if err != nil {
 		return nil, errors.Wrap(err, "failed to do request")
 	}
-	defer resp.Body.Close()
+	defer func() { _ = resp.Body.Close() }()
 
 	var us updates
 	if err := json.NewDecoder(resp.Body).Decode(&us); err != nil {
@@ -94,7 +94,7 @@ func fetchCVRFs(cvrfURLs []string) ([]cvrfdoc, error) {
 		if err != nil {
 			return nil, errors.Wrap(err, "failed to do request")
 		}
-		defer resp.Body.Close()
+		defer func() { _ = resp.Body.Close() }()
 
 		var root cvrfdoc
 		if err := xml.NewDecoder(resp.Body).Decode(&root); err != nil {

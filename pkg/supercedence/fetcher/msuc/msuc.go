@@ -27,11 +27,7 @@ func FetchandParse(queries []string) ([]model.Supercedence, error) {
 		}
 
 		qs := uids
-		for {
-			if len(qs) == 0 {
-				break
-			}
-
+		for len(qs) != 0 {
 			var next []string
 			for _, uid := range qs {
 				if _, ok := uidtoKBID[uid]; ok {
@@ -96,7 +92,7 @@ func search(query string) ([]string, error) {
 	if err != nil {
 		return nil, errors.Wrap(err, "failed to send request")
 	}
-	defer resp.Body.Close()
+	defer func() { _ = resp.Body.Close() }()
 
 	return ParseSearch(resp.Body)
 }
@@ -137,7 +133,7 @@ func view(updateID string) (model.Supercedence, error) {
 	if err != nil {
 		return model.Supercedence{}, errors.Wrap(err, "failed to send request")
 	}
-	defer resp.Body.Close()
+	defer func() { _ = resp.Body.Close() }()
 
 	return ParseView(updateID, resp.Body)
 }

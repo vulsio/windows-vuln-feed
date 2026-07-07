@@ -26,7 +26,7 @@ func Test_parseSearch(t *testing.T) {
 			if err != nil {
 				t.Fatal(err)
 			}
-			defer f.Close()
+			defer func() { _ = f.Close() }()
 
 			got, err := msuc.ParseSearch(f)
 			if (err != nil) != tt.wantErr {
@@ -82,7 +82,7 @@ func TestParseView(t *testing.T) {
 			if err != nil {
 				t.Fatal(err)
 			}
-			defer f.Close()
+			defer func() { _ = f.Close() }()
 
 			got, err := msuc.ParseView(tt.args.uid, f)
 			if (err != nil) != tt.wantErr {

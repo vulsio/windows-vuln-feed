@@ -64,9 +64,9 @@ var buildCmd = &cobra.Command{
 			if err != nil {
 				return errors.Wrap(err, "failed to open vulnerability/vulnerability.json.gz")
 			}
-			defer f.Close()
+			defer func() { _ = f.Close() }()
 			w := gzip.NewWriter(f)
-			defer w.Close()
+			defer func() { _ = w.Close() }()
 			if err := json.NewEncoder(w).Encode(cves); err != nil {
 				return errors.Wrap(err, "failed to encode vulnerability/vulnerability.json.gz")
 			}
@@ -86,9 +86,9 @@ var buildCmd = &cobra.Command{
 			if err != nil {
 				return errors.Wrap(err, "failed to open supercedence/supercedence.json.gz")
 			}
-			defer f.Close()
+			defer func() { _ = f.Close() }()
 			w := gzip.NewWriter(f)
-			defer w.Close()
+			defer func() { _ = w.Close() }()
 			if err := json.NewEncoder(w).Encode(supercedences); err != nil {
 				return errors.Wrap(err, "failed to encode supercedence/supercedence.json.gz")
 			}
