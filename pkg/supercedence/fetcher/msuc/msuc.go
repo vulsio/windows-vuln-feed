@@ -11,6 +11,7 @@ import (
 	"github.com/hashicorp/go-retryablehttp"
 	"github.com/pkg/errors"
 
+	"github.com/vulsio/windows-vuln-feed/pkg/closeutil"
 	"github.com/vulsio/windows-vuln-feed/pkg/supercedence/model"
 )
 
@@ -92,7 +93,7 @@ func search(query string) ([]string, error) {
 	if err != nil {
 		return nil, errors.Wrap(err, "failed to send request")
 	}
-	defer func() { _ = resp.Body.Close() }()
+	defer closeutil.Quietly(resp.Body)
 
 	return ParseSearch(resp.Body)
 }
@@ -133,7 +134,7 @@ func view(updateID string) (model.Supercedence, error) {
 	if err != nil {
 		return model.Supercedence{}, errors.Wrap(err, "failed to send request")
 	}
-	defer func() { _ = resp.Body.Close() }()
+	defer closeutil.Quietly(resp.Body)
 
 	return ParseView(updateID, resp.Body)
 }

@@ -12,6 +12,7 @@ import (
 	"github.com/pkg/errors"
 	"golang.org/x/exp/maps"
 
+	"github.com/vulsio/windows-vuln-feed/pkg/closeutil"
 	"github.com/vulsio/windows-vuln-feed/pkg/supercedence/model"
 	"github.com/vulsio/windows-vuln-feed/pkg/supercedence/util"
 	winkb "github.com/vulsio/windows-vuln-feed/pkg/windows/kb"
@@ -57,7 +58,7 @@ func fetchCVRFURLs() ([]string, error) {
 	if err != nil {
 		return nil, errors.Wrap(err, "failed to do request")
 	}
-	defer func() { _ = resp.Body.Close() }()
+	defer closeutil.Quietly(resp.Body)
 
 	var us updates
 	if err := json.NewDecoder(resp.Body).Decode(&us); err != nil {
@@ -94,7 +95,7 @@ func fetchCVRFs(cvrfURLs []string) ([]cvrfdoc, error) {
 		if err != nil {
 			return nil, errors.Wrap(err, "failed to do request")
 		}
-		defer func() { _ = resp.Body.Close() }()
+		defer closeutil.Quietly(resp.Body)
 
 		var root cvrfdoc
 		if err := xml.NewDecoder(resp.Body).Decode(&root); err != nil {

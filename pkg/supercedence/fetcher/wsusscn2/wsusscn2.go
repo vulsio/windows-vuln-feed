@@ -19,6 +19,7 @@ import (
 	"golang.org/x/sync/errgroup"
 	"golang.org/x/sync/semaphore"
 
+	"github.com/vulsio/windows-vuln-feed/pkg/closeutil"
 	"github.com/vulsio/windows-vuln-feed/pkg/supercedence/model"
 )
 
@@ -65,13 +66,13 @@ func fetchWSUSSCN() (string, error) {
 	if err != nil {
 		return "", errors.Wrap(err, "failed to do request")
 	}
-	defer func() { _ = resp.Body.Close() }()
+	defer closeutil.Quietly(resp.Body)
 
 	f, err := os.Create(filepath.Join(dir, "wsusscn2.cab"))
 	if err != nil {
 		return "", errors.Wrap(err, "failed to create wsusscn2.cab")
 	}
-	defer func() { _ = f.Close() }()
+	defer closeutil.Quietly(f)
 
 	if _, err := io.Copy(f, resp.Body); err != nil {
 		return "", errors.Wrap(err, "failed to copy to wsusscn2.cab from response body")
@@ -102,7 +103,7 @@ func extractWSUSSCN(tmpDir string) error {
 	if err != nil {
 		return errors.Wrap(err, "failed to open wsusscn2/index.xml")
 	}
-	defer func() { _ = f.Close() }()
+	defer closeutil.Quietly(f)
 
 	var cabIndex index
 	if err := xml.NewDecoder(f).Decode(&cabIndex); err != nil {
@@ -218,7 +219,7 @@ func walkPackage(packagePath string) (map[string]string, map[string][]string, er
 	if err != nil {
 		return nil, nil, errors.Wrap(err, "failed to open package.xml")
 	}
-	defer func() { _ = f.Close() }()
+	defer closeutil.Quietly(f)
 
 	var packages offlineSyncPackage
 	if err := xml.NewDecoder(f).Decode(&packages); err != nil {
@@ -244,7 +245,7 @@ func walkXDirs(cabDir string, rids []string) (map[string]string, error) {
 	if err != nil {
 		return nil, errors.Wrap(err, "failed to open wsusscn2/index.xml")
 	}
-	defer func() { _ = f.Close() }()
+	defer closeutil.Quietly(f)
 
 	var cabIndex index
 	if err := xml.NewDecoder(f).Decode(&cabIndex); err != nil {
@@ -294,7 +295,7 @@ func getKBID(rid, cabDir string, cabs []cab) (string, error) {
 		if err != nil {
 			return "", errors.Wrapf(err, "failed to open wsusscn2/%s/x/%s", strings.TrimSuffix(c.NAME, ".cab"), rid)
 		}
-		defer func() { _ = f.Close() }()
+		defer closeutil.Quietly(f)
 
 		var xKBID xKBID
 		if err := xml.NewDecoder(f).Decode(&xKBID); err != nil {

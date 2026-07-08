@@ -3,6 +3,7 @@ package cmd
 import (
 	"compress/gzip"
 	"encoding/json"
+	stderrors "errors"
 	"os"
 
 	"github.com/pkg/errors"
@@ -85,31 +86,31 @@ var buildCmd = &cobra.Command{
 
 // writeGzipJSON writes v as gzip-compressed JSON to path. Because gzip.Writer
 // buffers and its Close flushes the remaining data and writes the stream
-// footer, a swallowed Close error can silently produce a truncated .gz; the
-// close errors of both the gzip writer and the underlying file are therefore
-// propagated via the named return.
-func writeGzipJSON(path string, v any) (err error) {
-	f, err := os.OpenFile(path, os.O_CREATE|os.O_TRUNC|os.O_WRONLY, os.ModePerm)
+// footer, a swallowed Close error can silently produce a truncated .gz. The
+// gzip writer is therefore closed before the file (so the footer is flushed
+// first), and the encode error together with both Close errors are combined so
+// no failure is dropped.
+func writeGzipJSON(path string, v any) error {
+	f, err := os.OpenFile(path, os.O_CREATE|os.O_TRUNC|os.O_WRONLY, 0o644)
 	if err != nil {
 		return errors.Wrapf(err, "failed to open %s", path)
 	}
-	defer func() {
-		if cerr := f.Close(); cerr != nil && err == nil {
-			err = errors.Wrapf(cerr, "failed to close %s", path)
-		}
-	}()
 
 	w := gzip.NewWriter(f)
-	defer func() {
-		if cerr := w.Close(); cerr != nil && err == nil {
-			err = errors.Wrapf(cerr, "failed to close gzip writer for %s", path)
-		}
-	}()
-
-	if err := json.NewEncoder(w).Encode(v); err != nil {
-		return errors.Wrapf(err, "failed to encode %s", path)
+	encErr := json.NewEncoder(w).Encode(v)
+	if encErr != nil {
+		encErr = errors.Wrapf(encErr, "failed to encode %s", path)
 	}
-	return nil
+	wErr := w.Close()
+	if wErr != nil {
+		wErr = errors.Wrapf(wErr, "failed to close gzip writer for %s", path)
+	}
+	fErr := f.Close()
+	if fErr != nil {
+		fErr = errors.Wrapf(fErr, "failed to close %s", path)
+	}
+
+	return stderrors.Join(encErr, wErr, fErr)
 }
 
 func init() {

@@ -8,6 +8,7 @@ import (
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
 
+	"github.com/vulsio/windows-vuln-feed/pkg/closeutil"
 	"github.com/vulsio/windows-vuln-feed/pkg/supercedence/fetcher/bulletin"
 	"github.com/vulsio/windows-vuln-feed/pkg/supercedence/fetcher/cvrf"
 	"github.com/vulsio/windows-vuln-feed/pkg/supercedence/fetcher/msuc"
@@ -49,7 +50,7 @@ var fetchSupercedenceCVRFCmd = &cobra.Command{
 				if err != nil {
 					return errors.Wrapf(err, "failed to create supercedence/cvrf/%s.json", kbid)
 				}
-				defer func() { _ = f.Close() }()
+				defer closeutil.Quietly(f)
 				if err := json.NewEncoder(f).Encode(ss); err != nil {
 					return errors.Wrapf(err, "failed to encode supercedence/cvrf/%s.json", kbid)
 				}
@@ -89,7 +90,7 @@ var fetchSupercedenceBulletinCmd = &cobra.Command{
 				if err != nil {
 					return errors.Wrapf(err, "failed to create supercedence/bulletin/%s.json", kbid)
 				}
-				defer func() { _ = f.Close() }()
+				defer closeutil.Quietly(f)
 				if err := json.NewEncoder(f).Encode(ss); err != nil {
 					return errors.Wrapf(err, "failed to encode supercedence/bulletin/%s.json", kbid)
 				}
@@ -129,7 +130,7 @@ var fetchSupercedenceWsusscn2Cmd = &cobra.Command{
 				if err != nil {
 					return errors.Wrapf(err, "failed to create supercedence/wsusscn2/%s.json", kbid)
 				}
-				defer func() { _ = f.Close() }()
+				defer closeutil.Quietly(f)
 				if err := json.NewEncoder(f).Encode(ss); err != nil {
 					return errors.Wrapf(err, "failed to encode supercedence/wsusscn2/%s.json", kbid)
 				}
@@ -169,7 +170,7 @@ var fetchSupercedenceMSUCCmd = &cobra.Command{
 				if err != nil {
 					return errors.Wrapf(err, "failed to create supercedence/msuc/%s.json", kbid)
 				}
-				defer func() { _ = f.Close() }()
+				defer closeutil.Quietly(f)
 				if err := json.NewEncoder(f).Encode(ss); err != nil {
 					return errors.Wrapf(err, "failed to encode supercedence/msuc/%s.json", kbid)
 				}

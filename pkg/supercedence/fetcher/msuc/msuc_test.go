@@ -5,6 +5,7 @@ import (
 	"reflect"
 	"testing"
 
+	"github.com/vulsio/windows-vuln-feed/pkg/closeutil"
 	"github.com/vulsio/windows-vuln-feed/pkg/supercedence/fetcher/msuc"
 	"github.com/vulsio/windows-vuln-feed/pkg/supercedence/model"
 )
@@ -26,7 +27,7 @@ func Test_parseSearch(t *testing.T) {
 			if err != nil {
 				t.Fatal(err)
 			}
-			defer func() { _ = f.Close() }()
+			defer closeutil.Quietly(f)
 
 			got, err := msuc.ParseSearch(f)
 			if (err != nil) != tt.wantErr {
@@ -82,7 +83,7 @@ func TestParseView(t *testing.T) {
 			if err != nil {
 				t.Fatal(err)
 			}
-			defer func() { _ = f.Close() }()
+			defer closeutil.Quietly(f)
 
 			got, err := msuc.ParseView(tt.args.uid, f)
 			if (err != nil) != tt.wantErr {
