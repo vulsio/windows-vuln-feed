@@ -60,15 +60,8 @@ var buildCmd = &cobra.Command{
 				}
 			}
 
-			f, err := os.OpenFile("./dist/vulnerability/vulnerability.json.gz", os.O_CREATE|os.O_TRUNC|os.O_WRONLY, os.ModePerm)
-			if err != nil {
-				return errors.Wrap(err, "failed to open vulnerability/vulnerability.json.gz")
-			}
-			defer func() { _ = f.Close() }()
-			w := gzip.NewWriter(f)
-			defer func() { _ = w.Close() }()
-			if err := json.NewEncoder(w).Encode(cves); err != nil {
-				return errors.Wrap(err, "failed to encode vulnerability/vulnerability.json.gz")
+			if err := writeGzipJSON("./dist/vulnerability/vulnerability.json.gz", cves); err != nil {
+				return errors.Wrap(err, "failed to write vulnerability/vulnerability.json.gz")
 			}
 		case "supercedence":
 			supercedences, err := supercedenceBuilder.Build([]string{"./dist/supercedence/bulletin", "./dist/supercedence/cvrf", "./dist/supercedence/wsusscn2", "./dist/supercedence/msuc", "./dist/supercedence/manual"})
@@ -82,19 +75,41 @@ var buildCmd = &cobra.Command{
 				slices.Sort(supercedences[i].Supersededby.KBIDs)
 			}
 
-			f, err := os.OpenFile("./dist/supercedence/supercedence.json.gz", os.O_CREATE|os.O_TRUNC|os.O_WRONLY, os.ModePerm)
-			if err != nil {
-				return errors.Wrap(err, "failed to open supercedence/supercedence.json.gz")
-			}
-			defer func() { _ = f.Close() }()
-			w := gzip.NewWriter(f)
-			defer func() { _ = w.Close() }()
-			if err := json.NewEncoder(w).Encode(supercedences); err != nil {
-				return errors.Wrap(err, "failed to encode supercedence/supercedence.json.gz")
+			if err := writeGzipJSON("./dist/supercedence/supercedence.json.gz", supercedences); err != nil {
+				return errors.Wrap(err, "failed to write supercedence/supercedence.json.gz")
 			}
 		}
 		return nil
 	},
+}
+
+// writeGzipJSON writes v as gzip-compressed JSON to path. Because gzip.Writer
+// buffers and its Close flushes the remaining data and writes the stream
+// footer, a swallowed Close error can silently produce a truncated .gz; the
+// close errors of both the gzip writer and the underlying file are therefore
+// propagated via the named return.
+func writeGzipJSON(path string, v any) (err error) {
+	f, err := os.OpenFile(path, os.O_CREATE|os.O_TRUNC|os.O_WRONLY, os.ModePerm)
+	if err != nil {
+		return errors.Wrapf(err, "failed to open %s", path)
+	}
+	defer func() {
+		if cerr := f.Close(); cerr != nil && err == nil {
+			err = errors.Wrapf(cerr, "failed to close %s", path)
+		}
+	}()
+
+	w := gzip.NewWriter(f)
+	defer func() {
+		if cerr := w.Close(); cerr != nil && err == nil {
+			err = errors.Wrapf(cerr, "failed to close gzip writer for %s", path)
+		}
+	}()
+
+	if err := json.NewEncoder(w).Encode(v); err != nil {
+		return errors.Wrapf(err, "failed to encode %s", path)
+	}
+	return nil
 }
 
 func init() {
