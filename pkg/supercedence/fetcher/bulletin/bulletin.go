@@ -10,6 +10,7 @@ import (
 	"github.com/tealeg/xlsx"
 	"golang.org/x/exp/maps"
 
+	"github.com/vulsio/windows-vuln-feed/pkg/closeutil"
 	"github.com/vulsio/windows-vuln-feed/pkg/supercedence/model"
 	"github.com/vulsio/windows-vuln-feed/pkg/supercedence/util"
 	winkb "github.com/vulsio/windows-vuln-feed/pkg/windows/kb"
@@ -50,7 +51,7 @@ func fetch() ([]Bulletin, error) {
 		if err != nil {
 			return nil, errors.Wrap(err, "failed to do request")
 		}
-		defer resp.Body.Close()
+		defer closeutil.Quietly(resp.Body)
 
 		bs, err := io.ReadAll(resp.Body)
 		if err != nil {

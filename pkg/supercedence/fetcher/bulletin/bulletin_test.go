@@ -5,6 +5,7 @@ import (
 	"os"
 	"testing"
 
+	"github.com/vulsio/windows-vuln-feed/pkg/closeutil"
 	"github.com/vulsio/windows-vuln-feed/pkg/supercedence/model"
 
 	"github.com/google/go-cmp/cmp"
@@ -43,7 +44,7 @@ func TestParse(t *testing.T) {
 		if err != nil {
 			t.Fatalf("[%d] failed to open %s. err: %s", i, tt.input, err)
 		}
-		defer f.Close()
+		defer closeutil.Quietly(f)
 
 		bs, err := io.ReadAll(f)
 		if err != nil {

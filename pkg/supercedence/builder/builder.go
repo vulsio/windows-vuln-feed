@@ -9,6 +9,7 @@ import (
 	"github.com/pkg/errors"
 	"golang.org/x/exp/maps"
 
+	"github.com/vulsio/windows-vuln-feed/pkg/closeutil"
 	"github.com/vulsio/windows-vuln-feed/pkg/supercedence/model"
 	"github.com/vulsio/windows-vuln-feed/pkg/supercedence/util"
 )
@@ -33,7 +34,7 @@ func Build(dirs []string) ([]model.Supercedence, error) {
 			if err != nil {
 				return errors.Wrapf(err, "failed to open %s", path)
 			}
-			defer f.Close()
+			defer closeutil.Quietly(f)
 
 			var ss []model.Supercedence
 			if err := json.NewDecoder(f).Decode(&ss); err != nil {

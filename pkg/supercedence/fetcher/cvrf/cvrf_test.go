@@ -8,6 +8,7 @@ import (
 	"github.com/google/go-cmp/cmp"
 	"github.com/google/go-cmp/cmp/cmpopts"
 
+	"github.com/vulsio/windows-vuln-feed/pkg/closeutil"
 	"github.com/vulsio/windows-vuln-feed/pkg/supercedence/model"
 )
 
@@ -131,7 +132,7 @@ func TestParse(t *testing.T) {
 		if err != nil {
 			t.Fatalf("[%d] failed to open %s. err: %s", i, tt.input, err)
 		}
-		defer f.Close()
+		defer closeutil.Quietly(f)
 
 		var root cvrfdoc
 		if err := xml.NewDecoder(f).Decode(&root); err != nil {
