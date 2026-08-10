@@ -786,13 +786,13 @@ jobs:
     name: Fetch Microsoft Update Catalog - Windows 11 Version 23H2 (10.0.22631)
     runs-on: ubuntu-latest
     steps:
-      - name: Setup Go
-        uses: actions/setup-go@v3
-        with:
-          go-version: 1.18
-
       - name: Check out code into the Go module directory
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
 
       - name: Compile windows-vuln-feed
         run: make build
@@ -814,13 +814,13 @@ jobs:
     name: Fetch Microsoft Update Catalog - Windows 11 Version 24H2, Windows Server 2025 (10.0.26100)
     runs-on: ubuntu-latest
     steps:
-      - name: Setup Go
-        uses: actions/setup-go@v3
-        with:
-          go-version: 1.18
-
       - name: Check out code into the Go module directory
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
 
       - name: Compile windows-vuln-feed
         run: make build
