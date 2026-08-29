@@ -5,7 +5,7 @@ go 1.23
 require (
 	github.com/PuerkitoBio/goquery v1.8.1
 	github.com/cheggaaa/pb/v3 v3.1.2
-	github.com/google/go-cmp v0.5.9
+	github.com/google/go-cmp v0.6.0
 	github.com/hashicorp/go-retryablehttp v0.7.2
 	github.com/pkg/errors v0.9.1
 	github.com/spf13/cobra v1.7.0
